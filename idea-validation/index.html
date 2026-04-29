@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea Validation Tool | Chris Garin</title>
+  <link rel="canonical" href="https://chrisgarin.com/idea-validation/">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="idea-page">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="https://assets.codepen.io/16441250/chris+logo+v2.png" class="logo-img" alt="Chris Garin">
+      </a>
+
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="/">Projects</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://instagram.com/chris.garin" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://youtube.com/@brandorigins" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="idea-page-main">
+    <section class="idea-page-hero" id="idea-page-hero">
+      <div class="idea-page-shell">
+        <span class="section-kicker">Private Workspace</span>
+        <h1 class="idea-page-title">Idea Validation Tool</h1>
+        <p class="idea-page-copy">
+          Turn rough ideas into a founder-specific evaluation. Capture your context,
+          pressure-test the opportunity, and generate a sharp prompt for Gemini.
+        </p>
+      </div>
+    </section>
+
+    <section class="idea-tool-section">
+      <div class="idea-tool-shell">
+        <div class="idea-tool-grid idea-tool-grid--full">
+          <aside class="idea-results" id="login-sidebar">
+            <div class="results-panel login-card" id="login-card">
+              <div class="panel-header panel-header--tight">
+                <div>
+                  <span class="panel-label">Access</span>
+                  <h3>Your Login</h3>
+                </div>
+              </div>
+
+              <form id="login-form" class="login-form">
+                <label class="field">
+                  <span>Name</span>
+                  <input id="login-name" class="text-input" type="text" placeholder="Chris Garin">
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input id="login-email" class="text-input" type="email" placeholder="you@example.com">
+                </label>
+                <button class="prompt-button" type="submit">Continue</button>
+              </form>
+
+              <div id="login-state" class="login-state" hidden>
+                <p class="login-state__text"><strong id="login-state-name"></strong></p>
+                <button class="ghost-button" id="logout-button" type="button">Log out</button>
+              </div>
+            </div>
+
+            <div class="results-panel" id="ai-output-panel">
+              <div class="panel-header panel-header--tight">
+                <div>
+                  <span class="panel-label">AI Output</span>
+                  <h3>What Gemini should return</h3>
+                </div>
+              </div>
+              <ul class="output-list">
+                <li>Expanded business concept</li>
+                <li>What must be true for this to work</li>
+                <li>Main challenges and execution risks</li>
+                <li>Unfair advantage and founder-fit analysis</li>
+                <li>Possible moat or defensibility suggestions</li>
+                <li>Capital reality check</li>
+                <li>Risk / reward and whether it is worth the time</li>
+                <li>Final recommendation: pursue, test, park, or drop</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="idea-workspace is-locked" id="idea-workspace">
+            <div class="workspace-content" id="workspace-content">
+              <div class="idea-tool-intro">
+                <span class="section-kicker">Founder OS</span>
+                <h2 class="section-title">Pressure-test ideas before they steal your time</h2>
+                <p class="section-copy">
+                  Capture the founder context, score the opportunity provisionally,
+                  and ask Gemini to tell you what must be true, where the moat could
+                  come from, and whether this should outrank your other ideas.
+                </p>
+              </div>
+
+              <div class="idea-tool-grid">
+                <form class="idea-form" id="idea-form">
+                  <div class="form-panel">
+                    <div class="panel-header">
+                      <div>
+                        <span class="panel-label">Step 1</span>
+                        <h3>Founder Context</h3>
+                      </div>
+                      <p>Give the AI enough context to judge whether this is right for you.</p>
+                    </div>
+
+                    <label class="field">
+                      <span>Your strengths, skills, audience, network, or unfair advantages</span>
+                      <textarea id="founderProfile" rows="5" placeholder="Example: I have a YouTube audience interested in business, brand storytelling, and startups. I am strong at sales, messaging, content, and product positioning. I know people in real estate, agencies, and local businesses."></textarea>
+                    </label>
+
+                    <label class="field">
+                      <span>Capital, lifestyle goals, and what kind of business you want</span>
+                      <textarea id="founderConstraints" rows="4" placeholder="Example: I prefer businesses that can start lean, become profitable without a huge team, and fit a content-led lifestyle. I can fund early tests, but I do not want something extremely capital intensive right away."></textarea>
+                    </label>
+                  </div>
+
+                  <div class="form-panel">
+                    <div class="panel-header">
+                      <div>
+                        <span class="panel-label">Step 2</span>
+                        <h3>The Idea</h3>
+                      </div>
+                      <p>Typed answers only. The point is to think out loud, not to be complete.</p>
+                    </div>
+
+                    <label class="field">
+                      <span>What is the idea?</span>
+                      <textarea id="ideaSummary" rows="5" placeholder="Describe the rough idea as simply as you can."></textarea>
+                    </label>
+
+                    <label class="field">
+                      <span>Who is it for, and what problem does it solve?</span>
+                      <textarea id="audienceProblem" rows="4" placeholder="Who needs this, what pain do they feel, and why does it matter?"></textarea>
+                    </label>
+
+                    <label class="field">
+                      <span>Why are you drawn to this, and what makes you think it could work?</span>
+                      <textarea id="whyNow" rows="4" placeholder="Share your instinct, vision, or signals that make this feel promising."></textarea>
+                    </label>
+
+                    <label class="field">
+                      <span>What are you unsure about?</span>
+                      <textarea id="unknowns" rows="4" placeholder="Mention doubts, risks, blind spots, or things you do not know yet."></textarea>
+                    </label>
+
+                    <label class="field">
+                      <span>If you had 7 days to test it, what would you do first?</span>
+                      <textarea id="firstTest" rows="3" placeholder="Example: post content, run outreach, presell, interview buyers, build a landing page, find supply, etc."></textarea>
+                    </label>
+                  </div>
+                </form>
+
+                <aside class="idea-results">
+                  <div class="results-panel">
+                    <div class="panel-header panel-header--tight">
+                      <div>
+                        <span class="panel-label">Step 3</span>
+                        <h3>Evaluation Snapshot</h3>
+                      </div>
+                      <p>Early-stage scores based on your current answers.</p>
+                    </div>
+
+                    <div class="score-grid" id="score-grid">
+                      <div class="score-card">
+                        <span class="score-label">Founder Fit</span>
+                        <strong class="score-value" data-score-value="founderFit">5.0</strong>
+                        <p class="score-note" id="founderFitNote">Needs more personal context.</p>
+                      </div>
+                      <div class="score-card">
+                        <span class="score-label">Defensibility</span>
+                        <strong class="score-value" data-score-value="defensibility">4.6</strong>
+                        <p class="score-note" id="defensibilityNote">Moat still feels undefined.</p>
+                      </div>
+                      <div class="score-card">
+                        <span class="score-label">Capital Fit</span>
+                        <strong class="score-value" data-score-value="capitalFit">5.1</strong>
+                        <p class="score-note" id="capitalFitNote">Capital needs are still fuzzy.</p>
+                      </div>
+                      <div class="score-card">
+                        <span class="score-label">Risk / Reward</span>
+                        <strong class="score-value" data-score-value="riskReward">5.4</strong>
+                        <p class="score-note" id="riskRewardNote">Upside and risk are both forming.</p>
+                      </div>
+                      <div class="score-card">
+                        <span class="score-label">Validation Speed</span>
+                        <strong class="score-value" data-score-value="validationSpeed">5.2</strong>
+                        <p class="score-note" id="validationSpeedNote">First test is not concrete yet.</p>
+                      </div>
+                      <div class="score-card score-card--priority">
+                        <span class="score-label">Priority Score</span>
+                        <strong class="score-value" data-score-value="priority">5.1</strong>
+                        <p class="score-note" id="priorityNote">Promising, but not clear enough to prioritize.</p>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+
+              <div class="prompt-panel">
+                <div class="panel-header">
+                  <div>
+                    <span class="panel-label">Step 4</span>
+                    <h3>Gemini Prompt Generator</h3>
+                  </div>
+                  <p>Copy this into Gemini for the free first version of the tool.</p>
+                </div>
+
+                <textarea class="prompt-output" id="promptOutput" rows="22" readonly></textarea>
+
+                <div class="prompt-actions">
+                  <button class="prompt-button" id="copyPromptButton" type="button">Copy prompt</button>
+                  <span class="copy-feedback" id="copyFeedback" aria-live="polite"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__links">
+        <span class="site-footer__meta">© 2026 Chris Garin</span>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-service/">Terms of Service</a>
+        <a href="#login-card">Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
