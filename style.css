@@ -1148,12 +1148,43 @@ body {
 
 /* ===== HOME REDESIGN ===== */
 .home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: #000;
   color: #fff;
   padding: 40px 18px 36px;
 }
 
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask: radial-gradient(ellipse 62% 70% at 50% 45%, transparent 22%, #000 92%);
+  mask: radial-gradient(ellipse 62% 70% at 50% 45%, transparent 22%, #000 92%);
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(420px 380px at 6% 16%, rgba(139,92,246,.20), transparent 70%),
+    radial-gradient(300px 260px at 90% 8%, rgba(99,102,241,.16), transparent 70%),
+    radial-gradient(460px 420px at 96% 90%, rgba(56,99,229,.16), transparent 70%);
+}
+
 .home-hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
