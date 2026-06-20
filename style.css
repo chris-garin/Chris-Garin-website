@@ -1316,36 +1316,65 @@ body {
 
 .work-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 .work-card {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  overflow: hidden;
+  border: 1px solid #dfe3ea;
+  border-radius: 14px;
+  padding: 9px;
   text-decoration: none;
   color: #111827;
-  box-shadow: 0 1px 2px rgba(15,23,42,.04);
+  box-shadow: 0 1px 2px rgba(15,23,42,.05);
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
 .work-card:hover {
-  transform: translateY(-2px);
-  border-color: #cbd5e1;
-  box-shadow: 0 10px 28px rgba(15,23,42,.10);
+  transform: translateY(-3px);
+  border-color: #c7d2e0;
+  box-shadow: 0 12px 26px rgba(15,23,42,.12);
+}
+
+.work-card__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 4px 0;
+}
+
+.work-card__name {
+  margin: 0;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.work-card__kind {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #155dfc;
+  background: #eaf1ff;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 .work-card__media {
-  height: 180px;
+  aspect-ratio: 5 / 4;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
   background: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #e5e7eb;
   overflow: hidden;
 }
 
@@ -1357,52 +1386,42 @@ body {
 }
 
 .work-card__mark {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: .02em;
   color: #155dfc;
 }
 
-.work-card__body {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 18px;
-  flex: 1;
-}
-
-.work-card__name {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
 .work-card__desc {
   margin: 0;
-  font-size: .92rem;
-  line-height: 1.55;
+  font-size: .8rem;
+  line-height: 1.45;
   color: #475569;
+  background: #f8fafc;
+  border: 1px solid #eef2f7;
+  border-radius: 8px;
+  padding: 8px 9px;
 }
 
 .work-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
   margin-top: auto;
-  padding-top: 4px;
+  padding: 0 2px 2px;
 }
 
 .work-tag {
-  font-size: 11px;
+  font-size: 10px;
   color: #475569;
   background: #f1f5f9;
   border: 1px solid #e5e7eb;
-  padding: 3px 9px;
-  border-radius: 6px;
+  padding: 2px 7px;
+  border-radius: 5px;
 }
 
-@media (min-width: 640px) {
-  .work-grid { grid-template-columns: 1fr 1fr; }
+@media (min-width: 720px) {
+  .work-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (min-width: 768px) {
