@@ -1151,8 +1151,8 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #000;
-  color: #fff;
+  background: #ffffff;
+  color: #111827;
   padding: 40px 18px 36px;
 }
 
@@ -1163,8 +1163,8 @@ body {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    linear-gradient(rgba(15,23,42,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,23,42,.05) 1px, transparent 1px);
   background-size: 40px 40px;
   -webkit-mask: radial-gradient(ellipse 62% 70% at 50% 45%, transparent 22%, #000 92%);
   mask: radial-gradient(ellipse 62% 70% at 50% 45%, transparent 22%, #000 92%);
@@ -1177,10 +1177,10 @@ body {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(600px circle at var(--mx, 70%) var(--my, 26%), rgba(219,35,66,.22), transparent 60%),
-    radial-gradient(420px 380px at 6% 16%, rgba(219,35,66,.18), transparent 70%),
-    radial-gradient(300px 260px at 90% 8%, rgba(244,63,94,.14), transparent 70%),
-    radial-gradient(460px 420px at 96% 90%, rgba(219,35,66,.15), transparent 70%);
+    radial-gradient(600px circle at var(--mx, 70%) var(--my, 26%), rgba(21,93,252,.16), transparent 60%),
+    radial-gradient(420px 380px at 6% 16%, rgba(21,93,252,.10), transparent 70%),
+    radial-gradient(300px 260px at 90% 8%, rgba(21,93,252,.08), transparent 70%),
+    radial-gradient(460px 420px at 96% 90%, rgba(21,93,252,.09), transparent 70%);
 }
 
 .home-hero__inner {
@@ -1210,7 +1210,7 @@ body {
   font-size: clamp(1.6rem, 6.2vw, 2.9rem);
   font-weight: 700;
   line-height: 1;
-  color: #fff;
+  color: #111827;
 }
 
 .hero-headline__static {
@@ -1236,7 +1236,7 @@ body {
 .roll__word {
   height: 1.3em;
   line-height: 1.3em;
-  color: #DB2342;
+  color: #155dfc;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -1274,26 +1274,27 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   text-align: left;
-  color: rgba(255,255,255,.68);
+  color: #475569;
 }
 
 .hero-cta {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid rgba(255,255,255,.25);
-  color: #fff;
+  border: 1px solid #cbd5e1;
+  color: #111827;
   text-decoration: none;
   padding: 11px 22px;
   border-radius: 8px;
   font-size: .9rem;
   font-weight: 600;
-  transition: border-color .2s ease, background .2s ease;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
 }
 
 .hero-cta:hover {
-  border-color: rgba(219,35,66,.7);
-  background: rgba(219,35,66,.08);
+  border-color: #155dfc;
+  background: rgba(21,93,252,.06);
+  color: #155dfc;
 }
 
 .hero-photo {
@@ -1305,8 +1306,8 @@ body {
 }
 
 .work {
-  background: #000;
-  color: #fff;
+  background: #ffffff;
+  color: #111827;
   padding: 8px 18px 56px;
 }
 
@@ -1334,7 +1335,7 @@ body {
   font-size: 12px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: #DB2342;
+  color: #155dfc;
   font-weight: 600;
 }
 
@@ -1346,18 +1347,20 @@ body {
 
 .work-card {
   display: block;
-  background: #101010;
-  border: 1px solid rgba(255,255,255,.12);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 18px;
   text-decoration: none;
-  color: #fff;
-  transition: transform .2s ease, border-color .2s ease;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
 .work-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(255,255,255,.2);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 28px rgba(15,23,42,.10);
 }
 
 .work-card__head {
@@ -1371,14 +1374,14 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: #181818;
-  border: 1px solid rgba(255,255,255,.12);
+  background: #f1f5f9;
+  border: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
+  color: #155dfc;
   flex-shrink: 0;
 }
 
@@ -1394,6 +1397,7 @@ body {
   border-radius: 12px;
   display: block;
   margin-bottom: 14px;
+  border: 1px solid #e5e7eb;
 }
 
 .work-card--cover .work-card__name {
@@ -1405,7 +1409,7 @@ body {
   margin: 0 0 12px;
   font-size: .92rem;
   line-height: 1.55;
-  color: rgba(255,255,255,.7);
+  color: #475569;
 }
 
 .work-card__tags {
@@ -1416,9 +1420,9 @@ body {
 
 .work-tag {
   font-size: 11px;
-  color: rgba(255,255,255,.6);
-  background: #1a1a1a;
-  border: 1px solid rgba(255,255,255,.08);
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e5e7eb;
   padding: 3px 9px;
   border-radius: 6px;
 }
@@ -1443,4 +1447,67 @@ body {
   .roll__track {
     animation: none;
   }
+}
+
+/* ===== HOME LIGHT THEME — shared nav/footer overrides ===== */
+body.home {
+  background: #ffffff;
+}
+
+body.home .navbar {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15,23,42,.08);
+}
+
+body.home .logo-img {
+  filter: brightness(0);
+}
+
+body.home .nav-links a {
+  color: #111827;
+  border-bottom-color: rgba(15,23,42,.08);
+}
+
+body.home .nav-links a:hover {
+  color: #155dfc;
+  text-decoration-color: #155dfc;
+}
+
+body.home .menu-toggle .bar {
+  background: #111827;
+}
+
+body.home .nav-links.is-open {
+  background: #ffffff;
+  border-top-color: rgba(15,23,42,.12);
+}
+
+body.home .cta-button {
+  background: #155dfc;
+  color: #ffffff;
+}
+
+body.home .cta-button:hover,
+body.home .nav-cta--desktop .cta-button:hover {
+  background: #1447e6;
+}
+
+body.home .nav-links.is-open .nav-cta--mobile .cta-button {
+  background: #155dfc;
+}
+
+body.home .site-footer {
+  background: #ffffff;
+  border-top: 1px solid rgba(15,23,42,.08);
+  color: #111827;
+}
+
+body.home .site-footer__links a,
+body.home .site-footer__meta {
+  color: #475569;
+}
+
+body.home .site-footer__links a:hover {
+  color: #155dfc;
+  text-decoration-color: #155dfc;
 }
