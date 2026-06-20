@@ -409,3 +409,29 @@ logoutButton?.addEventListener("click", () => {
 });
 
 applyLoginState(getStoredUser());
+
+const heroGlow = document.querySelector(".home-hero");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (heroGlow && !reducedMotion) {
+  let targetX = 70;
+  let targetY = 26;
+  let currentX = targetX;
+  let currentY = targetY;
+
+  heroGlow.addEventListener("pointermove", (event) => {
+    const rect = heroGlow.getBoundingClientRect();
+    targetX = ((event.clientX - rect.left) / rect.width) * 100;
+    targetY = ((event.clientY - rect.top) / rect.height) * 100;
+  });
+
+  const animateGlow = () => {
+    currentX += (targetX - currentX) * 0.09;
+    currentY += (targetY - currentY) * 0.09;
+    heroGlow.style.setProperty("--mx", `${currentX.toFixed(2)}%`);
+    heroGlow.style.setProperty("--my", `${currentY.toFixed(2)}%`);
+    requestAnimationFrame(animateGlow);
+  };
+
+  requestAnimationFrame(animateGlow);
+}
