@@ -1170,19 +1170,6 @@ body {
   mask: radial-gradient(ellipse 62% 70% at 50% 45%, transparent 22%, #000 92%);
 }
 
-.home-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(600px circle at var(--mx, 70%) var(--my, 26%), rgba(21,93,252,.16), transparent 60%),
-    radial-gradient(420px 380px at 6% 16%, rgba(21,93,252,.10), transparent 70%),
-    radial-gradient(300px 260px at 90% 8%, rgba(21,93,252,.08), transparent 70%),
-    radial-gradient(460px 420px at 96% 90%, rgba(21,93,252,.09), transparent 70%);
-}
-
 .home-hero__inner {
   position: relative;
   z-index: 1;
