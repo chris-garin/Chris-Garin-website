@@ -410,6 +410,15 @@ logoutButton?.addEventListener("click", () => {
 
 applyLoginState(getStoredUser());
 
+const navbar = document.querySelector(".navbar");
+if (navbar) {
+  const updateNavbar = () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 8);
+  };
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, { passive: true });
+}
+
 const heroGlow = document.querySelector(".home-hero");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
