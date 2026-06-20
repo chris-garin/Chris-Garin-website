@@ -4,18 +4,34 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chris Garin website</title>
+  <title>Chris Garin — I build the software, the audience, and the demand</title>
+  <meta name="description" content="Chris Garin is a full-stack developer who ships products end-to-end and builds the audience and demand around them. Building VendorScout, Heatseeker, and Brand Origins.">
   <link rel="canonical" href="https://chrisgarin.com/">
+  <link rel="icon" href="https://assets.codepen.io/16441250/chris+logo+v2.png">
+
+  <meta property="og:title" content="Chris Garin — I build the software, the audience, and the demand">
+  <meta property="og:description" content="A full-stack developer who ships products end-to-end and builds the audience and demand around them.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrisgarin.com/">
+  <meta property="og:image" content="https://chrisgarin.com/images/cgsocialshare.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Chris Garin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chris Garin — I build the software, the audience, and the demand">
+  <meta name="twitter:description" content="A full-stack developer who ships products end-to-end and builds the audience and demand around them.">
+  <meta name="twitter:image" content="https://chrisgarin.com/images/cgsocialshare.png">
+
   <link rel="stylesheet" href="./style.css">
 </head>
-    
+
   <body>
   <nav class="navbar">
   <div class="nav-container">
     <a href="/" class="logo">
-      <img src="https://assets.codepen.io/16441250/chris+logo+v2.png" class="logo-img">
+      <img src="https://assets.codepen.io/16441250/chris+logo+v2.png" class="logo-img" alt="Chris Garin">
     </a>
-    
+
     <button class="menu-toggle" id="mobile-menu"
     aria-label="Toggle navigation"
     aria-controls="primary-nav"
@@ -25,121 +41,166 @@
     <span class="bar"></span>
     <span class="bar"></span>
     </button>
-       
+
       <ul class="nav-links" id="primary-nav">
-       <li><a href="/">Projects</a></li>
-       <li><a href="/blog/">Blog</a></li>
-       <li><a href="https://instagram.com/chris.garin" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-       <li><a href="https://open.spotify.com/show/7FdZpfzNfcFmvm3bMoZFP8?si=971bdd8c2cd24aeb" target="_blank" rel="noopener noreferrer">Podcast</a></li>
-       <li><a href="https://youtube.com/@brandorigins" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+       <li><a href="#work">Work</a></li>
+       <li><a href="/blog/">Writing</a></li>
        <li class="nav-cta nav-cta--mobile">
-          <a href="#" class="cta-button">Subscribe</a>
+          <a href="mailto:heychrisgarin@gmail.com" class="cta-button">Get in touch</a>
        </li>
      </ul>
-  
+
     <div class="nav-cta nav-cta--desktop">
-      <a href="#" class="cta-button">Subscribe</a>
+      <a href="mailto:heychrisgarin@gmail.com" class="cta-button">Get in touch</a>
     </div>
   </div>
-  
+
 </nav>
 
 
-<section class="hero-section">
-  <div class="hero-container">
-    
-    <div class="hero-left">
-      <div class="hero-intro">
-      <img 
-        src="https://assets.codepen.io/16441250/chrisgarin2.png" 
-        alt="Chris Garin" 
-        class="hero-profile-img">
-       <h1 class="hero-name">Chris Garin</h1>
-      </div>
-      
-      <div class="hero-stats">
-        <div class="stat-item">
-          <img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube" class="stat-icon">
-          <div class="stat-text">
-            <span class="stat-number">27K</span>
-            <span class="stat-label">Subscribers</span>
-          </div>
-        </div>
+<section class="home-hero">
+  <div class="home-hero__inner">
 
-        <div class="stat-item">
-          <img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube Views" class="stat-icon">
-          <div class="stat-text">
-            <span class="stat-number">1.7M+</span>
-            <span class="stat-label">Views</span>
-          </div>
-        </div>
+    <div class="home-hero__text">
+      <h1 class="hero-headline">
+        <span class="hero-headline__static">I can build the</span>
+        <span class="roll"><span class="roll__track">
+          <span class="roll__word">demand.</span>
+          <span class="roll__word">software.</span>
+          <span class="roll__word">audience.</span>
+          <span class="roll__word">demand.</span>
+          <span class="roll__word">software.</span>
+          <span class="roll__word">audience.</span>
+        </span></span>
+      </h1>
 
-        <div class="stat-item">
-          <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" class="stat-icon">
-          <div class="stat-text">
-            <span class="stat-number">12K</span>
-            <span class="stat-label">Followers</span>
-          </div>
-        </div>
+      <p class="hero-sub">
+        I didn't want to choose between building software, building an audience,
+        and selling stuff. So I learned how to do all three.
+      </p>
 
-        <div class="stat-item">
-          <img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" class="stat-icon">
-          <div class="stat-text">
-            <span class="stat-number">8K</span>
-            <span class="stat-label">Followers</span>
+      <a href="#work" class="hero-cta">View work ↓</a>
+    </div>
+
+    <img
+      src="https://assets.codepen.io/16441250/chrisgarin2.png"
+      alt="Chris Garin"
+      class="hero-photo">
+
+  </div>
+</section>
+
+
+<section class="work" id="work">
+  <div class="work__inner">
+    <h2 class="work__title">Selected work</h2>
+
+    <div class="pillar">
+      <p class="pillar__kicker">Software</p>
+      <div class="work-grid work-grid--2">
+
+        <a href="#" class="work-card">
+          <div class="work-card__head">
+            <span class="work-card__logo">VS</span>
+            <span class="work-card__name">VendorScout</span>
           </div>
-        </div>
+          <p class="work-card__desc">
+            Vendor discovery &amp; CRM for property teams. Security-hardened, multi-tenant dashboard.
+          </p>
+          <div class="work-card__tags">
+            <span class="work-tag">Next.js</span>
+            <span class="work-tag">Supabase</span>
+            <span class="work-tag">Maps API</span>
+          </div>
+        </a>
+
+        <a href="#" class="work-card">
+          <div class="work-card__head">
+            <span class="work-card__logo">HS</span>
+            <span class="work-card__name">Heatseeker</span>
+          </div>
+          <p class="work-card__desc">
+            AI job-hunter that finds and ranks roles for you. A full product, built end-to-end.
+          </p>
+          <div class="work-card__tags">
+            <span class="work-tag">Next.js</span>
+            <span class="work-tag">Supabase</span>
+            <span class="work-tag">LLM</span>
+          </div>
+        </a>
+
       </div>
     </div>
 
-    <div class="hero-right">
-      
-      <a href="#" class="project-card">
-  <img src="https://assets.codepen.io/16441250/originscover.png" alt="Brand Origins cover" class="project-cover">
-  <div class="project-content">
-    <h3 class="project-title">Brand Origins</h3>
-    <p class="project-description">
-      A YouTube series about the biggest brands in Southeast Asia and the Philippines.
-    </p>
-  </div>
-</a>
-      
- <a href="#" class="project-card">
-  <img src="https://assets.codepen.io/16441250/gravitycover2.png" alt="Gravity cover" class="project-cover">
-  <div class="project-content">
-    <h3 class="project-title">Gravity</h3>
-    <p class="project-description">
-      The invisible force behind the world’s busiest Founders & CEOs.
-    </p>
-  </div>
-</a>
-      
-<a href="#" class="project-card">
-  <img src="https://assets.codepen.io/16441250/annulmentcover.png" alt="Gravity cover" class="project-cover">
-  <div class="project-content">
-    <h3 class="project-title">Annulment Hotline</h3>
-    <p class="project-description">
-      Work with vetted annulment lawyers in the Philippines who will give you clarity and closure, without unnecessary delays.
-    </p>
-  </div>
-</a>
-      
-<a href="#" class="project-card">
-  <img src="https://assets.codepen.io/16441250/partizancover.png" alt="Brand Origins cover" class="project-cover">
-  <div class="project-content">
-    <div class="project-header">
-  <h3 class="project-title">
-    Partizan <span class="project-year">(2015–2020)</span>
-  </h3>
-  <span class="project-tag discontinued">Discontinued</span>
-</div>
-    <p class="project-description">
-      My first company! Helped 20+ brands cut through the noise with brand strategy and social media marketing.
-    </p>
-  </div>
-</a>
+    <div class="pillar">
+      <p class="pillar__kicker">Demand</p>
+      <div class="work-grid work-grid--3">
 
-      
+        <a href="#" class="work-card">
+          <div class="work-card__head">
+            <span class="work-card__logo">G</span>
+            <span class="work-card__name">Gravity</span>
+          </div>
+          <p class="work-card__desc">
+            The invisible force behind the world's busiest founders &amp; CEOs.
+          </p>
+          <div class="work-card__tags">
+            <span class="work-tag">Brand</span>
+            <span class="work-tag">Growth</span>
+          </div>
+        </a>
+
+        <a href="#" class="work-card">
+          <div class="work-card__head">
+            <span class="work-card__logo">P</span>
+            <span class="work-card__name">Partizan</span>
+          </div>
+          <p class="work-card__desc">
+            My first company — brand strategy &amp; social media for 20+ brands.
+          </p>
+          <div class="work-card__tags">
+            <span class="work-tag">Agency</span>
+            <span class="work-tag">2015–2020</span>
+          </div>
+        </a>
+
+        <a href="#" class="work-card">
+          <div class="work-card__head">
+            <span class="work-card__logo">AH</span>
+            <span class="work-card__name">Annulment Hotline</span>
+          </div>
+          <p class="work-card__desc">
+            Vetted annulment lawyers in the Philippines — clarity &amp; closure, no delays.
+          </p>
+          <div class="work-card__tags">
+            <span class="work-tag">Product</span>
+            <span class="work-tag">Growth</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="pillar">
+      <p class="pillar__kicker">Audience</p>
+      <div class="work-grid">
+
+        <a href="https://youtube.com/@brandorigins" target="_blank" rel="noopener noreferrer" class="work-card">
+          <div class="work-card__head">
+            <span class="work-card__logo">BO</span>
+            <span class="work-card__name">Brand Origins</span>
+          </div>
+          <p class="work-card__desc">
+            A YouTube series on the biggest brands of Southeast Asia — 27K subscribers and 1.7M+ views.
+          </p>
+          <div class="work-card__tags">
+            <span class="work-tag">YouTube</span>
+            <span class="work-tag">Content</span>
+            <span class="work-tag">1.7M+ views</span>
+          </div>
+        </a>
+
+      </div>
     </div>
 
   </div>
@@ -149,6 +210,9 @@
   <div class="site-footer__inner">
     <div class="site-footer__links">
       <span class="site-footer__meta">© 2026 Chris Garin</span>
+      <a href="https://instagram.com/chris.garin" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://open.spotify.com/show/7FdZpfzNfcFmvm3bMoZFP8?si=971bdd8c2cd24aeb" target="_blank" rel="noopener noreferrer">Podcast</a>
+      <a href="https://youtube.com/@brandorigins" target="_blank" rel="noopener noreferrer">YouTube</a>
       <a href="/privacy-policy/">Privacy Policy</a>
       <a href="/terms-of-service/">Terms of Service</a>
       <a href="/idea-validation/#login-card">Login</a>
@@ -158,5 +222,5 @@
     <script  src="./script.js"></script>
 
   </body>
-  
+
 </html>
