@@ -1428,7 +1428,7 @@ body {
   .tl-item--left {
     left: 0;
     padding-right: 46px;
-    text-align: right;
+    text-align: left;
   }
 
   .tl-item--right {
@@ -1444,10 +1444,6 @@ body {
 
   .tl-item--right .tl-node {
     left: -8px;
-  }
-
-  .tl-item--left .tl-card__head {
-    justify-content: flex-end;
   }
 }
 
