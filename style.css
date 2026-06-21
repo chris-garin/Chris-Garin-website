@@ -1340,7 +1340,8 @@ body {
 .tl-node {
   position: absolute;
   left: 14px;
-  top: 6px;
+  top: 62px;
+  transform: translateY(-50%);
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -1358,7 +1359,7 @@ body {
 .tl-card__img,
 .tl-card__media {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 125px;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   display: block;
@@ -1434,10 +1435,6 @@ body {
     left: 50%;
     padding-left: 46px;
     text-align: left;
-  }
-
-  .tl-node {
-    top: 8px;
   }
 
   .tl-item--left .tl-node {
