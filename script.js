@@ -418,3 +418,30 @@ if (navbar) {
   updateNavbar();
   window.addEventListener("scroll", updateNavbar, { passive: true });
 }
+
+const workSection = document.getElementById("work");
+
+function scrollToWork() {
+  if (!workSection) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  workSection.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+}
+
+function cleanUrl() {
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+}
+
+document.querySelectorAll('a[href$="#work"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (workSection) {
+      event.preventDefault();
+      scrollToWork();
+      cleanUrl();
+    }
+  });
+});
+
+if (window.location.hash === "#work" && workSection) {
+  cleanUrl();
+  requestAnimationFrame(() => requestAnimationFrame(scrollToWork));
+}
