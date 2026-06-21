@@ -1255,13 +1255,31 @@ body {
   100%   { transform: scaleY(.94); }
 }
 
+.hero-bio__text {
+  text-align: left;
+}
+
+.hero-eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
 .hero-sub {
   margin: 0;
-  max-width: 360px;
-  font-size: 1rem;
-  line-height: 1.65;
+  max-width: 440px;
+  font-size: 1.15rem;
+  line-height: 1.55;
   text-align: left;
-  color: #475569;
+  color: #1e293b;
+}
+
+.hero-sub strong {
+  color: #FF5130;
+  font-weight: 700;
 }
 
 .hero-cta {
@@ -1582,6 +1600,11 @@ body.home .nav-links.is-open {
 body.home .cta-button {
   background: #FF5130;
   color: #ffffff;
+  gap: 6px;
+}
+
+body.home .cta-icon {
+  flex-shrink: 0;
 }
 
 body.home .cta-button:hover,
