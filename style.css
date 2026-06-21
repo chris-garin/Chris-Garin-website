@@ -1444,6 +1444,33 @@ body {
   color: #475569;
 }
 
+.tl-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+
+.tl-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.tl-stat strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+.tl-stat__icon {
+  width: 15px;
+  height: 15px;
+  display: block;
+  flex-shrink: 0;
+}
+
 @media (min-width: 768px) {
   .timeline::before {
     left: 50%;
