@@ -445,3 +445,66 @@ if (window.location.hash === "#work" && workSection) {
   cleanUrl();
   requestAnimationFrame(() => requestAnimationFrame(scrollToWork));
 }
+
+const heroWave = document.querySelector(".hero-wave");
+if (heroWave) {
+  const ctx = heroWave.getContext("2d");
+  const hero = heroWave.parentElement;
+  const reduceWave = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const spacing = 26;
+  let w = 0;
+  let h = 0;
+  let dpr = 1;
+  let cols = 0;
+  let rows = 0;
+  let t = 0;
+
+  const resizeWave = () => {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = hero.clientWidth;
+    h = hero.clientHeight;
+    heroWave.width = Math.floor(w * dpr);
+    heroWave.height = Math.floor(h * dpr);
+    heroWave.style.width = w + "px";
+    heroWave.style.height = h + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cols = Math.ceil(w / spacing) + 2;
+    rows = Math.ceil(h / spacing) + 2;
+  };
+
+  const renderWave = () => {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < cols; i++) {
+      const x = i * spacing;
+      for (let j = 0; j < rows; j++) {
+        const y0 = j * spacing;
+        const wave =
+          Math.sin(x * 0.013 + t) +
+          Math.sin(y0 * 0.016 + t * 0.7) +
+          Math.sin((x + y0) * 0.009 + t * 1.2);
+        const intensity = (wave + 3) / 6;
+        const y = y0 + wave * 7;
+        const radius = 0.9 + intensity * 1.7;
+        const alpha = 0.07 + intensity * 0.32;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 6.2832);
+        ctx.fillStyle = "rgba(100,116,139," + alpha + ")";
+        ctx.fill();
+      }
+    }
+  };
+
+  const loopWave = () => {
+    t += 0.011;
+    renderWave();
+    requestAnimationFrame(loopWave);
+  };
+
+  resizeWave();
+  window.addEventListener("resize", resizeWave);
+  if (reduceWave) {
+    renderWave();
+  } else {
+    loopWave();
+  }
+}
