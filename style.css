@@ -1305,57 +1305,96 @@ body {
 }
 
 .work__title {
-  margin: 0 0 26px;
+  margin: 0 0 40px;
   font-size: 1.5rem;
   font-weight: 700;
+  text-align: center;
 }
 
-.work__title--sub {
-  margin-top: 52px;
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4px 0;
 }
 
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 6px;
+  bottom: 6px;
+  border-left: 2px dotted #c3cedd;
 }
 
-.work-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background: #ffffff;
-  border: 1px solid #dfe3ea;
-  border-radius: 14px;
-  padding: 9px;
+.tl-item {
+  position: relative;
+  padding: 0 0 36px 52px;
+  box-sizing: border-box;
+}
+
+.tl-item:last-child {
+  padding-bottom: 0;
+}
+
+.tl-node {
+  position: absolute;
+  left: 14px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #155dfc;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1px #c3cedd;
+}
+
+.tl-card {
+  display: block;
   text-decoration: none;
   color: #111827;
-  box-shadow: 0 1px 2px rgba(15,23,42,.05);
-  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
-.work-card:hover {
-  transform: translateY(-3px);
-  border-color: #c7d2e0;
-  box-shadow: 0 12px 26px rgba(15,23,42,.12);
+.tl-card__img,
+.tl-card__media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: block;
+  object-fit: cover;
+  transition: border-color .2s ease;
 }
 
-.work-card__topline {
+.tl-card__media {
+  border-color: #d6e2ff;
+  background: #eef3ff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 2px 4px 0;
-}
-
-.work-card__name {
-  margin: 0;
-  font-size: .95rem;
+  justify-content: center;
+  font-size: 1.6rem;
   font-weight: 700;
-  line-height: 1.2;
+  color: #155dfc;
 }
 
-.work-card__kind {
+.tl-card:hover .tl-card__img,
+.tl-card:hover .tl-card__media {
+  border-color: #155dfc;
+}
+
+.tl-card__head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.tl-card__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.tl-card__kind {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .06em;
@@ -1367,62 +1406,54 @@ body {
   white-space: nowrap;
 }
 
-.work-card__media {
-  aspect-ratio: 5 / 4;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #f1f5f9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.work-card__cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.work-card__mark {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: .02em;
-  color: #155dfc;
-}
-
-.work-card__desc {
-  margin: 0;
-  font-size: .8rem;
-  line-height: 1.45;
+.tl-card__desc {
+  margin: 7px 0 0;
+  font-size: .9rem;
+  line-height: 1.55;
   color: #475569;
-  background: #f8fafc;
-  border: 1px solid #eef2f7;
-  border-radius: 8px;
-  padding: 8px 9px;
 }
 
-.work-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: auto;
-  padding: 0 2px 2px;
+@media (min-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .tl-item {
+    width: 50%;
+    padding: 0 0 52px;
+  }
+
+  .tl-item--left {
+    left: 0;
+    padding-right: 46px;
+    text-align: right;
+  }
+
+  .tl-item--right {
+    left: 50%;
+    padding-left: 46px;
+    text-align: left;
+  }
+
+  .tl-node {
+    top: 8px;
+  }
+
+  .tl-item--left .tl-node {
+    left: auto;
+    right: -8px;
+  }
+
+  .tl-item--right .tl-node {
+    left: -8px;
+  }
+
+  .tl-item--left .tl-card__head {
+    justify-content: flex-end;
+  }
 }
 
-.work-tag {
-  font-size: 10px;
-  color: #475569;
-  background: #f1f5f9;
-  border: 1px solid #e5e7eb;
-  padding: 2px 7px;
-  border-radius: 5px;
-}
-
-@media (min-width: 720px) {
-  .work-grid { grid-template-columns: repeat(4, 1fr); }
-}
 
 @media (min-width: 768px) {
   .home-hero {
