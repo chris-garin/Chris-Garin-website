@@ -1209,7 +1209,7 @@ body {
   height: 3.9em;
   overflow: hidden;
   transform-origin: center;
-  animation: cg-pop 4.3s ease-in-out infinite;
+  animation: cg-pop 4.3s ease-in-out infinite reverse;
   -webkit-mask: linear-gradient(180deg, transparent 0%, #000 33%, #000 67%, transparent 100%);
   mask: linear-gradient(180deg, transparent 0%, #000 33%, #000 67%, transparent 100%);
 }
@@ -1217,7 +1217,7 @@ body {
 .roll__track {
   display: flex;
   flex-direction: column;
-  animation: cg-roll 4.3s ease-in-out infinite;
+  animation: cg-roll 4.3s ease-in-out infinite reverse;
 }
 
 .roll__word {
@@ -1650,6 +1650,18 @@ body.home .nav-links a {
 body.home .nav-links a:hover {
   color: #FF5130;
   text-decoration-color: #FF5130;
+}
+
+.nav-links a.nav-linkedin {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-linkedin__icon {
+  width: 15px;
+  height: 15px;
+  display: block;
 }
 
 body.home .menu-toggle .bar {
