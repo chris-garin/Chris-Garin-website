@@ -1223,7 +1223,7 @@ body {
 .roll__word {
   height: 1.3em;
   line-height: 1.3em;
-  color: #155dfc;
+  color: #FF5130;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -1279,9 +1279,9 @@ body {
 }
 
 .hero-cta:hover {
-  border-color: #155dfc;
-  background: rgba(21,93,252,.06);
-  color: #155dfc;
+  border-color: #FF5130;
+  background: rgba(255,81,48,.06);
+  color: #FF5130;
 }
 
 .hero-photo {
@@ -1345,7 +1345,7 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #155dfc;
+  background: #FF5130;
   border: 3px solid #ffffff;
   box-shadow: 0 0 0 1px #c3cedd;
 }
@@ -1368,19 +1368,19 @@ body {
 }
 
 .tl-card__media {
-  border-color: #d6e2ff;
-  background: #eef3ff;
+  border-color: #ffd2c7;
+  background: #fff0ec;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
   font-weight: 700;
-  color: #155dfc;
+  color: #FF5130;
 }
 
 .tl-card:hover .tl-card__img,
 .tl-card:hover .tl-card__media {
-  border-color: #155dfc;
+  border-color: #FF5130;
 }
 
 .tl-card__head {
@@ -1400,8 +1400,8 @@ body {
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: #155dfc;
-  background: #eaf1ff;
+  color: #FF5130;
+  background: #ffe9e3;
   padding: 3px 8px;
   border-radius: 999px;
   white-space: nowrap;
@@ -1502,8 +1502,8 @@ body.home .nav-links a {
 }
 
 body.home .nav-links a:hover {
-  color: #155dfc;
-  text-decoration-color: #155dfc;
+  color: #FF5130;
+  text-decoration-color: #FF5130;
 }
 
 body.home .menu-toggle .bar {
@@ -1516,17 +1516,17 @@ body.home .nav-links.is-open {
 }
 
 body.home .cta-button {
-  background: #155dfc;
+  background: #FF5130;
   color: #ffffff;
 }
 
 body.home .cta-button:hover,
 body.home .nav-cta--desktop .cta-button:hover {
-  background: #1447e6;
+  background: #E8431F;
 }
 
 body.home .nav-links.is-open .nav-cta--mobile .cta-button {
-  background: #155dfc;
+  background: #FF5130;
 }
 
 body.home .site-footer {
@@ -1541,6 +1541,6 @@ body.home .site-footer__meta {
 }
 
 body.home .site-footer__links a:hover {
-  color: #155dfc;
-  text-decoration-color: #155dfc;
+  color: #FF5130;
+  text-decoration-color: #FF5130;
 }
