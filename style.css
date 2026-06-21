@@ -1457,10 +1457,17 @@ body {
   gap: 6px;
   font-size: 13px;
   color: #475569;
+  text-decoration: none;
   border: 1px solid #e5e7eb;
   background: #f8fafc;
   padding: 5px 10px;
   border-radius: 8px;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.tl-stat:hover {
+  border-color: rgba(255,81,48,.5);
+  background: #fff5f2;
 }
 
 .tl-stat strong {
