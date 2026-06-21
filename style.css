@@ -1457,6 +1457,10 @@ body {
   gap: 6px;
   font-size: 13px;
   color: #475569;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
 
 .tl-stat strong {
