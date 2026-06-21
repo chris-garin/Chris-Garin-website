@@ -451,7 +451,7 @@ if (heroWave) {
   const ctx = heroWave.getContext("2d");
   const hero = heroWave.parentElement;
   const reduceWave = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const spacing = 26;
+  const spacing = 16;
   let w = 0;
   let h = 0;
   let dpr = 1;
@@ -483,8 +483,8 @@ if (heroWave) {
           Math.sin(y0 * 0.016 + t * 0.7) +
           Math.sin((x + y0) * 0.009 + t * 1.2);
         const intensity = (wave + 3) / 6;
-        const y = y0 + wave * 7;
-        const radius = 0.9 + intensity * 1.7;
+        const y = y0 + wave * 5;
+        const radius = 0.45 + intensity * 0.85;
         const alpha = 0.07 + intensity * 0.32;
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 6.2832);
