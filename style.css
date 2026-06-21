@@ -1322,11 +1322,75 @@ body {
   margin: 0 auto;
 }
 
-.work__title {
-  margin: 0 0 40px;
-  font-size: 1.5rem;
-  font-weight: 700;
+.work__intro {
   text-align: center;
+  margin: 0 0 6px;
+}
+
+.work__kicker {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #FF5130;
+}
+
+.work__heading {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #111827;
+}
+
+.work__sub {
+  margin: 12px auto 0;
+  max-width: 440px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.work__scroll {
+  position: relative;
+  width: 14px;
+  height: 56px;
+  margin: 30px auto 14px;
+}
+
+.work__scroll::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-left: 2px dotted #c3cedd;
+}
+
+.work__scroll::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FF5130;
+  box-shadow: 0 0 0 4px rgba(255,81,48,.18);
+  animation: work-drop 1.9s ease-in-out infinite;
+}
+
+@keyframes work-drop {
+  0%   { top: 0; opacity: 0; }
+  15%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { top: 46px; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work__scroll::after { animation: none; top: 18px; }
 }
 
 .timeline {
