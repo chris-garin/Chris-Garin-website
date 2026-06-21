@@ -1339,15 +1339,33 @@ body {
 
 .tl-node {
   position: absolute;
-  left: 14px;
+  left: 15px;
   top: 62px;
   transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: #FF5130;
-  border: 3px solid #ffffff;
-  box-shadow: 0 0 0 1px #c3cedd;
+  box-shadow: 0 0 0 3px rgba(255,81,48,.18);
+}
+
+.tl-node::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #FF5130;
+  animation: tl-ping 2s ease-out infinite;
+}
+
+@keyframes tl-ping {
+  0%   { transform: scale(1); opacity: .6; }
+  70%  { transform: scale(3.4); opacity: 0; }
+  100% { transform: scale(3.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-node::before { animation: none; opacity: 0; }
 }
 
 .tl-card {
@@ -1439,11 +1457,11 @@ body {
 
   .tl-item--left .tl-node {
     left: auto;
-    right: -8px;
+    right: -7px;
   }
 
   .tl-item--right .tl-node {
-    left: -8px;
+    left: -7px;
   }
 }
 
