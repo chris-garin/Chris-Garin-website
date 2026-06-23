@@ -1488,18 +1488,35 @@ body {
   overflow: hidden;
 }
 
-.tl-card__img-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 81, 48, 0.18);
-  opacity: 0;
-  transition: opacity .3s ease;
-  pointer-events: none;
+@property --trace-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
-.tl-card:hover .tl-card__img-wrap::after {
+@keyframes tl-border-trace {
+  to { --trace-angle: 360deg; }
+}
+
+.tl-card__img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  padding: 2px;
+  background: conic-gradient(from var(--trace-angle), transparent 0deg, #FF5130 40deg, #ffb39e 60deg, transparent 90deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tl-card:hover .tl-card__img-wrap::before {
   opacity: 1;
+  animation: tl-border-trace 1.8s linear infinite;
 }
 
 .tl-card__img,
