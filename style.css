@@ -1502,7 +1502,8 @@ body {
   inset: -2px;
   border-radius: 14px;
   padding: 2px;
-  background: conic-gradient(from var(--trace-angle), transparent 0deg, #FF5130 40deg, #ffb39e 60deg, transparent 90deg);
+  background: conic-gradient(from var(--trace-angle), transparent 0deg, #FF5130 35deg, #ffb39e 55deg, transparent 80deg, transparent 180deg, #FF5130 215deg, #ffb39e 235deg, transparent 260deg, transparent 360deg);
+  padding: 2.5px;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
