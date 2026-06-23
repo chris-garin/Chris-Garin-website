@@ -1481,13 +1481,6 @@ body {
   color: #111827;
 }
 
-.tl-card__img-wrap {
-  position: relative;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  overflow: hidden;
-}
-
 @property --trace-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -1498,7 +1491,12 @@ body {
   to { --trace-angle: 360deg; }
 }
 
-.tl-card__img-wrap::before {
+.tl-card__img-frame {
+  position: relative;
+  border-radius: 12px;
+}
+
+.tl-card__img-frame::before {
   content: '';
   position: absolute;
   inset: -2px;
@@ -1514,9 +1512,15 @@ body {
   z-index: 2;
 }
 
-.tl-card:hover .tl-card__img-wrap::before {
+.tl-card:hover .tl-card__img-frame::before {
   opacity: 1;
   animation: tl-border-trace 1.8s linear infinite;
+}
+
+.tl-card__img-wrap {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
 }
 
 .tl-card__img,
