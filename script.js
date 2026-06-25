@@ -22,13 +22,7 @@ const fields = {
 const promptOutput = document.getElementById("promptOutput");
 const copyPromptButton = document.getElementById("copyPromptButton");
 const copyFeedback = document.getElementById("copyFeedback");
-const loginForm = document.getElementById("login-form");
-const loginState = document.getElementById("login-state");
-const loginStateName = document.getElementById("login-state-name");
-const logoutButton = document.getElementById("logout-button");
 const workspace = document.getElementById("idea-workspace");
-const loginName = document.getElementById("login-name");
-const loginEmail = document.getElementById("login-email");
 
 const scoreElements = {
   founderFit: document.querySelector('[data-score-value="founderFit"]'),
@@ -71,7 +65,6 @@ Object.entries(fields).forEach(([key, element]) => {
   }
 });
 
-const STORAGE_KEY = "chrisgarin.ideaValidation.user";
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -329,86 +322,11 @@ copyPromptButton?.addEventListener("click", async () => {
   }
 });
 
-function getStoredUser() {
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch (error) {
-    return null;
-  }
-}
-
-function setStoredUser(user) {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
-  } catch (error) {
-    // Ignore storage errors in private mode or constrained browsers.
-  }
-}
-
-function clearStoredUser() {
-  try {
-    window.localStorage.removeItem(STORAGE_KEY);
-  } catch (error) {
-    // Ignore storage errors.
-  }
-}
-
-function applyLoginState(user) {
-  if (!workspace) {
-    render();
-    return;
-  }
-
-  const isLoggedIn = Boolean(user?.name && user?.email);
-  document.body.classList.toggle("is-logged-out", !isLoggedIn);
-
-  workspace.classList.toggle("is-locked", !isLoggedIn);
-
-  if (loginForm) {
-    loginForm.hidden = isLoggedIn;
-  }
-
-  if (loginState) {
-    loginState.hidden = !isLoggedIn;
-  }
-
-  if (loginStateName && isLoggedIn) {
-    loginStateName.textContent = `${user.name} (${user.email})`;
-  }
-
-  if (loginName && !isLoggedIn) {
-    loginName.value = "";
-  }
-
-  if (loginEmail && !isLoggedIn) {
-    loginEmail.value = "";
-  }
-
-  render();
-}
-
-loginForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const name = loginName?.value.trim();
-  const email = loginEmail?.value.trim();
-
-  if (!name || !email) {
-    return;
-  }
-
-  const user = { name, email };
-  setStoredUser(user);
-  applyLoginState(user);
-});
-
-logoutButton?.addEventListener("click", () => {
-  clearStoredUser();
-  applyLoginState(null);
-});
-
-applyLoginState(getStoredUser());
+// Account login now lives in LifeOS (lifeos.chrisgarin.com/login). This page is
+// an open, public demo of the tool, so the workspace stays unlocked.
+document.body.classList.remove("is-logged-out");
+workspace?.classList.remove("is-locked");
+render();
 
 const navbar = document.querySelector(".navbar");
 if (navbar) {
