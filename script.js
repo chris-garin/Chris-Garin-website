@@ -378,7 +378,7 @@ if (window.location.hash === "#work" && workSection) {
 
   const loadItems = items.filter((el) => el.dataset.reveal === "load");
   loadItems.forEach((el, i) => {
-    el.style.transitionDelay = i * 130 + "ms";
+    el.style.transitionDelay = i * 160 + "ms";
   });
   // setTimeout (not rAF) so the reveal still fires when the tab loads in the
   // background — rAF is fully paused for hidden tabs, which would strand the
