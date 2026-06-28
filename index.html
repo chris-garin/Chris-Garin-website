@@ -23,10 +23,12 @@
   <meta name="twitter:image" content="https://chrisgarin.com/images/cgsocialshare.png">
 
   <link rel="stylesheet" href="./style.css">
+  <script>document.documentElement.classList.add("has-reveal");</script>
+  <noscript><style>.has-reveal [data-reveal]{opacity:1;transform:none;}</style></noscript>
 </head>
 
   <body class="home">
-  <nav class="navbar">
+  <nav class="navbar" data-reveal="load">
   <div class="nav-container">
     <a href="/" class="logo">
       <img src="https://assets.codepen.io/16441250/chris+logo+v2.png" class="logo-img" alt="Chris Garin">
@@ -63,7 +65,7 @@
   <canvas class="hero-wave" aria-hidden="true"></canvas>
   <div class="home-hero__inner">
 
-    <h1 class="hero-headline">
+    <h1 class="hero-headline" data-reveal="load">
       <span class="hero-headline__static">I can build the</span>
       <span class="roll"><span class="roll__track">
         <span class="roll__word">software.</span>
@@ -75,7 +77,7 @@
       </span></span>
     </h1>
 
-    <div class="hero-bio">
+    <div class="hero-bio" data-reveal="load">
       <img
         src="https://assets.codepen.io/16441250/chrisgarin2.png"
         alt="Chris Garin"
@@ -94,7 +96,7 @@
 
 <section class="work" id="work">
   <div class="work__inner">
-    <div class="work__intro">
+    <div class="work__intro" data-reveal="scroll">
       <p class="work__kicker">The work</p>
       <h2 class="work__heading">Here's the proof.</h2>
       <p class="work__sub">A few things I've built, grown, and sold<br>for clients and for myself.</p>
@@ -103,7 +105,7 @@
 
     <div class="timeline">
 
-      <div class="tl-item tl-item--left">
+      <div class="tl-item tl-item--left" data-reveal="scroll">
         <span class="tl-node"></span>
         <a class="tl-card" href="https://vendorscout.co" target="_blank" rel="noopener noreferrer">
           <div class="tl-card__img-frame"><div class="tl-card__img-wrap"><img src="images/vendorscout.png" alt="VendorScout" class="tl-card__img"></div></div>
@@ -117,7 +119,7 @@
         </a>
       </div>
 
-      <div class="tl-item tl-item--right">
+      <div class="tl-item tl-item--right" data-reveal="scroll">
         <span class="tl-node"></span>
         <a class="tl-card">
           <div class="tl-card__img-frame"><div class="tl-card__img-wrap"><img src="images/heatseeker.png" alt="Heatseeker" class="tl-card__img"></div></div>
@@ -131,7 +133,7 @@
         </a>
       </div>
 
-      <div class="tl-item tl-item--left">
+      <div class="tl-item tl-item--left" data-reveal="scroll">
         <span class="tl-node"></span>
         <a class="tl-card" href="https://madewithgravity.com" target="_blank" rel="noopener noreferrer">
           <div class="tl-card__img-frame"><div class="tl-card__img-wrap"><img src="images/gravity.png" alt="Gravity" class="tl-card__img"></div></div>
@@ -145,7 +147,7 @@
         </a>
       </div>
 
-      <div class="tl-item tl-item--right">
+      <div class="tl-item tl-item--right" data-reveal="scroll">
         <span class="tl-node"></span>
         <div class="tl-card">
           <div class="tl-card__img-frame"><div class="tl-card__img-wrap"><img src="images/brandorigins.png" alt="Brand Origins" class="tl-card__img"></div></div>
@@ -166,7 +168,7 @@
         </div>
       </div>
 
-      <div class="tl-item tl-item--left" style="margin-top: 40px;">
+      <div class="tl-item tl-item--left" style="margin-top: 40px;" data-reveal="scroll">
         <span class="tl-node"></span>
         <a class="tl-card" href="https://annulmenthotline.com" target="_blank" rel="noopener noreferrer">
           <div class="tl-card__img-frame"><div class="tl-card__img-wrap"><img src="images/annulment.png" alt="Annulment Hotline" class="tl-card__img"></div></div>
@@ -180,7 +182,7 @@
         </a>
       </div>
 
-      <div class="tl-item tl-item--right">
+      <div class="tl-item tl-item--right" data-reveal="scroll">
         <span class="tl-node"></span>
         <a class="tl-card">
           <div class="tl-card__img-frame"><div class="tl-card__img-wrap"><img src="images/partizan.png" alt="Partizan" class="tl-card__img"></div></div>

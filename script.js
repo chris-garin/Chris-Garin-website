@@ -364,6 +364,51 @@ if (window.location.hash === "#work" && workSection) {
   requestAnimationFrame(() => requestAnimationFrame(scrollToWork));
 }
 
+// Smooth entrance reveals: hero/nav glide in on load (staggered),
+// lower sections reveal as they scroll into view.
+(function setupReveals() {
+  const items = Array.from(document.querySelectorAll("[data-reveal]"));
+  if (!items.length) return;
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) {
+    items.forEach((el) => el.classList.add("is-in"));
+    return;
+  }
+
+  const loadItems = items.filter((el) => el.dataset.reveal === "load");
+  loadItems.forEach((el, i) => {
+    el.style.transitionDelay = i * 130 + "ms";
+  });
+  // setTimeout (not rAF) so the reveal still fires when the tab loads in the
+  // background — rAF is fully paused for hidden tabs, which would strand the
+  // hero invisible until focus. The CSS hidden state has already painted.
+  setTimeout(() => {
+    loadItems.forEach((el) => el.classList.add("is-in"));
+  }, 60);
+
+  const scrollItems = items.filter((el) => el.dataset.reveal === "scroll");
+  if (!scrollItems.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    scrollItems.forEach((el) => el.classList.add("is-in"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+  );
+  scrollItems.forEach((el) => io.observe(el));
+})();
+
 const heroWave = document.querySelector(".hero-wave");
 if (heroWave) {
   const ctx = heroWave.getContext("2d");
