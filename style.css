@@ -1785,6 +1785,12 @@ body.light .site-footer__links a:hover {
   overflow: hidden;
 }
 
+/* Hidden until a real ad-slot id is configured (keeps the live page clean
+   before AdSense approval; no empty gaps). Set data-ready="true" once slots exist. */
+.ad-slot[data-ready="false"] {
+  display: none;
+}
+
 .ad-slot--inline {
   min-height: 280px;
 }
