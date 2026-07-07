@@ -963,6 +963,21 @@ body {
   color: #111827;
 }
 
+.article-content ul {
+  margin: 0 0 1.4em;
+  padding-left: 1.25em;
+}
+
+.article-content li {
+  margin: 0 0 0.6em;
+  line-height: 1.7;
+}
+
+.article-content strong {
+  color: #111827;
+  font-weight: 700;
+}
+
 .article-footer-link {
   margin-top: 48px;
   padding-top: 24px;
