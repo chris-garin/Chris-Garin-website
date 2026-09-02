@@ -1877,7 +1877,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 
 /* --- Header row: title + description left, filters right --- */
 .fn-head {
-  max-width: 1280px;
+  max-width: 1152px;
   margin: 0 auto;
   padding: 128px 32px 28px;
 }
@@ -1945,7 +1945,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 
 /* --- The wall --- */
 .fn-wall {
-  max-width: 1280px;
+  max-width: 1152px;
   margin: 0 auto;
   padding: 30px 32px 80px;
 }
