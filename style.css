@@ -1888,7 +1888,6 @@ body.page-fn .site-footer__meta { color: #83878d; }
   justify-content: space-between;
   gap: 32px;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(255,255,255,.14);
   padding-bottom: 26px;
 }
 
