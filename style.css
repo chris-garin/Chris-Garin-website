@@ -1856,276 +1856,248 @@ body.light .site-footer__links a:hover {
   }
 }
 
+
 /* ============================================================
-   Writing / Field Notes index
-   Mirrors the homepage: dotted-grid header, coral kicker, and the
-   same dotted timeline + border-trace hover as the work section.
+   Field Notes — card wall
+   Ash-gray canvas (matches madewithgravity.com/magnetic), white
+   cards. Each card's top is a colored panel standing in for a photo;
+   the author avatar straddles the panel/body seam. Lora display type.
    ============================================================ */
 
-.writing {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: #ffffff;
-  color: #111827;
-  padding: 116px 18px 24px;
-}
+body.page-fn { background: #b6b8b2; }
+body.page-fn.light .navbar { background: #b6b8b2; border-bottom: 1px solid rgba(15,23,42,.10); }
+body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,23,42,.12); }
 
-.writing__dots {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-  background-size: 22px 22px;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
-}
-
-.writing__inner {
-  position: relative;
-  z-index: 1;
-  max-width: 860px;
+/* --- Header row: title + description left, filters right --- */
+.fn-head {
+  max-width: 1280px;
   margin: 0 auto;
-  text-align: center;
+  padding: 128px 32px 28px;
 }
 
-.writing__kicker {
-  margin: 0 0 10px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: #FF5130;
+.fn-head__inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(15,23,42,.14);
+  padding-bottom: 26px;
 }
 
-.writing__heading {
+.fn-head__title {
   margin: 0;
-  font-size: 2.6rem;
-  line-height: 1.05;
-  color: #111827;
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: #16181c;
 }
 
-.writing__sub {
-  margin: 14px auto 0;
-  max-width: 460px;
+.fn-head__desc {
+  margin: 12px 0 0;
+  max-width: 420px;
   font-size: 1rem;
-  line-height: 1.6;
-  color: #475569;
+  line-height: 1.55;
+  color: #4b4f56;
 }
 
-/* Category filter */
-.writing__cats {
+.fn-head__cats {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 8px;
-  margin: 24px auto 0;
-  max-width: 620px;
+  padding-bottom: 4px;
 }
 
-.cat-chip {
+.fn-chip {
   font-family: inherit;
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .06em;
+  font-weight: 600;
+  letter-spacing: .05em;
   text-transform: uppercase;
-  color: #475569;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  color: #3f434a;
+  background: transparent;
+  border: 1px solid rgba(15,23,42,.22);
   border-radius: 999px;
-  padding: 7px 14px;
+  padding: 8px 15px;
   cursor: pointer;
   transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
 }
 
-.cat-chip:hover {
-  border-color: #FF5130;
-  color: #FF5130;
+.fn-chip:hover {
+  border-color: #16181c;
+  color: #16181c;
   transform: translateY(-1px);
 }
 
-.cat-chip[aria-pressed="true"] {
-  background: #FF5130;
-  border-color: #FF5130;
-  color: #ffffff;
+.fn-chip[aria-pressed="true"] {
+  background: #16181c;
+  border-color: #16181c;
+  color: #ece9e2;
 }
 
-/* Timeline list */
-.writing-list {
-  background: #ffffff;
-  padding: 8px 18px 64px;
-}
-
-.wr-timeline {
-  position: relative;
-  max-width: 760px;
+/* --- The wall --- */
+.fn-wall {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 4px 0;
+  padding: 30px 32px 80px;
 }
 
-.wr-timeline::before {
-  content: "";
-  position: absolute;
-  left: 21px;
-  top: 10px;
-  bottom: 10px;
-  border-left: 2px dotted #c3cedd;
+.fn-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
 }
 
-.wr-item {
-  position: relative;
-  padding: 14px 0 14px 56px;
-}
+.fn-item.is-hidden { display: none; }
 
-.wr-item[hidden] {
-  display: none;
-}
-
-.wr-node {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #FF5130;
-  box-shadow: 0 0 0 3px rgba(255,81,48,.18);
-}
-
-.wr-node::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: #FF5130;
-  animation: tl-ping 2s ease-out infinite;
-}
-
-.wr-card,
-.wr-card:visited {
-  position: relative;
-  display: block;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
+.fn-card,
+.fn-card:visited {
+  --tone: #4C5C77;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: #ffffff;
-  padding: 20px 22px;
-  color: #111827;
+  border-radius: 18px;
+  overflow: hidden;
+  color: #16181c;
   text-decoration: none;
-  box-shadow: 0 1px 2px rgba(15,23,42,.04);
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  box-shadow: 0 1px 2px rgba(15,23,42,.06);
+  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1);
 }
 
-/* Same coral border-trace the homepage project cards use. */
-.wr-card::before {
-  content: '';
+.fn-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 46px rgba(15,23,42,.16);
+}
+
+/* Colored panel — the "photo" stand-in */
+.fn-card__panel {
+  position: relative;
+  height: clamp(150px, 15vw, 190px);
+  background: var(--tone);
+  background-image: linear-gradient(150deg, rgba(255,255,255,.10), rgba(0,0,0,.16));
+  overflow: hidden;
+}
+
+.fn-card__cat {
   position: absolute;
-  inset: -2px;
-  border-radius: 16px;
-  padding: 2.5px;
-  background: conic-gradient(from var(--trace-angle), transparent 0deg, #FF5130 35deg, #ffb39e 55deg, transparent 80deg, transparent 180deg, #FF5130 215deg, #ffb39e 235deg, transparent 260deg, transparent 360deg);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity .2s ease;
-  pointer-events: none;
-  z-index: 2;
+  top: 16px;
+  left: 16px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.28);
+  padding: 5px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-.wr-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(15,23,42,.08);
+.fn-card__date {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.82);
 }
 
-.wr-card:hover::before {
-  opacity: 1;
-  animation: tl-border-trace 1.8s linear infinite;
+.fn-card__mark {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 30px;
+  height: 30px;
+  color: rgba(255,255,255,.55);
+  transition: transform .5s cubic-bezier(.16,1,.3,1);
 }
 
-.wr-card__head {
+.fn-card:hover .fn-card__mark { transform: translate(3px, -3px); }
+
+/* Author byline — avatar straddles the panel/body seam */
+.fn-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 22px 24px;
+}
+
+.fn-card__by {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: -22px;
+  margin-bottom: 18px;
 }
 
-.wr-card__kind {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: #FF5130;
-  background: #ffe9e3;
-  padding: 3px 8px;
-  border-radius: 999px;
-  white-space: nowrap;
-  cursor: pointer;
+.fn-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(15,23,42,.18);
+  flex-shrink: 0;
 }
 
-.wr-card__date {
-  font-size: 12px;
+.fn-card__byname {
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: .04em;
-  color: #94a3b8;
+  color: #4b4f56;
+  padding-top: 20px;
 }
 
-.wr-card__title {
-  display: inline;
-  margin: 20px 0 0;
-  font-size: 1.3rem;
-  line-height: 1.3;
-  color: #111827;
-  background-image: linear-gradient(#FF5130, #FF5130);
+/* Title + excerpt pinned to the bottom of the open space */
+.fn-card__foot { margin-top: auto; }
+
+.fn-card__title {
+  margin: 0;
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.32rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  color: #16181c;
+  background-image: linear-gradient(var(--tone), var(--tone));
   background-repeat: no-repeat;
   background-size: 0% 2px;
   background-position: 0 100%;
-  transition: background-size .28s ease;
+  transition: background-size .35s cubic-bezier(.16,1,.3,1);
 }
 
-.wr-card:hover .wr-card__title {
-  background-size: 100% 2px;
-}
+.fn-card:hover .fn-card__title { background-size: 100% 2px; }
 
-.wr-card__desc {
-  margin: 10px 0 0;
-  font-size: .94rem;
+.fn-card__excerpt {
+  margin: 11px 0 0;
+  font-size: .93rem;
   line-height: 1.6;
-  color: #475569;
+  color: #565b62;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.wr-card__desc--desktop {
-  display: none;
+@media (min-width: 640px) {
+  .fn-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.wr-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 14px;
-  color: #FF5130;
-  font-size: .9rem;
-  font-weight: 600;
+@media (min-width: 960px) {
+  .fn-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-.wr-more::after {
-  content: "\2192";
-  transition: transform .2s ease;
+@media (min-width: 1360px) {
+  .fn-grid { grid-template-columns: repeat(4, 1fr); gap: 28px; }
 }
 
-.wr-card:hover .wr-more::after {
-  transform: translateX(3px);
-}
-
-@media (min-width: 700px) {
-  .wr-card__desc--desktop { display: block; }
-  .wr-card__desc--mobile { display: none; }
-  .writing__heading { font-size: 3rem; }
-}
-
-@media (max-width: 520px) {
-  .writing { padding-top: 96px; }
-  .writing__heading { font-size: 2rem; }
-  .wr-item { padding-left: 48px; }
-  .wr-card { padding: 18px 16px; }
+@media (max-width: 560px) {
+  .fn-head { padding: 104px 20px 24px; }
+  .fn-wall { padding: 24px 20px 64px; }
+  .fn-head__inner { align-items: flex-start; flex-direction: column; gap: 22px; }
 }

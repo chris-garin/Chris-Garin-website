@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="light">
+<body class="light page-fn">
 
 <!-- NAVBAR -->
 
@@ -55,166 +55,213 @@
 
 <!-- WRITING INDEX -->
 
-<section class="writing">
-  <div class="writing__dots" aria-hidden="true"></div>
-  <div class="writing__inner">
-    <p class="writing__kicker" data-reveal="load">The writing</p>
-    <h1 class="writing__heading" data-reveal="load">Field Notes.</h1>
-    <p class="writing__sub" data-reveal="load">
-      Research, essays, and stories on brands,<br>business, and the ideas behind them.
-    </p>
-
-    <div class="writing__cats" data-reveal="load" role="group" aria-label="Filter by category">
-      <button class="cat-chip" type="button" data-cat="all" aria-pressed="true">All</button>
-      <button class="cat-chip" type="button" data-cat="Brand Origins" aria-pressed="false">Brand Origins</button>
-      <button class="cat-chip" type="button" data-cat="Explainer" aria-pressed="false">Explainer</button>
-      <button class="cat-chip" type="button" data-cat="Essay" aria-pressed="false">Essay</button>
+<section class="fn-head">
+  <div class="fn-head__inner">
+    <div class="fn-head__intro">
+      <h1 class="fn-head__title" data-reveal="load">Field Notes</h1>
+      <p class="fn-head__desc" data-reveal="load">Research, essays, and stories on brands, business, and the ideas behind them.</p>
+    </div>
+    <div class="fn-head__cats" data-reveal="load" role="group" aria-label="Filter by category">
+      <button class="fn-chip" type="button" data-cat="all" aria-pressed="true">All</button>
+      <button class="fn-chip" type="button" data-cat="Brand Origins" aria-pressed="false">Brand Origins</button>
+      <button class="fn-chip" type="button" data-cat="Explainer" aria-pressed="false">Explainer</button>
+      <button class="fn-chip" type="button" data-cat="Essay" aria-pressed="false">Essay</button>
     </div>
   </div>
 </section>
 
-<section class="writing-list">
-  <div class="wr-timeline">
-      <div class="wr-item" data-cat="Essay" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/postcards/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Essay</span>
-            <span class="wr-card__date">August 28, 2026</span>
+<section class="fn-wall">
+  <div class="fn-grid">
+      <article class="fn-item" data-cat="Essay" data-reveal="scroll">
+        <a class="fn-card" href="/blog/postcards/" style="--tone: #FF5130;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Essay</span>
+            <span class="fn-card__date">Aug 28, 2026</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
           </div>
-          <h2 class="wr-card__title">How a Realtor's Postcards Beat His Email Funnel</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">Two realtors, opposite playbooks, same result. It's not the channel. It's the attention.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">One mails postcards, one lives in the comments. Same result. Because the thing that works isn't the tactic. It's paying attention to one person at a time.</p>
-          <span class="wr-more">Continue reading</span>
-        </a>
-      </div>
-
-      <div class="wr-item" data-cat="Essay" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/not-lazy-just-scared/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Essay</span>
-            <span class="wr-card__date">August 16, 2026</span>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">How a Realtor&rsquo;s Postcards Beat His Email Funnel</h2>
+              <p class="fn-card__excerpt">One mails postcards, one lives in the comments. Same result. Because the thing that works isn&rsquo;t the tactic. It&rsquo;s paying attention to one person at a time.</p>
+            </div>
           </div>
-          <h2 class="wr-card__title">I Wasn't Lazy. I Was Scared.</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">Why it took me a year to make content again, and what finally got me started.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">A year of procrastination I mistook for laziness, the low bar that got Brand Origins off the ground, and why perfectionism is just fear in high heels.</p>
-          <span class="wr-more">Continue reading</span>
         </a>
-      </div>
-
-      <div class="wr-item" data-cat="Explainer" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/pax-silica/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Explainer</span>
-            <span class="wr-card__date">July 29, 2026</span>
+      </article>
+      <article class="fn-item" data-cat="Essay" data-reveal="scroll">
+        <a class="fn-card" href="/blog/not-lazy-just-scared/" style="--tone: #4C5C77;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Essay</span>
+            <span class="fn-card__date">Aug 16, 2026</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
           </div>
-          <h2 class="wr-card__title">ELI5: What is Pax Silica?</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">What Pax Silica is, why the US wants New Clark City, and why China is mad.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">The US-led AI and chips coalition, the proposed New Clark City hub, what the numbers really say, the backlash at home, and China's rival club WAICO.</p>
-          <span class="wr-more">Continue reading</span>
-        </a>
-      </div>
-
-      <div class="wr-item" data-cat="Brand Origins" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/imax/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Brand Origins</span>
-            <span class="wr-card__date">July 7, 2026</span>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">I Wasn&rsquo;t Lazy. I Was Scared.</h2>
+              <p class="fn-card__excerpt">A year of procrastination I mistook for laziness, the low bar that got Brand Origins off the ground, and why perfectionism is just fear in high heels.</p>
+            </div>
           </div>
-          <h2 class="wr-card__title">The History of IMAX in the Philippines</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">How IMAX works, who owns it, and whether the Philippines has the real thing.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">What IMAX actually is, who owns and runs it, the LieMAX debate, and where to catch the biggest screens in the Philippines.</p>
-          <span class="wr-more">Continue reading</span>
         </a>
-      </div>
-
-      <div class="wr-item" data-cat="Brand Origins" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/tcl/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Brand Origins</span>
-            <span class="wr-card__date">July 7, 2026</span>
+      </article>
+      <article class="fn-item" data-cat="Explainer" data-reveal="scroll">
+        <a class="fn-card" href="/blog/pax-silica/" style="--tone: #6E7A5A;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Explainer</span>
+            <span class="fn-card__date">Jul 29, 2026</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
           </div>
-          <h2 class="wr-card__title">The History of TCL</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">Who owns TCL, why it is so cheap, and how it became the number one TV brand in the Philippines.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">Where TCL came from, who owns it, why its TVs are so cheap, and how it climbed to number one in the Philippines and second in the world.</p>
-          <span class="wr-more">Continue reading</span>
-        </a>
-      </div>
-
-      <div class="wr-item" data-cat="Brand Origins" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/ayala-history/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Brand Origins</span>
-            <span class="wr-card__date">September 30, 2025</span>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">ELI5: What is Pax Silica?</h2>
+              <p class="fn-card__excerpt">The US-led AI and chips coalition, the proposed New Clark City hub, what the numbers really say, the backlash at home, and China&rsquo;s rival club WAICO.</p>
+            </div>
           </div>
-          <h2 class="wr-card__title">The History of Ayala Corporation</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">How Ayala became one of the oldest conglomerates in the Philippines.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">A closer look at how Ayala grew into one of the most powerful conglomerates in the Philippines.</p>
-          <span class="wr-more">Continue reading</span>
         </a>
-      </div>
-
-      <div class="wr-item" data-cat="Brand Origins" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/skyflakes-history/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Brand Origins</span>
-            <span class="wr-card__date">September 30, 2025</span>
+      </article>
+      <article class="fn-item" data-cat="Brand Origins" data-reveal="scroll">
+        <a class="fn-card" href="/blog/imax/" style="--tone: #2C3539;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Brand Origins</span>
+            <span class="fn-card__date">Jul 7, 2026</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
           </div>
-          <h2 class="wr-card__title">The History of SkyFlakes</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">How M.Y. San created one of the most iconic Filipino snacks.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">How SkyFlakes became a staple in Filipino homes, offices, school bags, and sari-sari stores.</p>
-          <span class="wr-more">Continue reading</span>
-        </a>
-      </div>
-
-      <div class="wr-item" data-cat="Brand Origins" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/chooks/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Brand Origins</span>
-            <span class="wr-card__date">September 28, 2022</span>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">The History of IMAX in the Philippines</h2>
+              <p class="fn-card__excerpt">What IMAX actually is, who owns and runs it, the LieMAX debate, and where to catch the biggest screens in the Philippines.</p>
+            </div>
           </div>
-          <h2 class="wr-card__title">The Complete History of Chooks to Go</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">The story behind one of the most recognizable roast chicken brands in the Philippines.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">The rise of Chooks to Go from a bold product idea into one of the most recognizable food brands in the country.</p>
-          <span class="wr-more">Continue reading</span>
         </a>
-      </div>
-
-      <div class="wr-item" data-cat="Brand Origins" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/puregold/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Brand Origins</span>
-            <span class="wr-card__date">September 28, 2022</span>
+      </article>
+      <article class="fn-item" data-cat="Brand Origins" data-reveal="scroll">
+        <a class="fn-card" href="/blog/tcl/" style="--tone: #C08A3E;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Brand Origins</span>
+            <span class="fn-card__date">Jul 7, 2026</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
           </div>
-          <h2 class="wr-card__title">The Success Story of Puregold</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">How Puregold grew into one of the biggest retail chains in the Philippines.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">A look at how Puregold grew from a single grocery store into one of the biggest retail chains in the Philippines.</p>
-          <span class="wr-more">Continue reading</span>
-        </a>
-      </div>
-
-      <div class="wr-item" data-cat="Brand Origins" data-reveal="scroll">
-        <span class="wr-node"></span>
-        <a class="wr-card" href="/blog/gcash/">
-          <div class="wr-card__head">
-            <span class="wr-card__kind">Brand Origins</span>
-            <span class="wr-card__date">May 16, 2022</span>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">The History of TCL</h2>
+              <p class="fn-card__excerpt">Where TCL came from, who owns it, why its TVs are so cheap, and how it climbed to number one in the Philippines and second in the world.</p>
+            </div>
           </div>
-          <h2 class="wr-card__title">The Complete History of GCash</h2>
-          <p class="wr-card__desc wr-card__desc--mobile">How GCash became one of the most important fintech brands in the country.</p>
-          <p class="wr-card__desc wr-card__desc--desktop">The story of how GCash evolved from an early mobile payments experiment into the Philippines' dominant fintech platform.</p>
-          <span class="wr-more">Continue reading</span>
         </a>
-      </div>
-
+      </article>
+      <article class="fn-item" data-cat="Brand Origins" data-reveal="scroll">
+        <a class="fn-card" href="/blog/ayala-history/" style="--tone: #3F6E6A;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Brand Origins</span>
+            <span class="fn-card__date">Sep 30, 2025</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">The History of Ayala Corporation</h2>
+              <p class="fn-card__excerpt">A closer look at how Ayala grew into one of the most powerful conglomerates in the Philippines.</p>
+            </div>
+          </div>
+        </a>
+      </article>
+      <article class="fn-item" data-cat="Brand Origins" data-reveal="scroll">
+        <a class="fn-card" href="/blog/skyflakes-history/" style="--tone: #B75E41;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Brand Origins</span>
+            <span class="fn-card__date">Sep 30, 2025</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">The History of SkyFlakes</h2>
+              <p class="fn-card__excerpt">How SkyFlakes became a staple in Filipino homes, offices, school bags, and sari-sari stores.</p>
+            </div>
+          </div>
+        </a>
+      </article>
+      <article class="fn-item" data-cat="Brand Origins" data-reveal="scroll">
+        <a class="fn-card" href="/blog/chooks/" style="--tone: #6E4F5E;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Brand Origins</span>
+            <span class="fn-card__date">Sep 28, 2022</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">The Complete History of Chooks to Go</h2>
+              <p class="fn-card__excerpt">The rise of Chooks to Go from a bold product idea into one of the most recognizable food brands in the country.</p>
+            </div>
+          </div>
+        </a>
+      </article>
+      <article class="fn-item" data-cat="Brand Origins" data-reveal="scroll">
+        <a class="fn-card" href="/blog/puregold/" style="--tone: #4C5C77;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Brand Origins</span>
+            <span class="fn-card__date">Sep 28, 2022</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">The Success Story of Puregold</h2>
+              <p class="fn-card__excerpt">A look at how Puregold grew from a single grocery store into one of the biggest retail chains in the Philippines.</p>
+            </div>
+          </div>
+        </a>
+      </article>
+      <article class="fn-item" data-cat="Brand Origins" data-reveal="scroll">
+        <a class="fn-card" href="/blog/gcash/" style="--tone: #5A6B44;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Brand Origins</span>
+            <span class="fn-card__date">May 16, 2022</span>
+            <svg class="fn-card__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h2 class="fn-card__title">The Complete History of GCash</h2>
+              <p class="fn-card__excerpt">The story of how GCash evolved from an early mobile payments experiment into the Philippines&rsquo; dominant fintech platform.</p>
+            </div>
+          </div>
+        </a>
+      </article>
   </div>
 </section>
 
@@ -269,6 +316,23 @@
     })[0];
     if (hit) apply(hit.dataset.cat);
   }
+})();
+</script>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.fn-chip');
+  var items = document.querySelectorAll('.fn-item');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var cat = chip.getAttribute('data-cat');
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      items.forEach(function(it){
+        var show = cat === 'all' || it.getAttribute('data-cat') === cat;
+        it.classList.toggle('is-hidden', !show);
+      });
+    });
+  });
 })();
 </script>
 </body>
