@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap");
 
 html {
   font-size: 16px;
@@ -55,6 +55,30 @@ html, body {
 body {
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   background: #000000;
+}
+
+/* ============================================================
+   DISPLAY TYPE - Lora
+   One place that decides what a "title" looks like site-wide.
+   Body copy stays Open Sans.
+   ============================================================ */
+
+:root {
+  --font-display: "Lora", Georgia, "Times New Roman", serif;
+}
+
+.hero-headline,
+.work__heading,
+.writing__heading,
+.wr-card__title,
+.article-title,
+.article-content h2,
+.idea-page-title,
+.section-title,
+.faq__heading,
+.related__heading {
+  font-family: var(--font-display);
+  letter-spacing: -.012em;
 }
 
 
