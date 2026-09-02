@@ -1864,9 +1864,16 @@ body.light .site-footer__links a:hover {
    the author avatar straddles the panel/body seam. Lora display type.
    ============================================================ */
 
-body.page-fn { background: #b6b8b2; }
-body.page-fn.light .navbar { background: #b6b8b2; border-bottom: 1px solid rgba(15,23,42,.10); }
-body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,23,42,.12); }
+body.page-fn { background: #0F0F0F; }
+body.page-fn.light .navbar { background: #0F0F0F; border-bottom: 1px solid rgba(255,255,255,.10); }
+body.page-fn.light .logo-img { filter: none; }
+body.page-fn.light .nav-links a { color: #ece9e2; border-bottom-color: rgba(255,255,255,.10); }
+body.page-fn.light .nav-links a:hover { color: #FF5130; }
+body.page-fn.light .menu-toggle .bar { background: #ece9e2; }
+body.page-fn.light .nav-links.is-open { background: #0F0F0F; border-top-color: rgba(255,255,255,.12); }
+body.page-fn .site-footer { background: #0F0F0F; border-top: 1px solid rgba(255,255,255,.10); color: #b8bcc2; }
+body.page-fn .site-footer__links a { color: #d6d9dd; }
+body.page-fn .site-footer__meta { color: #83878d; }
 
 /* --- Header row: title + description left, filters right --- */
 .fn-head {
@@ -1881,7 +1888,7 @@ body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,2
   justify-content: space-between;
   gap: 32px;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(15,23,42,.14);
+  border-bottom: 1px solid rgba(255,255,255,.14);
   padding-bottom: 26px;
 }
 
@@ -1892,7 +1899,7 @@ body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,2
   font-weight: 500;
   line-height: 1;
   letter-spacing: -.02em;
-  color: #16181c;
+  color: #f4f2ec;
 }
 
 .fn-head__desc {
@@ -1900,7 +1907,7 @@ body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,2
   max-width: 420px;
   font-size: 1rem;
   line-height: 1.55;
-  color: #4b4f56;
+  color: #a9adb4;
 }
 
 .fn-head__cats {
@@ -1916,9 +1923,9 @@ body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,2
   font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase;
-  color: #3f434a;
+  color: #c7cace;
   background: transparent;
-  border: 1px solid rgba(15,23,42,.22);
+  border: 1px solid rgba(255,255,255,.24);
   border-radius: 999px;
   padding: 8px 15px;
   cursor: pointer;
@@ -1926,15 +1933,15 @@ body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,2
 }
 
 .fn-chip:hover {
-  border-color: #16181c;
-  color: #16181c;
+  border-color: #f4f2ec;
+  color: #f4f2ec;
   transform: translateY(-1px);
 }
 
 .fn-chip[aria-pressed="true"] {
-  background: #16181c;
-  border-color: #16181c;
-  color: #ece9e2;
+  background: #f4f2ec;
+  border-color: #f4f2ec;
+  color: #16181c;
 }
 
 /* --- The wall --- */
@@ -2022,35 +2029,42 @@ body.page-fn .site-footer { background: #b6b8b2; border-top: 1px solid rgba(15,2
 
 /* Author byline — avatar straddles the panel/body seam */
 .fn-card__body {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
   padding: 0 22px 24px;
 }
 
+/* Avatar is absolutely centered on the panel/body seam and layered
+   above the colored panel, so exactly half of it sits over the image. */
 .fn-card__by {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: -22px;
-  margin-bottom: 18px;
+  min-height: 26px;
+  padding-top: 13px;
+  padding-left: 56px;
+  margin-bottom: 16px;
 }
 
 .fn-card__avatar {
+  position: absolute;
+  top: 0;
+  left: 22px;
+  transform: translateY(-50%);
   width: 44px;
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #fff;
-  box-shadow: 0 2px 8px rgba(15,23,42,.18);
-  flex-shrink: 0;
+  box-shadow: 0 5px 16px rgba(0,0,0,.30);
+  z-index: 3;
 }
 
 .fn-card__byname {
   font-size: 13px;
   font-weight: 600;
   color: #4b4f56;
-  padding-top: 20px;
 }
 
 /* Title + excerpt pinned to the bottom of the open space */
