@@ -1972,7 +1972,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
   color: #16181c;
   text-decoration: none;
   box-shadow: 0 1px 2px rgba(15,23,42,.06);
-  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1);
+  transition: transform .55s cubic-bezier(.33,1,.68,1), box-shadow .55s cubic-bezier(.33,1,.68,1);
 }
 
 /* Shine sweep on hover: a skewed light band that crosses the whole card. */
@@ -1990,7 +1990,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 }
 
 .fn-card:hover::after {
-  animation: fn-shine .85s cubic-bezier(.22,.61,.36,1);
+  animation: fn-shine 1.4s cubic-bezier(.25,.5,.35,1);
 }
 
 @keyframes fn-shine {
