@@ -1981,21 +1981,21 @@ body.page-fn .site-footer__meta { color: #83878d; }
   position: absolute;
   top: 0;
   left: 0;
-  width: 55%;
+  width: 75%;
   height: 100%;
   z-index: 5;
   pointer-events: none;
-  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.35) 45%, rgba(255,255,255,.6) 50%, rgba(255,255,255,.35) 55%, transparent 100%);
-  transform: skewX(-18deg) translateX(-220%);
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.10) 30%, rgba(255,255,255,.24) 44%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.24) 56%, rgba(255,255,255,.10) 70%, transparent 100%);
+  transform: skewX(-16deg) translateX(-180%);
 }
 
 .fn-card:hover::after {
-  animation: fn-shine 1.4s cubic-bezier(.25,.5,.35,1);
+  animation: fn-shine 2.1s cubic-bezier(.37,0,.28,1);
 }
 
 @keyframes fn-shine {
-  from { transform: skewX(-18deg) translateX(-220%); }
-  to   { transform: skewX(-18deg) translateX(420%); }
+  from { transform: skewX(-16deg) translateX(-180%); }
+  to   { transform: skewX(-16deg) translateX(340%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
