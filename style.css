@@ -1879,7 +1879,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 .fn-head {
   max-width: 1152px;
   margin: 0 auto;
-  padding: 128px 32px 28px;
+  padding: 128px 32px 0;
 }
 
 .fn-head__inner {
@@ -1887,7 +1887,6 @@ body.page-fn .site-footer__meta { color: #83878d; }
   flex-direction: column;
   align-items: flex-start;
   gap: 26px;
-  padding-bottom: 26px;
 }
 
 .fn-head__title {
@@ -1945,7 +1944,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 .fn-wall {
   max-width: 1152px;
   margin: 0 auto;
-  padding: 30px 32px 80px;
+  padding: 32px 32px 80px;
 }
 
 .fn-grid {
@@ -2121,7 +2120,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 }
 
 @media (max-width: 560px) {
-  .fn-head { padding: 104px 20px 24px; }
+  .fn-head { padding: 104px 20px 0; }
   .fn-wall { padding: 24px 20px 64px; }
   .fn-head__inner { align-items: flex-start; flex-direction: column; gap: 22px; }
 }
