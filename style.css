@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Open+Sans:wght@400;500;600;700&display=swap");
 
 html {
   font-size: 16px;
@@ -79,6 +79,7 @@ body {
 .related__heading {
   font-family: var(--font-display);
   letter-spacing: -.012em;
+  font-weight: 500;
 }
 
 
@@ -940,7 +941,6 @@ body {
   margin: 0 0 14px;
   font-size: 1.9rem;
   line-height: 1.15;
-  font-weight: 700;
   color: #111827;
 }
 
@@ -983,7 +983,6 @@ body {
   margin: 1.9em 0 0.6em;
   font-size: 1.4rem;
   line-height: 1.3;
-  font-weight: 700;
   color: #111827;
 }
 
@@ -1100,7 +1099,6 @@ body {
   justify-content: center;
   gap: .3em;
   font-size: clamp(1.6rem, 6.2vw, 2.9rem);
-  font-weight: 700;
   line-height: 1;
   color: #111827;
 }
@@ -1129,7 +1127,7 @@ body {
   height: 1.3em;
   line-height: 1.3em;
   color: #FF5130;
-  font-weight: 700;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -1244,7 +1242,6 @@ body {
 .work__heading {
   margin: 0;
   font-size: 2rem;
-  font-weight: 700;
   line-height: 1.1;
   color: #111827;
 }
@@ -1716,7 +1713,6 @@ body.light .site-footer__links a:hover {
   margin: 0 0 8px;
   font-size: 1.5rem;
   line-height: 1.25;
-  font-weight: 700;
   color: #111827;
 }
 
@@ -1788,7 +1784,6 @@ body.light .site-footer__links a:hover {
   margin: 0 0 16px;
   font-size: 1.5rem;
   line-height: 1.25;
-  font-weight: 700;
   color: #111827;
 }
 
@@ -1907,7 +1902,6 @@ body.light .site-footer__links a:hover {
 .writing__heading {
   margin: 0;
   font-size: 2.6rem;
-  font-weight: 700;
   line-height: 1.05;
   color: #111827;
 }
@@ -2080,7 +2074,6 @@ body.light .site-footer__links a:hover {
   display: inline;
   margin: 20px 0 0;
   font-size: 1.3rem;
-  font-weight: 700;
   line-height: 1.3;
   color: #111827;
   background-image: linear-gradient(#FF5130, #FF5130);
