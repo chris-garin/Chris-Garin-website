@@ -108,19 +108,6 @@
           </div>
         </a>
       </article>
-      <article class="fn-item fn-item--sub" data-sub="1" data-reveal="scroll">
-        <div class="fn-sub">
-          <span class="fn-sub__tag">Newsletter</span>
-          <div class="fn-sub__top">
-            <h2 class="fn-sub__title">Field notes, in your inbox.</h2>
-            <p class="fn-sub__copy">The stuff I overthink, sent when it&rsquo;s ready. No spam, I barely email.</p>
-          </div>
-          <form class="fn-sub__form" id="fn-sub-form">
-            <input class="fn-sub__input" type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
-            <button class="fn-sub__btn" type="submit">Subscribe</button>
-          </form>
-        </div>
-      </article>
       <article class="fn-item" data-cat="Explainer" data-reveal="scroll">
         <a class="fn-card" href="/blog/pax-silica/" style="--tone: #B0505E;">
           <div class="fn-card__panel">
@@ -282,48 +269,18 @@
 
 <script>
 (function(){
-  var grid  = document.querySelector('.fn-grid');
-  var chips = Array.prototype.slice.call(document.querySelectorAll('.fn-chip'));
-  var items = Array.prototype.slice.call(document.querySelectorAll('.fn-item'));
-  var sub   = document.querySelector('.fn-item--sub');
-
-  // Keep the subscribe card as the 3rd visible tile (after the 2nd post),
-  // or last when fewer than two posts are showing.
-  function pinSub(){
-    if (!sub || !grid) return;
-    var visiblePosts = items.filter(function(it){
-      return !it.hasAttribute('data-sub') && !it.classList.contains('is-hidden');
-    });
-    if (visiblePosts.length >= 2) visiblePosts[1].after(sub);
-    else grid.appendChild(sub);
-  }
-
+  var chips = document.querySelectorAll('.fn-chip');
+  var items = document.querySelectorAll('.fn-item');
   chips.forEach(function(chip){
     chip.addEventListener('click', function(){
       var cat = chip.getAttribute('data-cat');
       chips.forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
       items.forEach(function(it){
-        if (it.hasAttribute('data-sub')) return; // subscribe card always stays
         var show = cat === 'all' || it.getAttribute('data-cat') === cat;
         it.classList.toggle('is-hidden', !show);
       });
-      pinSub();
     });
   });
-  pinSub();
-
-  var subForm = document.getElementById('fn-sub-form');
-  if (subForm) {
-    subForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      var input = subForm.querySelector('input[type=email]');
-      var email = (input.value || '').trim();
-      if (!email) return;
-      window.location.href = 'mailto:heychrisgarin@gmail.com'
-        + '?subject=' + encodeURIComponent('Subscribe me to Field Notes')
-        + '&body=' + encodeURIComponent('Please add ' + email + ' to your Field Notes list.');
-    });
-  }
 })();
 </script>
 </body>
