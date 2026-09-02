@@ -2124,3 +2124,50 @@ body.page-fn .site-footer__meta { color: #83878d; }
   .fn-wall { padding: 24px 20px 64px; }
   .fn-head__inner { align-items: flex-start; flex-direction: column; gap: 22px; }
 }
+
+/* --- Home: writing teaser ("I write stuff too.") --- */
+.home-blog {
+  background: #ffffff;
+  color: #111827;
+  padding: 24px 18px 76px;
+}
+
+.home-blog__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-blog__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 34px;
+}
+
+@media (min-width: 760px) {
+  .home-blog__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* The Field Notes cards are white; give them definition on the light home page. */
+.home-blog .fn-card {
+  border: 1px solid #ece9e4;
+  box-shadow: 0 8px 26px rgba(15,23,42,.07);
+}
+
+.home-blog__more {
+  text-align: center;
+  margin-top: 42px;
+}
+
+.home-blog__more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #FF5130;
+  font-weight: 600;
+  font-size: .98rem;
+  text-decoration: none;
+}
+
+.home-blog__more a::after { content: "\2192"; transition: transform .2s ease; }
+.home-blog__more a:hover::after { transform: translateX(3px); }
