@@ -2048,7 +2048,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
   margin-bottom: 18px;
 }
 
-.fn-card__byname { line-height: 1; }
+.fn-card__byname { line-height: 1; margin-bottom: 5px; }
 
 .fn-card__avatar {
   position: absolute;
