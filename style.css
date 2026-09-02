@@ -2040,12 +2040,15 @@ body.page-fn .site-footer__meta { color: #83878d; }
    above the colored panel, so exactly half of it sits over the image. */
 .fn-card__by {
   display: flex;
-  align-items: center;
-  min-height: 26px;
-  padding-top: 13px;
+  align-items: flex-end;
+  /* Height = avatar radius incl. border (25px), so the row runs from the
+     seam down to the circle's bottom edge; flex-end drops the name onto it. */
+  height: 25px;
   padding-left: 56px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
+
+.fn-card__byname { line-height: 1; }
 
 .fn-card__avatar {
   position: absolute;
