@@ -1962,6 +1962,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 .fn-card,
 .fn-card:visited {
   --tone: #4C5C77;
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1972,6 +1973,33 @@ body.page-fn .site-footer__meta { color: #83878d; }
   text-decoration: none;
   box-shadow: 0 1px 2px rgba(15,23,42,.06);
   transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1);
+}
+
+/* Shine sweep on hover: a skewed light band that crosses the whole card. */
+.fn-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.35) 45%, rgba(255,255,255,.6) 50%, rgba(255,255,255,.35) 55%, transparent 100%);
+  transform: skewX(-18deg) translateX(-220%);
+}
+
+.fn-card:hover::after {
+  animation: fn-shine .85s cubic-bezier(.22,.61,.36,1);
+}
+
+@keyframes fn-shine {
+  from { transform: skewX(-18deg) translateX(-220%); }
+  to   { transform: skewX(-18deg) translateX(420%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fn-card:hover::after { animation: none; }
 }
 
 .fn-card:hover {
@@ -2015,17 +2043,6 @@ body.page-fn .site-footer__meta { color: #83878d; }
   color: rgba(255,255,255,.82);
 }
 
-.fn-card__mark {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 30px;
-  height: 30px;
-  color: rgba(255,255,255,.55);
-  transition: transform .5s cubic-bezier(.16,1,.3,1);
-}
-
-.fn-card:hover .fn-card__mark { transform: translate(3px, -3px); }
 
 /* Author byline — avatar straddles the panel/body seam */
 .fn-card__body {
@@ -2081,14 +2098,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
   line-height: 1.25;
   letter-spacing: -.01em;
   color: #16181c;
-  background-image: linear-gradient(var(--tone), var(--tone));
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  background-position: 0 100%;
-  transition: background-size .35s cubic-bezier(.16,1,.3,1);
 }
-
-.fn-card:hover .fn-card__title { background-size: 100% 2px; }
 
 .fn-card__excerpt {
   margin: 11px 0 0;
