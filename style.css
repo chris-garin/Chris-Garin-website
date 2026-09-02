@@ -1098,7 +1098,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: .3em;
-  font-size: clamp(1.84rem, 7.13vw, 3.34rem);
+  font-size: clamp(2.02rem, 7.84vw, 3.67rem);
   line-height: 1;
   color: #111827;
 }
