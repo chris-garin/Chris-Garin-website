@@ -2009,7 +2009,7 @@ body.page-fn .site-footer__meta { color: #83878d; }
 /* Colored panel — the "photo" stand-in */
 .fn-card__panel {
   position: relative;
-  height: clamp(128px, 12.75vw, 162px);
+  height: clamp(115px, 11.5vw, 146px);
   background: var(--tone);
   background-image: linear-gradient(150deg, rgba(255,255,255,.10), rgba(0,0,0,.16));
   overflow: hidden;
