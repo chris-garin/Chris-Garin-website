@@ -125,27 +125,45 @@
     margin-bottom: 52px;
   }
   .cards {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 22px; align-items: start;
   }
+  /* Staircase, so the row reads as a stack of blocks rather than a row of
+     boxes. Done with margin, not transform, so the reveal animation is free
+     to own transform. */
+  .cards .card:nth-child(2) { margin-top: 34px; }
+  .cards .card:nth-child(3) { margin-top: 68px; }
+
   .card {
-    background: var(--white); border: 1px solid var(--lilac-line);
-    border-radius: 18px; padding: 32px 28px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    min-height: 400px;
+    border: none; border-radius: 22px;
+    padding: 34px 32px 32px;
+    box-shadow: 0 14px 34px -22px rgba(1, 63, 50, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 40px -20px rgba(1, 63, 50, 0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 26px 50px -24px rgba(1, 63, 50, 0.45);
   }
-  .card .icon {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: var(--lilac); display: flex;
-    align-items: center; justify-content: center; margin-bottom: 22px;
-  }
+
+  .card--pine { background: var(--pine); }
+  .card--gold { background: var(--gold-deep); }
+  .card--mint { background: #E3EEE6; }
+
   .card h3 {
     font-family: var(--serif); font-weight: 600;
-    font-size: 1.25rem; margin-bottom: 10px;
+    font-size: 1.5rem; line-height: 1.22; letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin-bottom: 12px;
   }
-  .card p { font-size: 0.94rem; color: var(--ink-soft); }
+  .card p { font-size: 0.95rem; }
+
+  .card--pine h3 { color: var(--paper); }
+  .card--pine p { color: rgba(253, 253, 253, 0.72); }
+  .card--gold h3, .card--mint h3 { color: var(--ink); }
+  .card--gold p { color: rgba(22, 22, 22, 0.76); }
+  .card--mint p { color: var(--ink-soft); }
 
   /* ---------- Bottom CTA box ---------- */
   .cta-box { padding: 72px 0 96px; }
@@ -248,6 +266,8 @@
     .waitlist { flex-direction: column; }
     .waitlist button { padding: 14px; }
     .cards { grid-template-columns: 1fr; }
+    .cards .card:nth-child(2), .cards .card:nth-child(3) { margin-top: 0; }
+    .card { min-height: 0; padding: 30px 26px; }
     .cta-inner { padding: 56px 20px; }
   }
 </style>
@@ -275,24 +295,15 @@
   <section class="features">
     <h2 data-reveal>Context once. Everywhere. Always current.</h2>
     <div class="cards">
-      <article class="card" data-reveal style="--d:0s">
-        <div class="icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#013F32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><rect x="4" y="17" width="16" height="4" rx="1.5"/></svg>
-        </div>
+      <article class="card card--pine" data-reveal style="--d:0s">
         <h3>Capture without trying</h3>
         <p>Contextual builds your profile from the work you're already doing. Projects, preferences, decisions, and voice, gathered as you go. No forms to fill, nothing to maintain by hand.</p>
       </article>
-      <article class="card" data-reveal style="--d:.1s">
-        <div class="icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#013F32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/></svg>
-        </div>
+      <article class="card card--gold" data-reveal style="--d:.1s">
         <h3>Portable across every AI</h3>
         <p>One living context that travels with you. Claude, ChatGPT, Gemini, or the next tool you try, every conversation starts already knowing the full picture.</p>
       </article>
-      <article class="card" data-reveal style="--d:.2s">
-        <div class="icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#013F32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.6L20 11l-5.6 2.4L12 19l-2.4-5.6L4 11l5.6-2.4z"/></svg>
-        </div>
+      <article class="card card--mint" data-reveal style="--d:.2s">
         <h3>You stay in control</h3>
         <p>See exactly what's in your context, edit anything, and choose what each tool gets. Your context is yours: private by default, shareable on your terms.</p>
       </article>
