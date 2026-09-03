@@ -127,19 +127,25 @@
   }
   .cards {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 22px; align-items: start;
+    gap: 24px; align-items: start;
+  }
+  /* Cards run 10% wider than the text column where the viewport allows it. */
+  @media (min-width: 1260px) {
+    .cards { width: calc(100% + 108px); margin-left: -54px; }
   }
   /* Staircase, so the row reads as a stack of blocks rather than a row of
      boxes. Done with margin, not transform, so the reveal animation is free
      to own transform. */
-  .cards .card:nth-child(2) { margin-top: 34px; }
-  .cards .card:nth-child(3) { margin-top: 68px; }
+  .cards .card:nth-child(2) { margin-top: 37px; }
+  .cards .card:nth-child(3) { margin-top: 74px; }
 
   .card {
-    display: flex; flex-direction: column; justify-content: flex-end;
-    min-height: 400px;
-    border: none; border-radius: 22px;
-    padding: 34px 32px 32px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    gap: 28px;
+    min-height: 440px;
+    background: var(--pine);
+    border: none; border-radius: 24px;
+    padding: 37px 35px 35px;
     box-shadow:
       0 18px 30px -10px rgba(1, 63, 50, 0.38),
       0 4px 9px -2px rgba(1, 63, 50, 0.22);
@@ -152,22 +158,16 @@
       0 8px 16px -4px rgba(1, 63, 50, 0.26);
   }
 
-  .card--pine { background: var(--pine); }
-  .card--gold { background: var(--gold); }
-  .card--ash { background: var(--ash); }
-
   .card h3 {
     font-family: var(--serif); font-weight: 600;
-    font-size: 1.5rem; line-height: 1.22; letter-spacing: -0.01em;
+    font-size: 1.55rem; line-height: 1.22; letter-spacing: -0.01em;
     text-wrap: balance;
-    margin-bottom: 12px;
+    color: var(--gold);
   }
-  .card p { font-size: 0.95rem; }
-
-  .card--pine h3, .card--ash h3 { color: var(--paper); }
-  .card--pine p, .card--ash p { color: rgba(253, 253, 253, 0.72); }
-  .card--gold h3 { color: var(--ink); }
-  .card--gold p { color: rgba(22, 22, 22, 0.76); }
+  .card p {
+    font-size: 0.97rem;
+    color: rgba(253, 253, 253, 0.72);
+  }
 
   /* ---------- Bottom CTA box ---------- */
   .cta-box { padding: 72px 0 96px; }
@@ -264,6 +264,13 @@
     }
   }
 
+  /* Three tall cards get cramped before the mobile breakpoint. */
+  @media (max-width: 900px) {
+    .cards { grid-template-columns: 1fr; max-width: 34rem; margin-inline: auto; }
+    .cards .card:nth-child(2), .cards .card:nth-child(3) { margin-top: 0; }
+    .card { min-height: 0; gap: 18px; }
+  }
+
   /* ---------- Mobile ---------- */
   @media (max-width: 720px) {
     .hero { padding-top: 40px; }
@@ -297,17 +304,17 @@
 
   <!-- Features -->
   <section class="features">
-    <h2 data-reveal>Context once. Everywhere. Always current.</h2>
+    <h2 data-reveal>No more re-explaining your business from scratch.</h2>
     <div class="cards">
-      <article class="card card--pine" data-reveal style="--d:0s">
+      <article class="card" data-reveal style="--d:0s">
         <h3>Capture without trying</h3>
         <p>Contextual builds your profile from the work you're already doing. Projects, preferences, decisions, and voice, gathered as you go. No forms to fill, nothing to maintain by hand.</p>
       </article>
-      <article class="card card--gold" data-reveal style="--d:.1s">
+      <article class="card" data-reveal style="--d:.1s">
         <h3>No more re-explaining your business from scratch.</h3>
         <p>Every SOP, preference, and decision you'd normally repeat to a new hire gets captured once, then handed off automatically to the AI they're using. What used to take weeks of back-and-forth is done before their first day.</p>
       </article>
-      <article class="card card--ash" data-reveal style="--d:.2s">
+      <article class="card" data-reveal style="--d:.2s">
         <h3>Works with whatever AI your VA already uses.</h3>
         <p>Claude, ChatGPT, Gemini, whichever tool they open first, it's already briefed. No new software to learn, no separate system to maintain, just their existing AI with your business already loaded in.</p>
       </article>
