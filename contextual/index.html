@@ -171,37 +171,47 @@
     color: rgba(253, 253, 253, 0.72);
   }
 
-  /* ---------- Bottom CTA box ---------- */
-  .cta-box { padding: 72px 0 96px; }
+  /* ---------- Bottom CTA box ----------
+     Chartreuse, not pine: three pine cards sit directly above it, and a
+     fourth green block reads as one more card instead of the closing move.
+     The action colour goes where the action is, and the button inverts to
+     pine so it still stands off the panel. */
+  .cta-box { padding: 96px 0 104px; }
   .cta-inner {
-    background: var(--pine); border-radius: 24px;
-    text-align: center; padding: 72px 32px;
+    background: var(--gold); border-radius: 28px;
+    text-align: center; padding: 84px 32px;
     position: relative; overflow: hidden;
   }
   .cta-inner::after {
     content: ""; position: absolute; inset: auto -20% -60% -20%;
     height: 70%; border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(231, 254, 37, 0.22), transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(1, 63, 50, 0.16), transparent 70%);
     pointer-events: none;
   }
-  .cta-inner .kicker { color: var(--gold); }
+  .cta-inner .kicker { color: var(--pine); }
   .cta-inner h2 {
-    font-family: var(--serif); font-weight: 500; color: var(--paper);
-    font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.01em;
-    max-width: 22ch; margin: 0 auto 16px;
+    font-family: var(--serif); font-weight: 500; color: var(--ink);
+    font-size: clamp(1.9rem, 4.2vw, 2.9rem); line-height: 1.14;
+    letter-spacing: -0.01em;
+    max-width: 20ch; margin: 0 auto 16px; text-wrap: balance;
   }
   .cta-inner p {
-    color: rgba(253, 253, 253, 0.72); max-width: 30rem;
+    color: rgba(22, 22, 22, 0.7); max-width: 30rem;
     margin: 0 auto 36px; font-size: 1rem;
   }
   .cta-inner .waitlist { position: relative; z-index: 1; }
   .cta-inner .waitlist input {
-    background: rgba(253, 253, 253, 0.08); border-color: rgba(253, 253, 253, 0.25);
-    color: var(--paper);
+    background: var(--white); border-color: rgba(22, 22, 22, 0.16);
+    color: var(--ink);
   }
-  .cta-inner .waitlist input::placeholder { color: rgba(253, 253, 253, 0.45); }
-  .cta-inner .waitlist input:focus { border-color: var(--gold); }
-  .cta-inner .form-msg { color: var(--gold); }
+  .cta-inner .waitlist input::placeholder { color: rgba(22, 22, 22, 0.42); }
+  .cta-inner .waitlist input:focus { border-color: var(--pine); }
+  .cta-inner .waitlist button {
+    background: var(--pine); color: var(--paper);
+    box-shadow: 0 2px 0 #012A22;
+  }
+  .cta-inner .waitlist button:hover { background: #012A22; }
+  .cta-inner .form-msg { color: var(--pine); }
 
   /* ---------- Footer ---------- */
   footer {
