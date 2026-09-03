@@ -69,7 +69,7 @@
     line-height: 1.14; letter-spacing: -0.02em;
     margin: 28px auto 20px; max-width: 18em;
   }
-  h1 em {
+  h1 em, .mark {
     font-style: normal;
     background: linear-gradient(transparent 62%, var(--gold) 62%, var(--gold) 94%, transparent 94%);
   }
@@ -122,8 +122,10 @@
   }
   .features h2 {
     font-family: var(--serif); font-weight: 500; text-align: center;
-    font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.01em;
-    margin-bottom: 52px;
+    font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.16;
+    letter-spacing: -0.01em;
+    max-width: 21ch; margin: 0 auto 52px;
+    text-wrap: balance;
   }
   .cards {
     display: grid; grid-template-columns: repeat(3, 1fr);
@@ -237,6 +239,16 @@
       transition: background-size 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s;
     }
 
+    /* The section heading's marker draws itself as the heading arrives */
+    .anim .features h2 .mark {
+      background-repeat: no-repeat;
+      background-size: 0% 100%;
+    }
+    .anim .features h2.in .mark {
+      background-size: 100% 100%;
+      transition: background-size 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.25s;
+    }
+
     /* Scroll reveals */
     .anim [data-reveal] {
       opacity: 0;
@@ -304,7 +316,7 @@
 
   <!-- Features -->
   <section class="features">
-    <h2 data-reveal>No more re-explaining your business from scratch.</h2>
+    <h2 data-reveal>No more <span class="mark">re-explaining</span> your business from scratch.</h2>
     <div class="cards">
       <article class="card" data-reveal style="--d:0s">
         <h3>Weeks of onboarding, done before day one.</h3>
