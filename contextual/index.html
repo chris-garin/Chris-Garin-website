@@ -16,6 +16,7 @@
     --ink: #161616;          /* near-black */
     --ink-soft: #4B4B4B;
     --pine: #013F32;         /* deep pine, dark surfaces */
+    --ash: #1B2421;          /* ashy black-green */
     --gold: #E7FE25;         /* chartreuse CTA */
     --gold-deep: #C9DE0E;
     --lilac: #EAF2EC;        /* card tint */
@@ -153,7 +154,7 @@
 
   .card--pine { background: var(--pine); }
   .card--gold { background: var(--gold); }
-  .card--mint { background: #E3EEE6; }
+  .card--ash { background: var(--ash); }
 
   .card h3 {
     font-family: var(--serif); font-weight: 600;
@@ -163,11 +164,10 @@
   }
   .card p { font-size: 0.95rem; }
 
-  .card--pine h3 { color: var(--paper); }
-  .card--pine p { color: rgba(253, 253, 253, 0.72); }
-  .card--gold h3, .card--mint h3 { color: var(--ink); }
+  .card--pine h3, .card--ash h3 { color: var(--paper); }
+  .card--pine p, .card--ash p { color: rgba(253, 253, 253, 0.72); }
+  .card--gold h3 { color: var(--ink); }
   .card--gold p { color: rgba(22, 22, 22, 0.76); }
-  .card--mint p { color: var(--ink-soft); }
 
   /* ---------- Bottom CTA box ---------- */
   .cta-box { padding: 72px 0 96px; }
@@ -307,7 +307,7 @@
         <h3>Portable across every AI</h3>
         <p>One living context that travels with you. Claude, ChatGPT, Gemini, or the next tool you try, every conversation starts already knowing the full picture.</p>
       </article>
-      <article class="card card--mint" data-reveal style="--d:.2s">
+      <article class="card card--ash" data-reveal style="--d:.2s">
         <h3>You stay in control</h3>
         <p>See exactly what's in your context, edit anything, and choose what each tool gets. Your context is yours: private by default, shareable on your terms.</p>
       </article>
