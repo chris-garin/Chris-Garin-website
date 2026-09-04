@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Field Notes | Chris Garin</title>
+  <link>https://chrisgarin.com/blog/</link>
+  <description>Brand histories and field notes from Chris Garin.</description>
+  <language>en</language>
+  <lastBuildDate>Fri, 04 Sep 2026 09:00:00 GMT</lastBuildDate>
+  <atom:link href="https://chrisgarin.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+  <item>
+    <title>Heatseeker: the tool I built to never face a blank page again | Chris Garin</title>
+    <link>https://chrisgarin.com/blog/heatseeker/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/heatseeker/</guid>
+    <description>For years my ideas died in my notes because I could not build them. So I learned to build. Heatseeker is what came out of it.</description>
+    <pubDate>Fri, 04 Sep 2026 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>How a Realtor's Postcards Beat His Email Funnel | Chris Garin</title>
+    <link>https://chrisgarin.com/blog/postcards/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/postcards/</guid>
+    <description>Two realtors, opposite playbooks, same result. The thing that actually works is paying attention to one person at a time.</description>
+    <pubDate>Fri, 28 Aug 2026 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>I Wasn't Lazy. I Was Scared. | Chris Garin</title>
+    <link>https://chrisgarin.com/blog/not-lazy-just-scared/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/not-lazy-just-scared/</guid>
+    <description>I procrastinated for a year before making content again. I thought I was lazy. It was fear wearing a better outfit.</description>
+    <pubDate>Sun, 16 Aug 2026 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Pax Silica Explained: What It Is and Why China Is Mad</title>
+    <link>https://chrisgarin.com/blog/pax-silica/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/pax-silica/</guid>
+    <description>What the US-led Pax Silica coalition and the proposed New Clark City hub actually mean for the Philippines, explained simply.</description>
+    <pubDate>Wed, 29 Jul 2026 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>IMAX in the Philippines: History, Screens, and Locations</title>
+    <link>https://chrisgarin.com/blog/imax/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/imax/</guid>
+    <description>Everything about IMAX in the Philippines: how it arrived in 2006, who owns and runs it, whether it is real IMAX or LieMAX, and where to watch it.</description>
+    <pubDate>Tue, 07 Jul 2026 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>TCL History: Who Owns It and Is It a Good TV Brand?</title>
+    <link>https://chrisgarin.com/blog/tcl/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/tcl/</guid>
+    <description>The full story of TCL: what the letters mean, who owns it, whether it is any good, and how it became the number one TV brand in the Philippines.</description>
+    <pubDate>Tue, 07 Jul 2026 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Ayala History: From the 1834 Roxas Founding to Ayala Land</title>
+    <link>https://chrisgarin.com/blog/ayala-history/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/ayala-history/</guid>
+    <description>How Ayala went from an 1834 distillery founded by the Roxas family to Ayala Land and the Philippines oldest conglomerate, and who runs it now.</description>
+    <pubDate>Tue, 30 Sep 2025 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>SkyFlakes History: Who Owns It and Is It Really Filipino?</title>
+    <link>https://chrisgarin.com/blog/skyflakes-history/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/skyflakes-history/</guid>
+    <description>The full story of SkyFlakes crackers: the M.Y. San origin, who owns it today, why it is a Filipino icon, and even how many holes each cracker has.</description>
+    <pubDate>Tue, 30 Sep 2025 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Who Owns Chooks-to-Go? The Owner and Full History</title>
+    <link>https://chrisgarin.com/blog/chooks/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/chooks/</guid>
+    <description>Who owns Chooks-to-Go, the company behind it, its tagline, and how the roast chicken brand grew across the Philippines. The complete backstory.</description>
+    <pubDate>Wed, 28 Sep 2022 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Who Owns Puregold? The Lucio and Susan Co Story</title>
+    <link>https://chrisgarin.com/blog/puregold/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/puregold/</guid>
+    <description>Who owns Puregold: the Lucio and Susan Co story, how they founded it, their S&amp;R connection, and how it became a Philippine retail giant.</description>
+    <pubDate>Wed, 28 Sep 2022 09:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>GCash History: When It Launched and Who Created It</title>
+    <link>https://chrisgarin.com/blog/gcash/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/gcash/</guid>
+    <description>GCash history in full: when it launched, who created it, its link to Globe, and how it became the Philippines biggest e-wallet.</description>
+    <pubDate>Mon, 16 May 2022 09:00:00 GMT</pubDate>
+  </item>
+</channel>
+</rss>

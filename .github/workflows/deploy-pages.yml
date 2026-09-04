@@ -24,6 +24,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # build-seo.mjs reads commit history to date pages that carry no
+          # dateModified of their own, so it needs the whole history.
+          fetch-depth: 0
+
+      - name: Rebuild sitemap.xml and feed.xml
+        run: node tools/build-seo.mjs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -36,3 +43,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Google killed its sitemap ping endpoint in 2023 and has no public
+      # "index this now" API for ordinary pages, so there is nothing to call
+      # for Google here — it gets the lastmod dates and the feed above.
+      # IndexNow is real and instant, and Bing, Yandex, DuckDuckGo and Brave
+      # all consume it, so the non-Google half of search updates immediately.
+      - name: Tell IndexNow what changed
+        continue-on-error: true
+        run: node tools/ping-indexnow.mjs
