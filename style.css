@@ -173,7 +173,7 @@ body {
   align-items: center;
   height: 30px;
   border-radius: 16px;
-  background: #BA1C2C;
+  background: #111827;
   color: white;
   font-weight: 400;
   text-decoration: none;
@@ -731,7 +731,7 @@ body {
   height: 30px;
   padding: 3px 40px;
   border-radius: 5px;
-  background: #DB2342;
+  background: #111827;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
@@ -1772,7 +1772,7 @@ body.home .nav-links.is-open {
 }
 
 body.home .cta-button {
-  background: #FF5130;
+  background: #111827;
   color: #ffffff;
   gap: 6px;
 }
@@ -1783,11 +1783,11 @@ body.home .cta-icon {
 
 body.home .cta-button:hover,
 body.home .nav-cta--desktop .cta-button:hover {
-  background: #E8431F;
+  background: #2b3648;
 }
 
 body.home .nav-links.is-open .nav-cta--mobile .cta-button {
-  background: #FF5130;
+  background: #111827;
 }
 
 body.home .site-footer {
@@ -1840,18 +1840,18 @@ body.light .nav-links.is-open {
 }
 
 body.light .cta-button {
-  background: #FF5130;
+  background: #111827;
   color: #ffffff;
   gap: 6px;
 }
 
 body.light .cta-button:hover,
 body.light .nav-cta--desktop .cta-button:hover {
-  background: #E8431F;
+  background: #2b3648;
 }
 
 body.light .nav-links.is-open .nav-cta--mobile .cta-button {
-  background: #FF5130;
+  background: #111827;
 }
 
 body.light .site-footer {
@@ -2552,3 +2552,17 @@ body.page-begin .site-footer { background: #EFEEEB; border-top: 1px solid rgba(1
   font-weight: 600;
 }
 .begin-lesson .begin-nextprev a:hover { text-decoration: underline; }
+
+/* Field Notes sits on ink, where the ink CTA would vanish into the page.
+   Invert it there. */
+body.page-fn.light .cta-button,
+body.page-fn.light .nav-links.is-open .nav-cta--mobile .cta-button {
+  background: #ece9e2;
+  color: #0F0F0F;
+}
+
+body.page-fn.light .cta-button:hover,
+body.page-fn.light .nav-cta--desktop .cta-button:hover {
+  background: #ffffff;
+  color: #0F0F0F;
+}
