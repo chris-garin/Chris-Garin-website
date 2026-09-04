@@ -223,8 +223,48 @@
 
   /* ---------- Motion ----------
      All hiding is gated on .anim, which an inline script adds to <html>.
-     No JS, no animation, but nothing is ever left invisible. */
+     No JS, no animation, but nothing is ever left invisible.
+
+     Scroll reveals run as keyframe animations rather than transitions, and
+     the resting state is declared on :not(.in) rather than on .in. Two
+     reasons: the animation replays cleanly every time .in comes back, and
+     once it finishes the element falls back to its own styles, so hover
+     lifts still work instead of being pinned by a reveal rule. */
   @media (prefers-reduced-motion: no-preference) {
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(28px) scale(0.985); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes wordIn {
+      from { transform: translateY(110%); }
+      to   { transform: none; }
+    }
+    @keyframes markIn {
+      from { background-size: 0% 100%; }
+      to   { background-size: 100% 100%; }
+    }
+    @keyframes popIn {
+      from { transform: scale(0.94); }
+      to   { transform: none; }
+    }
+    @keyframes glowIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ----- Load: the hero, once ----- */
     .anim [data-anim] {
       opacity: 0;
       transform: translateY(16px);
@@ -236,7 +276,6 @@
         opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s),
         transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s);
     }
-
     /* Wordmark and nav come from the top instead */
     .anim nav[data-anim] { transform: translateY(-12px); }
 
@@ -250,45 +289,32 @@
       transition: background-size 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s;
     }
 
-    /* The section heading's marker draws itself as the heading arrives */
-    .anim .features h2 .mark {
-      background-repeat: no-repeat;
-      background-size: 0% 100%;
-    }
-    .anim .features h2.in .mark {
-      background-size: 100% 100%;
-      transition: background-size 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.25s;
-    }
-
-    /* Scroll reveals */
-    .anim [data-reveal] {
-      opacity: 0;
-      transform: translateY(22px);
-    }
+    /* ----- Scroll reveals: replay on every entry ----- */
+    .anim [data-reveal]:not(.in) { opacity: 0; }
     .anim [data-reveal].in {
-      opacity: 1;
-      transform: none;
-      transition:
-        opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s),
-        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s);
+      animation: riseIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
     }
 
     /* Cards rise a touch further and settle */
-    .anim .card[data-reveal] { transform: translateY(28px) scale(0.985); }
-    .anim .card[data-reveal].in { transform: none; }
+    .anim .card[data-reveal].in {
+      animation: cardIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
+    }
+
+    /* The section heading's marker draws itself as the heading arrives */
+    .anim .features h2 .mark { background-repeat: no-repeat; }
+    .anim .features h2:not(.in) .mark { background-size: 0% 100%; }
+    .anim .features h2.in .mark {
+      animation: markIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.25s backwards;
+    }
 
     /* CTA panel: the block lands first, then its contents arrive in order.
        Heading words rise out of per-word masks. */
-    .anim .cta-inner .cta-step {
-      opacity: 0;
-      transform: translateY(16px);
+    .anim .cta-inner[data-reveal].in {
+      animation: panelIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
     }
+    .anim .cta-inner:not(.in) .cta-step { opacity: 0; }
     .anim .cta-inner.in .cta-step {
-      opacity: 1;
-      transform: none;
-      transition:
-        opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s),
-        transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s);
+      animation: stepIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
     }
     .anim .cta-inner .w {
       display: inline-block; overflow: hidden;
@@ -297,28 +323,19 @@
       padding-bottom: 0.14em; margin-bottom: -0.14em;
     }
     .anim .cta-inner h2 { line-height: 1.06; }
-    .anim .cta-inner .w > .wi {
-      display: inline-block; font-style: normal;
-      transform: translateY(110%);
-    }
+    .anim .cta-inner .w > .wi { display: inline-block; font-style: normal; }
+    .anim .cta-inner:not(.in) .w > .wi { transform: translateY(110%); }
     .anim .cta-inner.in .w > .wi {
-      transform: none;
-      transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s);
+      animation: wordIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) backwards;
     }
     /* Button settles a beat after the field it sits next to */
-    .anim .cta-inner .waitlist button { transform: scale(0.94); }
+    .anim .cta-inner:not(.in) .waitlist button { transform: scale(0.94); }
     .anim .cta-inner.in .waitlist button {
-      transform: none;
-      transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.5, 1) 0.86s, background 0.2s;
+      animation: popIn 0.5s cubic-bezier(0.34, 1.4, 0.5, 1) 0.86s backwards;
     }
-
-    /* The pine CTA panel expands slightly as it arrives */
-    .anim .cta-inner[data-reveal] { transform: translateY(24px) scale(0.98); }
-    .anim .cta-inner[data-reveal].in { transform: none; }
-    .anim .cta-inner::after { opacity: 0; }
+    .anim .cta-inner:not(.in)::after { opacity: 0; }
     .anim .cta-inner.in::after {
-      opacity: 1;
-      transition: opacity 1.2s ease 0.5s;
+      animation: glowIn 1.2s ease 0.5s backwards;
     }
   }
 
@@ -403,27 +420,38 @@
 
   requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add("ready")));
 
-  if (!still && "IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        el.classList.add("in");
-        io.unobserve(el);
-        // Once a card has landed, drop its reveal state so the card's own
-        // hover transition isn't outranked by the reveal rules.
-        if (!el.classList.contains("card")) return;
-        el.addEventListener("transitionend", function done(ev) {
-          if (ev.target !== el || ev.propertyName !== "opacity") return;
-          el.removeEventListener("transitionend", done);
-          el.removeAttribute("data-reveal");
-          el.classList.remove("in");
-        });
-      });
-    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.15 });
-    document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+  const reveals = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+
+  if (still) {
+    reveals.forEach((el) => el.classList.add("in"));
   } else {
-    document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("in"));
+    // .in is toggled both ways: an element that scrolls out of view drops it and
+    // replays its reveal on the way back in.
+    const inView = (el) => {
+      const box = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      return box.top < vh * 0.88 && box.bottom > 0;
+    };
+    const sync = () => reveals.forEach((el) => el.classList.toggle("in", inView(el)));
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("in", entry.isIntersecting);
+        });
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.15 });
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      window.addEventListener("scroll", sync, { passive: true });
+    }
+
+    // A document that never gets a frame (loaded in a background tab, a hidden
+    // preview) gets no observer callbacks, so nothing would ever reveal. These
+    // recompute straight from layout and can't leave anything stuck hidden.
+    window.addEventListener("load", sync);
+    window.addEventListener("resize", sync);
+    document.addEventListener("visibilitychange", sync);
+    sync();
   }
 
   // Waitlist endpoint pending; set to a Formspree/Vercel endpoint to go live.
