@@ -944,6 +944,43 @@ body {
   color: #111827;
 }
 
+/* --- Post byline strip: avatar, name, date, read time between hairlines --- */
+.article-byline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 14px 0;
+  border-top: 1px solid #e9e6e1;
+  border-bottom: 1px solid #e9e6e1;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.article-byline__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+.article-byline__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.article-byline__meta {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.article-byline__dot {
+  color: #cbd5e1;
+  font-size: 0.7rem;
+}
+
 .article-subtitle {
   margin: 0;
   font-size: 1.05rem;
