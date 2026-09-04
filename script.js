@@ -6,6 +6,12 @@ if (toggle && nav) {
     const isOpen = nav.classList.toggle("is-open");
     toggle.classList.toggle("is-active");
     toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    // The condensed nav bar carries a backdrop-filter, and any filtered element
+    // becomes the containing block for its position:fixed children. That would
+    // trap the full-screen mobile menu inside the pill, so the blur is dropped
+    // while the menu is open. See paintNavbar below, which respects this flag.
+    document.querySelector(".navbar")?.classList.toggle("menu-open", isOpen);
+    window.dispatchEvent(new Event("scroll"));
   });
 }
 
@@ -328,13 +334,55 @@ document.body.classList.remove("is-logged-out");
 workspace?.classList.remove("is-locked");
 render();
 
+// Nav: Wolff Olins style condense. The full-bleed transparent bar is scrubbed
+// against scroll position into a 780px glassy pill, so it tracks the user's
+// motion in both directions instead of snapping at a threshold. Same shape and
+// timings as the Magnetic site. Reduced motion gets a plain threshold toggle.
 const navbar = document.querySelector(".navbar");
-if (navbar) {
-  const updateNavbar = () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 8);
+const navBar = navbar?.querySelector(".nav-container");
+if (navbar && navBar) {
+  const SCRUB_START = 20;
+  const SCRUB_END = 470;
+  const PILL_WIDTH = 780;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const gutter = () => Math.min(Math.max(20, window.innerWidth * 0.05), 90);
+  const wideWidth = () =>
+    Math.max(Math.min(window.innerWidth, 1400) - 2 * gutter(), PILL_WIDTH);
+
+  let queued = false;
+
+  const paintNavbar = () => {
+    queued = false;
+    const y = window.scrollY;
+    const p = reduceMotion
+      ? (y > 140 ? 1 : 0)
+      : Math.min(1, Math.max(0, (y - SCRUB_START) / (SCRUB_END - SCRUB_START)));
+
+    const wide = wideWidth();
+    const blur = `blur(${(16 * p).toFixed(2)}px)`;
+
+    const menuOpen = navbar.classList.contains("menu-open");
+
+    navBar.style.maxWidth = `${wide + (PILL_WIDTH - wide) * p}px`;
+    navBar.style.backgroundColor = `rgba(10,10,10,${(0.55 * p).toFixed(3)})`;
+    navBar.style.backdropFilter = menuOpen ? "none" : blur;
+    navBar.style.webkitBackdropFilter = menuOpen ? "none" : blur;
+    navBar.style.padding = `${10 + 2 * p}px ${28 * p}px`;
+
+    navbar.classList.toggle("is-pill", p > 0.5);
+    navbar.classList.toggle("scrolled", y > 8);
   };
-  updateNavbar();
-  window.addEventListener("scroll", updateNavbar, { passive: true });
+
+  const queueNavbar = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(paintNavbar);
+  };
+
+  paintNavbar();
+  window.addEventListener("scroll", queueNavbar, { passive: true });
+  window.addEventListener("resize", queueNavbar);
 }
 
 const workSection = document.getElementById("work");
