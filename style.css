@@ -1019,6 +1019,51 @@ body {
   text-decoration: underline;
 }
 
+/* --- In-article figure (image + caption) --- */
+.article-figure {
+  margin: 2em 0 2.2em;
+}
+
+.article-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.article-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+/* --- "Read on LinkedIn" style source link --- */
+.article-source {
+  margin: 2.4em 0 0;
+}
+
+.article-source a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 18px;
+  border: 1px solid #ffd2c7;
+  border-radius: 999px;
+  background: #fff0ec;
+  color: #FF5130;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.article-source a:hover {
+  background: #ffe9e3;
+  border-color: #FF5130;
+}
+
 .article-video {
   margin: 24px 0 28px;
 }
