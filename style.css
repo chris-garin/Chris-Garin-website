@@ -2234,7 +2234,8 @@ body.page-fn .site-footer__meta { color: #83878d; }
 }
 
 /* The Field Notes cards are white; give them definition on the light home page. */
-.home-blog .fn-card {
+.home-blog .fn-card,
+.post-related .fn-card {
   border: 1px solid #ece9e4;
   box-shadow: 0 8px 26px rgba(15,23,42,.07);
 }
@@ -2256,6 +2257,36 @@ body.page-fn .site-footer__meta { color: #83878d; }
 
 .home-blog__more a::after { content: "\2192"; transition: transform .2s ease; }
 .home-blog__more a:hover::after { transform: translateX(3px); }
+
+
+/* --- Related stories as Field Notes cards (individual blog posts) --- */
+.post .article-page {
+  overflow-x: clip;
+}
+
+.post-related {
+  --pr-width: min(1100px, calc(100vw - 52px));
+  position: relative;
+  left: 50%;
+  width: var(--pr-width);
+  margin: 72px 0 0 calc(var(--pr-width) / -2);
+}
+
+.post-related .related__heading {
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+.post-related__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+@media (min-width: 760px) {
+  .post-related__grid { grid-template-columns: repeat(3, 1fr); }
+}
 
 
 /* =========================================================
