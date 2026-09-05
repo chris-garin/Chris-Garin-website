@@ -1871,6 +1871,29 @@ body.light .site-footer__links a:hover {
 }
 
 /* ===== BLOG: FAQ, RELATED, ADS ===== */
+/* Direct-answer block for question-led posts */
+.quick-answer {
+  margin: 0 0 2em;
+  padding: 20px 22px;
+  background: #FBF7F5;
+  border-left: 3px solid #FF5130;
+  border-radius: 0 6px 6px 0;
+}
+
+.quick-answer__label {
+  margin: 0 0 8px !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FF5130;
+}
+
+.quick-answer p:last-child {
+  margin: 0 !important;
+  color: #1f2937;
+}
+
 .faq {
   margin: 56px 0 0;
 }
