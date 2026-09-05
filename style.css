@@ -2568,18 +2568,20 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
 }
 
 /* --- Facebook post embed inside an article ---
-   The plugin renders at a fixed 500x757. The article column is narrower than
-   that on phones, so the frame is scaled down to whatever width it actually
-   gets (script.js) instead of pushing the page sideways. */
+   The plugin renders at a fixed size that varies per post. The article column
+   is narrower than that on phones, so the frame is scaled down to whatever
+   width it actually gets (script.js) instead of pushing the page sideways.
+   Each embed declares its own natural size via --fb-w / --fb-h so the space
+   is reserved correctly before the script runs. */
 .fb-embed {
   margin: 2em 0 2.2em;
 }
 
 .fb-embed__frame {
   position: relative;
-  width: 500px;
+  width: calc(var(--fb-w, 500) * 1px);
   max-width: 100%;
-  height: 757px;
+  height: calc(var(--fb-h, 757) * 1px);
   margin: 0 auto;
   overflow: hidden;
 }
@@ -2588,8 +2590,8 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
   position: absolute;
   top: 0;
   left: 0;
-  width: 500px;
-  height: 757px;
+  width: calc(var(--fb-w, 500) * 1px);
+  height: calc(var(--fb-h, 757) * 1px);
   border: 0;
   transform-origin: top left;
 }
