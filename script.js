@@ -471,3 +471,29 @@ if (heroWave) {
     loopWave();
   }
 }
+
+/* Facebook post embeds render at a fixed 500x757. Scale each one down to the
+   width its column actually has, so a phone gets the whole card instead of a
+   sideways-scrolling page. Height is reset to match so nothing is clipped. */
+(() => {
+  const frames = document.querySelectorAll(".fb-embed__frame");
+  if (!frames.length) return;
+
+  const NATURAL_W = 500;
+  const NATURAL_H = 757;
+
+  const fit = () => {
+    frames.forEach((frame) => {
+      const iframe = frame.querySelector("iframe");
+      if (!iframe) return;
+      const available = frame.parentElement.clientWidth;
+      const scale = Math.min(1, available / NATURAL_W);
+      iframe.style.transform = "scale(" + scale + ")";
+      frame.style.height = NATURAL_H * scale + "px";
+      frame.style.width = NATURAL_W * scale + "px";
+    });
+  };
+
+  fit();
+  window.addEventListener("resize", fit);
+})();
