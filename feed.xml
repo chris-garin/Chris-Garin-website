@@ -5,9 +5,16 @@
   <link>https://chrisgarin.com/blog/</link>
   <description>Brand histories and field notes from Chris Garin.</description>
   <language>en</language>
-  <lastBuildDate>Fri, 04 Sep 2026 09:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 05 Sep 2026 09:00:00 GMT</lastBuildDate>
   <atom:link href="https://chrisgarin.com/feed.xml" rel="self" type="application/rss+xml"/>
   <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+  <item>
+    <title>Partizan: Connecting the Dots, Ten Years Later | Chris Garin</title>
+    <link>https://chrisgarin.com/blog/partizan/</link>
+    <guid isPermaLink="true">https://chrisgarin.com/blog/partizan/</guid>
+    <description>I scrolled ten years back through my first company&amp;rsquo;s Facebook page and found a younger version of me already chasing everything I&amp;rsquo;m chasing now.</description>
+    <pubDate>Sat, 05 Sep 2026 09:00:00 GMT</pubDate>
+  </item>
   <item>
     <title>Heatseeker: the tool I built to never face a blank page again | Chris Garin</title>
     <link>https://chrisgarin.com/blog/heatseeker/</link>
