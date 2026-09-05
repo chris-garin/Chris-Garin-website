@@ -2595,3 +2595,44 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
   border: 0;
   transform-origin: top left;
 }
+
+/* --- Sub-headings inside an article ---
+   h2 is 1.7rem at desktop; h3 sits a step under it so a nested question
+   reads as part of its section rather than as a new one. */
+.article-content h3 {
+  margin: 1.8em 0 0.5em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #111827;
+}
+
+@media (min-width: 768px) {
+  .post .article-content h3 {
+    font-size: 1.32rem;
+  }
+}
+
+/* --- TikTok embed inside an article ---
+   The plugin swaps the blockquote for its own iframe at a fixed 605px max.
+   Centre it and let it shrink with the column so a phone never scrolls
+   sideways. */
+.tiktok-wrap {
+  margin: 2em 0 2.2em;
+}
+
+.tiktok-wrap .tiktok-embed,
+.tiktok-wrap iframe {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 100% !important;
+}
+
+.tiktok-wrap__note {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #64748b;
+  font-style: italic;
+  text-align: center;
+}
