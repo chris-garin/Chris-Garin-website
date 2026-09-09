@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Regenerate the site favicon set from images/logo-black.png.
 
-The source logo is a dark "cg" glyph on transparency, which disappears against
-dark browser tab bars. So we knock the glyph out in white on a solid brand
-coral tile: legible at 16px, and identical in light and dark UI.
+The "cg" mark as it appears in the nav: its own #333 ink, on a solid white
+tile. The tile matters — the source PNG is transparent, and a dark glyph on
+transparency disappears against a dark browser tab bar.
 
 Run from dist/:  python3 tools/build-favicons.py
 """
@@ -12,8 +12,8 @@ from PIL import Image
 
 DIST = Path(__file__).resolve().parent.parent
 SRC = DIST / "images" / "logo-black.png"
-BRAND = (255, 81, 48, 255)   # #FF5130
-GLYPH = (255, 255, 255, 255)
+TILE = (255, 255, 255, 255)  # white
+GLYPH = (51, 51, 51, 255)    # #333333, the mark's own ink
 PAD = 0.16                   # share of the tile left as margin on each side
 
 # Render once, large, then downsample for each target size.
@@ -31,7 +31,7 @@ def render(size: int) -> Image.Image:
         Image.LANCZOS,
     )
 
-    tile = Image.new("RGBA", (MASTER, MASTER), BRAND)
+    tile = Image.new("RGBA", (MASTER, MASTER), TILE)
     ink = Image.new("RGBA", glyph.size, GLYPH)
     tile.paste(ink, ((MASTER - glyph.width) // 2, (MASTER - glyph.height) // 2), glyph)
     return tile.resize((size, size), Image.LANCZOS)
