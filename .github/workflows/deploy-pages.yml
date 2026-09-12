@@ -32,6 +32,9 @@ jobs:
       - name: Rebuild sitemap.xml and feed.xml
         run: node tools/build-seo.mjs
 
+      - name: Refresh the homepage writing teaser
+        run: node tools/build-home-writing.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
