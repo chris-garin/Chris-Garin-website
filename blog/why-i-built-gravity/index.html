@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF5130">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPBLXJB1P2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SPBLXJB1P2');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Built Gravity | Chris Garin</title>
+<meta name="description" content="The thing I kept noticing on calls with founders, the first two clients who proved it could work, and why I named the company Gravity.">
+<link rel="canonical" href="https://chrisgarin.com/blog/why-i-built-gravity/">
+
+<meta property="og:title" content="Why I Built Gravity">
+<meta property="og:description" content="The thing I kept noticing on calls with founders, the first two clients who proved it could work, and why I named the company Gravity.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://chrisgarin.com/blog/why-i-built-gravity/">
+<meta property="og:image" content="https://chrisgarin.com/images/cgsocialshare.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Chris Garin">
+<meta name="twitter:card" content="summary_large_image">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5075104519461185" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../../style.css">
+  <link rel="alternate" type="application/rss+xml" title="Field Notes | Chris Garin" href="/feed.xml">
+</head>
+<body class="light post">
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/images/logo.png" class="logo-img">
+    </a>
+
+    <button class="menu-toggle" id="mobile-menu"
+    aria-label="Toggle navigation"
+    aria-controls="primary-nav"
+    aria-expanded="false"
+    >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    </button>
+
+      <ul class="nav-links" id="primary-nav">
+       <li><a href="/#work">Work</a></li>
+       <li><a href="/blog/">Writing</a></li>
+       <li><a href="https://www.linkedin.com/in/chrisgarin/" target="_blank" rel="noopener noreferrer" class="nav-linkedin"><svg class="nav-linkedin__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.53C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg>LinkedIn</a></li>
+       <li class="nav-cta nav-cta--mobile">
+          <a href="mailto:heychrisgarin@gmail.com" class="cta-button"><svg class="cta-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>Get in touch</a>
+       </li>
+     </ul>
+
+    <div class="nav-cta nav-cta--desktop">
+      <a href="mailto:heychrisgarin@gmail.com" class="cta-button"><svg class="cta-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>Get in touch</a>
+    </div>
+  </div>
+
+</nav>
+
+<section class="article-page">
+  <div class="article-container">
+
+    <header class="article-header">
+      <h1 class="article-title">Why I Built Gravity</h1>
+      <div class="article-byline">
+        <img class="article-byline__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="40" height="40">
+        <span class="article-byline__name">Chris Garin</span>
+        <span class="article-byline__dot" aria-hidden="true">&bull;</span>
+        <span class="article-byline__meta">September 12, 2026</span>
+        <span class="article-byline__dot" aria-hidden="true">&bull;</span>
+        <span class="article-byline__meta">13 min read</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        I want to tell you why I started <a href="https://madewithgravity.com" target="_blank" rel="noopener noreferrer">Gravity</a>.
+      </p>
+
+      <p>
+        Not the tidy version that fits on a landing page, but the actual thought process, the thing I kept noticing that wouldn&rsquo;t let me go, the first two people who proved it could work, and the story behind the name.
+      </p>
+
+      <h2>The Thing I Kept Noticing</h2>
+
+      <p>
+        For a while I worked as a marketing virtual assistant to realtors and founders.
+      </p>
+
+      <p>
+        It was unglamorous work, but it put me on calls with a lot of people, and something started happening that I couldn&rsquo;t shake.
+      </p>
+
+      <p>
+        I would get on a call with someone and leave it a little stunned at how good they were.
+      </p>
+
+      <p>
+        Not good in a vague, motivational-poster way. Good in the specific, earned way that only comes from years of doing a thing until you understand it in your bones.
+      </p>
+
+      <p>
+        They&rsquo;d casually drop insights about their field that I&rsquo;d never heard anyone say out loud. Little tricks of the trade. Ways of seeing their industry that only somebody who had lived inside it for a decade could see.
+      </p>
+
+      <p>
+        Every one of those conversations lit me up. I&rsquo;d hang up and think, <em>how does this person exist and I&rsquo;ve never heard of them?</em>
+      </p>
+
+      <p>
+        Because here&rsquo;s the part that started to bother me.
+      </p>
+
+      <p>
+        These same people, the ones blowing my mind on a Tuesday afternoon call, were not seen as leaders in their field. Not even close. Their reputations were nowhere near the size of their actual expertise.
+      </p>
+
+      <p>
+        They&rsquo;d post on LinkedIn every once in a while. And even when they were saying something that clearly signalled mastery, it just sat there. It didn&rsquo;t land. It wasn&rsquo;t interesting enough to make anyone stop scrolling.
+      </p>
+
+      <p>
+        The gap between how good they were and how they came across online was enormous.
+      </p>
+
+      <p>
+        They were the best-kept secret in their own space. And they didn&rsquo;t even know it.
+      </p>
+
+      <h2>The Question That Turned Into Gravity</h2>
+
+      <p>
+        What really got me was that these people were still <em>chasing</em>.
+      </p>
+
+      <p>
+        They were winning clients, sure. But they were doing it the hard way: reaching out, following up, pitching, convincing. Spending energy going to the market instead of the market coming to them.
+      </p>
+
+      <p>
+        And I kept looking at that and thinking it was backwards. Someone this good shouldn&rsquo;t have to chase anyone.
+      </p>
+
+      <p>
+        So I started asking a different question.
+      </p>
+
+      <p>
+        What if I could flip it? What if the content did the pulling? What if, instead of them reaching out, the right people came looking for <em>them</em>?
+      </p>
+
+      <p>
+        That question is the whole reason Gravity exists.
+      </p>
+
+      <p>
+        Because when content actually communicates real mastery, when it shows the depth instead of just claiming it, something changes.
+      </p>
+
+      <p>
+        It stops being noise and starts being a signal. And a real signal pulls the right people toward you.
+      </p>
+
+      <p>
+        You stop introducing yourself and start getting introduced.
+      </p>
+
+      <p>
+        That&rsquo;s the job I gave myself.
+      </p>
+
+      <p>
+        Build that pull for founders who have earned it but never had the time to show it. Take the person who is genuinely brilliant and quietly invisible, and make them the one their market comes looking for.
+      </p>
+
+      <h2>Gravity&rsquo;s First Two Clients</h2>
+
+      <p>
+        Before Gravity had a name, I was already doing the work.
+      </p>
+
+      <p>
+        Two of the people I was working with at the time eventually became Gravity&rsquo;s first two clients. We still work with both of them today.
+      </p>
+
+      <p>
+        I won&rsquo;t name them here. Confidentiality is part of how we work at Gravity, and it matters especially with this kind of work.
+      </p>
+
+      <p>
+        To create content that genuinely sounds like the people we work with, we need to get unusually close to how they think: what they&rsquo;re seeing inside their businesses, what they believe about their industries, the patterns they&rsquo;ve picked up after years of doing the work, the conversations they&rsquo;re having with clients, and sometimes the commercial realities behind those conversations.
+      </p>
+
+      <p>
+        Some of the best material comes from things they would never think to post themselves. A passing observation on a call. A strong opinion they assumed everyone already knew. A story about a client. Something they&rsquo;ve learned the hard way over ten years that comes so naturally to them now they don&rsquo;t even recognize it as expertise.
+      </p>
+
+      <p>
+        Our job is to find those things.
+      </p>
+
+      <p>
+        But that kind of access only works when there&rsquo;s trust. So we protect it.
+      </p>
+
+      <p>
+        But I can tell you enough about them to show you why Gravity exists.
+      </p>
+
+      <p>
+        One is the founder of a boutique M&amp;A advisory firm in London.
+      </p>
+
+      <p>
+        And I remember being a little mind blown almost every time I talked to him.
+      </p>
+
+      <p>
+        I&rsquo;d ask what I thought was a fairly straightforward question about selling a business, and twenty minutes later we&rsquo;d somehow be talking about buyer psychology, deal structure, competitive tension, what happens in a negotiation when one side knows something the other doesn&rsquo;t, and the tiny signals founders give off that can quietly weaken their position.
+      </p>
+
+      <p>
+        The interesting part was that he never seemed to think any of this was particularly remarkable.
+      </p>
+
+      <p>
+        To him, this was just the job.
+      </p>
+
+      <p>
+        He&rsquo;d spent years helping business owners navigate acquisitions and exits. He&rsquo;d seen enough transactions to recognize patterns most founders might only encounter once in their lives.
+      </p>
+
+      <p>
+        He knew why a founder could have a great business and still leave millions on the table in a sale. He knew the small things buyers notice during diligence that sellers almost always underestimate. He could look at a deal that seemed attractive on paper and tell you where it was likely to fall apart long before anyone else saw it.
+      </p>
+
+      <p>
+        Sometimes he&rsquo;d say something almost in passing and I&rsquo;d stop him.
+      </p>
+
+      <p>
+        <em>Wait. Say that again.</em>
+      </p>
+
+      <p>
+        Because what sounded obvious to him absolutely wasn&rsquo;t obvious to me.
+      </p>
+
+      <p>
+        And I started realizing that was the opportunity.
+      </p>
+
+      <p>
+        There was all this expertise sitting inside his head, but almost none of it was making its way onto LinkedIn.
+      </p>
+
+      <p>
+        If you&rsquo;d found him there, you wouldn&rsquo;t have seen the person I was talking to on those calls.
+      </p>
+
+      <p>
+        His content was professional. Polished. Completely credible.
+      </p>
+
+      <p>
+        And completely forgettable.
+      </p>
+
+      <p>
+        It sounded like M&amp;A content: market updates, transaction announcements, the occasional observation about valuations or deal activity. Nothing was wrong with it.
+      </p>
+
+      <p>
+        But it didn&rsquo;t communicate mastery.
+      </p>
+
+      <p>
+        It didn&rsquo;t give you that feeling I kept getting when I spoke to him: <em>This guy has been in the room. He knows things I don&rsquo;t know. I&rsquo;d want him beside me if I were selling my company.</em>
+      </p>
+
+      <p>
+        That gap fascinated me.
+      </p>
+
+      <p>
+        Because I knew the person was interesting. I knew the expertise was there. I&rsquo;d experienced it myself.
+      </p>
+
+      <p>
+        So the problem wasn&rsquo;t, <em>How do we make this person more interesting on LinkedIn?</em>
+      </p>
+
+      <p>
+        It was, <em>How do we make everyone else experience what I experience when I talk to him?</em>
+      </p>
+
+      <p>
+        That became the work.
+      </p>
+
+      <p>
+        Instead of asking him for &ldquo;content ideas,&rdquo; I started listening differently.
+      </p>
+
+      <p>
+        I listened for the opinions he&rsquo;d formed after years around actual transactions. The patterns he&rsquo;d noticed. The things clients consistently misunderstood. The advice he gave so often that he&rsquo;d forgotten it wasn&rsquo;t common knowledge.
+      </p>
+
+      <p>
+        On one call, he explained that founders often think the negotiation begins when the first offer arrives.
+      </p>
+
+      <p>
+        His view was that by then, a surprising amount of the negotiation has already happened.
+      </p>
+
+      <p>
+        How the business was positioned. Which buyers were brought into the process. What information they&rsquo;d seen. How much competitive tension had been created.
+      </p>
+
+      <p>
+        All of those things had already shaped what buyers believed the company was worth.
+      </p>
+
+      <p>
+        And there it was again.
+      </p>
+
+      <p>
+        <em>Why isn&rsquo;t this what you&rsquo;re putting on LinkedIn?</em>
+      </p>
+
+      <p>
+        That was the content.
+      </p>
+
+      <p>
+        We started turning insights like that into posts, and people began responding differently.
+      </p>
+
+      <p>
+        Not just liking them. Asking questions. Sharing them. Starting conversations with him about their own businesses and what an eventual exit might look like.
+      </p>
+
+      <p>
+        We hadn&rsquo;t made him more knowledgeable.
+      </p>
+
+      <p>
+        We hadn&rsquo;t given him opinions.
+      </p>
+
+      <p>
+        We hadn&rsquo;t manufactured some online personality for him.
+      </p>
+
+      <p>
+        We&rsquo;d just started letting other people see the person I&rsquo;d been seeing on those calls.
+      </p>
+
+      <p>
+        The second client was an estate agent in the UK. Different industry, same experience.
+      </p>
+
+      <p>
+        I&rsquo;d get on calls with her and be amazed by how much she noticed. You could mention a neighbourhood and she wouldn&rsquo;t just know the average price. She&rsquo;d know the streets, what kind of buyer tended to look there, why one side of an area moved differently from another. She&rsquo;d know which properties would photograph beautifully but struggle during viewings, and which homes people might scroll past online but fall in love with the second they walked through the door. She knew which renovations sellers routinely wasted money on, and what buyers noticed in the first thirty seconds of a viewing.
+      </p>
+
+      <p>
+        And again, she&rsquo;d say these things like they were obvious. They weren&rsquo;t. They were the product of years of walking into homes, watching buyers react, seeing deals happen and others fall apart, and slowly building an instinct for her market that you couldn&rsquo;t learn from a property report.
+      </p>
+
+      <p>
+        But her social media looked like almost every other estate agent&rsquo;s. New listing. Sold property. Market update. Congratulations to the new homeowners. It told you she was an estate agent. It never told you how good she actually was.
+      </p>
+
+      <p>
+        So with her, we stopped making the properties the most interesting thing in her content. We made <strong>her judgment</strong> the interesting thing.
+      </p>
+
+      <p>
+        Instead of simply posting another listing, we&rsquo;d talk about what she noticed about it. Why she thought a certain kind of buyer would want it. What the seller had done right. What she would have changed before bringing it to market. Her content stopped saying <em>I&rsquo;m an estate agent</em> and started showing people <em>this is how I see the market.</em>
+      </p>
+
+      <p>
+        And that changed the conversations around her. Homeowners started asking for her opinion before they were ready to sell. People who&rsquo;d been quietly considering putting their homes on the market reached out. Some conversations no longer began with her trying to convince someone she was the right agent. They began with trust already there.
+      </p>
+
+      <p>
+        These were two completely different people in two completely different industries.
+      </p>
+
+      <p>
+        One advising founders on M&amp;A transactions in London. The other helping people buy and sell homes in the UK.
+      </p>
+
+      <p>
+        But they had exactly the same problem.
+      </p>
+
+      <p>
+        <strong>The people I met on those calls were far more impressive than the people I saw online.</strong>
+      </p>
+
+      <p>
+        And that became the thing I couldn&rsquo;t unsee.
+      </p>
+
+      <p>
+        I didn&rsquo;t need to make them more interesting.
+      </p>
+
+      <p>
+        I didn&rsquo;t need to manufacture expertise or turn them into &ldquo;personal brands.&rdquo;
+      </p>
+
+      <p>
+        The mastery was already there.
+      </p>
+
+      <p>
+        My job was to find it, pull it out, and communicate it well enough that someone scrolling LinkedIn could feel a little of what I felt sitting across from them on a call.
+      </p>
+
+      <p>
+        That became the foundation of Gravity.
+      </p>
+
+      <p>
+        So Gravity wasn&rsquo;t built around a theory I wanted to test.
+      </p>
+
+      <p>
+        It was built around people I&rsquo;d already worked with, people whose expertise had already blown me away, and a problem I knew we could solve:
+      </p>
+
+      <p>
+        <strong>Make the person the market sees as impressive as the person you meet in the room.</strong>
+      </p>
+
+      <p>
+        Eventually, I just gave that work a name.
+      </p>
+
+      <h2>Why I Chose the Name Gravity</h2>
+
+      <p>
+        I called it Gravity because that&rsquo;s the most honest word I had for what I was actually trying to create.
+      </p>
+
+      <p>
+        Part of it came from something I just couldn&rsquo;t stop thinking about.
+      </p>
+
+      <p>
+        There are founders and thought leaders I admire who have built these big followings, and when you watch them from the outside, opportunities just seem to <em>come</em> to them. Doors open on their own. The right people show up.
+      </p>
+
+      <p>
+        They&rsquo;ve somehow built this whole world around themselves, and everything drifts toward it. It started to feel less like they were going out and getting these things and more like they had a gravitational field, quietly pulling people and opportunities into their orbit.
+      </p>
+
+      <p>
+        And that&rsquo;s the thing about gravity. It doesn&rsquo;t chase anything. It doesn&rsquo;t reach out, doesn&rsquo;t push, doesn&rsquo;t convince.
+      </p>
+
+      <p>
+        It just <em>is</em>, and because of what it is, things move toward it. The pull isn&rsquo;t an effort. It&rsquo;s a property of the thing itself.
+      </p>
+
+      <p>
+        That&rsquo;s exactly what real expertise should do. When you&rsquo;ve built up genuine weight in your field, years of it, the depth should create its own pull. People should feel drawn in.
+      </p>
+
+      <p>
+        The problem is that most founders have the weight but none of the pull, because nobody can see it. It&rsquo;s locked inside their heads and their calls and their day-to-day work, and it never makes it out into the world where anyone can feel it.
+      </p>
+
+      <p>
+        So Gravity is about making that depth visible.
+      </p>
+
+      <p>
+        Taking what&rsquo;s already there, the real substance a founder has spent years building, and expressing it clearly enough that it starts doing what real depth is supposed to do: pull.
+      </p>
+
+      <p>
+        The name is a promise, in a way. Content that communicates real mastery has a gravitational pull. It brings the right people toward you.
+      </p>
+
+      <p>
+        If you&rsquo;re the best-kept secret in your space, the fix isn&rsquo;t to shout louder or chase harder. It&rsquo;s to finally let the weight of what you know be felt.
+      </p>
+
+      <p>
+        That&rsquo;s the concept. That&rsquo;s the name. And that&rsquo;s why I built it.
+      </p>
+
+      <h2>How All My Struggles Led Me Here</h2>
+
+      <p>
+        Looking back at those two clients, I can see I was doing three specific things without ever really naming them.
+      </p>
+
+      <p>
+        I was listening for the expertise they didn&rsquo;t know they had. I was pulling it out and shaping it into something that could actually earn attention. And I was sweating the words until it sounded like them at their best.
+      </p>
+
+      <p>
+        Here&rsquo;s the strange part. I never set out to learn any of those things for this. Every one of them came from somewhere else entirely, and I had no idea at the time that they were preparing me for this.
+      </p>
+
+      <p>
+        The listening, the client sense, the ability to sit across from a founder and understand how they think, that came from <a href="/blog/partizan/">Partizan</a>, the agency I ran for eleven years, leading a team and working with big companies.
+      </p>
+
+      <p>
+        That gave me the foundation: how to work with clients, how to think about a brand, how to run creative work end to end.
+      </p>
+
+      <p>
+        But if I&rsquo;m honest, it didn&rsquo;t give me the thing that matters most here. Back then I couldn&rsquo;t yet make every word earn its place. I could get the work done. The precision came later.
+      </p>
+
+      <p>
+        Knowing how to <em>get</em> attention and keep it, that came from <a href="https://youtube.com/@brandorigins" target="_blank" rel="noopener noreferrer">Brand Origins</a>, a podcast and YouTube channel I started about the histories behind brands.
+      </p>
+
+      <p>
+        When you&rsquo;re making content that has to survive the scroll, you learn fast what a strong hook actually is, what makes someone stop, and what keeps them watching once you have them.
+      </p>
+
+      <p>
+        You either figure out how to earn attention or nobody watches. That&rsquo;s the exact skill that turns a founder&rsquo;s insight into something people actually read.
+      </p>
+
+      <p>
+        And the word-level obsession, the part where I&rsquo;ll sit with a single sentence until it&rsquo;s right, that came from two years in a copywriting role. That&rsquo;s what made me detail-oriented at the level this work demands.
+      </p>
+
+      <p>
+        Learning to feel the difference one word makes, to understand that precision isn&rsquo;t decoration, it&rsquo;s the whole point.
+      </p>
+
+      <p>
+        It&rsquo;s a little crazy how that works. Life keeps handing you experiences you have no idea you&rsquo;ll need, quietly preparing you for opportunities you can&rsquo;t even see yet.
+      </p>
+
+      <p>
+        The agency years, the channel, the copywriting, none of it felt like it was pointing anywhere in particular at the time. Now I can see it was all pointing here.
+      </p>
+
+      <h2>The Founders Gravity Is Looking For</h2>
+
+      <p>
+        Those first two clients taught me something else about the kind of people I want Gravity to work with.
+      </p>
+
+      <p>
+        I&rsquo;m looking for the person who gets more interesting the longer you talk to them.
+      </p>
+
+      <p>
+        The founder who&rsquo;s spent years getting exceptionally good at something, but whose reputation hasn&rsquo;t caught up with their ability yet.
+      </p>
+
+      <p>
+        The person who can say something almost casually in conversation that makes me stop and think, <em>Wait. Say that again.</em>
+      </p>
+
+      <p>
+        That&rsquo;s the feeling I&rsquo;m looking for.
+      </p>
+
+      <p>
+        Because Gravity only works when there&rsquo;s something real underneath it.
+      </p>
+
+      <p>
+        We can find the stories. We can pull out the ideas. We can sharpen the thinking, package it, and make it interesting enough to earn attention.
+      </p>
+
+      <p>
+        But we can&rsquo;t manufacture mastery.
+      </p>
+
+      <p>
+        And I don&rsquo;t want to.
+      </p>
+
+      <p>
+        The whole point of Gravity is to take expertise that&rsquo;s already there and make it visible.
+      </p>
+
+      <p>
+        So if you&rsquo;ve built something real, you know your field in your bones, and you&rsquo;re still somehow one of the best-kept secrets in your space, you&rsquo;re exactly the kind of person we built <a href="https://madewithgravity.com" target="_blank" rel="noopener noreferrer">Gravity</a> for.
+      </p>
+
+      <p>
+        You already have the weight.
+      </p>
+
+      <p>
+        Our job is to help the market feel the pull.
+      </p>
+
+      <p>
+        And I think that&rsquo;s what excites me most about where Gravity goes from here.
+      </p>
+
+      <p>
+        There are so many people out there who are quietly exceptional at what they do.
+      </p>
+
+      <p>
+        People who&rsquo;ve spent ten, fifteen, twenty years getting good at something, but who haven&rsquo;t figured out how to make the rest of the world see what the people closest to them already know.
+      </p>
+
+      <p>
+        I keep thinking about how many of them I haven&rsquo;t met yet.
+      </p>
+
+      <p>
+        How many conversations are still ahead of me where someone says something almost casually and I have to stop them and say, <em>Wait. Say that again.</em>
+      </p>
+
+      <p>
+        That&rsquo;s the part I&rsquo;m looking forward to.
+      </p>
+
+      <p>
+        I don&rsquo;t know exactly how big Gravity will become or where all of this will lead. I&rsquo;m still early enough in the journey that a lot of it is unknown.
+      </p>
+
+      <p>
+        But I know the feeling I&rsquo;m chasing.
+      </p>
+
+      <p>
+        I&rsquo;ve felt it in those conversations. I&rsquo;ve seen what happens when someone&rsquo;s real expertise finally makes it out of the room and into the world.
+      </p>
+
+      <p>
+        And I want to keep building a company that helps more of that happen.
+      </p>
+
+      <p>
+        Maybe, years from now, I&rsquo;ll look back at those first two clients and realize that was the beginning of something much bigger than I could see at the time.
+      </p>
+
+      <p>
+        I hope so.
+      </p>
+
+      <p>
+        For now, I&rsquo;m just excited to find the next person who makes me say:
+      </p>
+
+      <p>
+        <em>Wait. Say that again.</em>
+      </p>
+    </article>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Why I Built Gravity",
+      "description": "The thing I kept noticing on calls with founders, the first two clients who proved it could work, and why I named the company Gravity.",
+      "image": "https://chrisgarin.com/images/cgsocialshare.png",
+      "datePublished": "2026-09-12",
+      "dateModified": "2026-09-12",
+      "author": { "@type": "Person", "name": "Chris Garin", "url": "https://chrisgarin.com/" },
+      "publisher": { "@type": "Organization", "name": "Chris Garin", "logo": { "@type": "ImageObject", "url": "https://chrisgarin.com/images/logo.png" } },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://chrisgarin.com/blog/why-i-built-gravity/" }
+    }
+    </script>
+
+    <section class="related post-related" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related__heading">Related stories</h2>
+      <div class="fn-grid post-related__grid">
+      <article class="fn-item" data-reveal="scroll">
+        <a class="fn-card" href="/blog/partizan/" style="--tone: #9A4A34;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Life</span>
+            <span class="fn-card__date">Sep 5, 2026</span>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h3 class="fn-card__title">Partizan: Connecting the Dots, Ten Years Later</h3>
+              <p class="fn-card__excerpt">I scrolled ten years back through my first company&rsquo;s Facebook page and found a younger version of me already chasing everything I&rsquo;m chasing now.</p>
+            </div>
+          </div>
+        </a>
+      </article>
+      <article class="fn-item" data-reveal="scroll">
+        <a class="fn-card" href="/blog/heatseeker/" style="--tone: #7A3448;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Life</span>
+            <span class="fn-card__date">Sep 4, 2026</span>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h3 class="fn-card__title">Heatseeker: the tool I built to never face a blank page again</h3>
+              <p class="fn-card__excerpt">Years of ideas dying in my notes because I couldn&rsquo;t build them, the day I got tired of that, and the tool that now finds what my clients should talk about.</p>
+            </div>
+          </div>
+        </a>
+      </article>
+      <article class="fn-item" data-reveal="scroll">
+        <a class="fn-card" href="/blog/not-lazy-just-scared/" style="--tone: #C0763A;">
+          <div class="fn-card__panel">
+            <span class="fn-card__cat">Life</span>
+            <span class="fn-card__date">Aug 16, 2026</span>
+          </div>
+          <div class="fn-card__body">
+            <div class="fn-card__by">
+              <img class="fn-card__avatar" src="/images/chrisgarin2.png" alt="Chris Garin" width="44" height="44" loading="lazy">
+              <span class="fn-card__byname">by Chris Garin</span>
+            </div>
+            <div class="fn-card__foot">
+              <h3 class="fn-card__title">I Wasn&rsquo;t Lazy. I Was Scared.</h3>
+              <p class="fn-card__excerpt">A year of procrastination I mistook for laziness, the low bar that got Brand Origins off the ground, and why perfectionism is just fear in high heels.</p>
+            </div>
+          </div>
+        </a>
+      </article>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+<script src="../../script.js"></script>
+</body>
+</html>
