@@ -68,13 +68,21 @@
       <h1 class="fn-head__title" data-reveal="load">Field Notes</h1>
       <p class="fn-head__desc" data-reveal="load">Things I overthink so you don&rsquo;t have to. Here&rsquo;s a compilation of stuff I got curious about at 1am and couldn&rsquo;t let go of.</p>
     </div>
-    <div class="fn-head__cats" data-reveal="load" role="group" aria-label="Filter by category">
-      <button class="fn-chip" type="button" data-cat="all" aria-pressed="true">All</button>
-      <button class="fn-chip" type="button" data-cat="Personal" aria-pressed="false">Personal</button>
-      <button class="fn-chip" type="button" data-cat="Brand Origins" aria-pressed="false">Brand Origins</button>
-      <button class="fn-chip" type="button" data-cat="Explainer" aria-pressed="false">Explainer</button>
-      <button class="fn-chip" type="button" data-cat="Playbook" aria-pressed="false">Playbook</button>
+    <div class="fn-head__tools" data-reveal="load">
+      <div class="fn-head__cats" role="group" aria-label="Filter by category">
+        <button class="fn-chip" type="button" data-cat="all" aria-pressed="true">All</button>
+        <button class="fn-chip" type="button" data-cat="Personal" aria-pressed="false">Personal</button>
+        <button class="fn-chip" type="button" data-cat="Brand Origins" aria-pressed="false">Brand Origins</button>
+        <button class="fn-chip" type="button" data-cat="Explainer" aria-pressed="false">Explainer</button>
+        <button class="fn-chip" type="button" data-cat="Playbook" aria-pressed="false">Playbook</button>
+      </div>
+      <div class="fn-search" role="search">
+        <svg class="fn-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input class="fn-search__input" id="fn-search" type="search" placeholder="Search posts" aria-label="Search posts by title or text" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <button class="fn-search__clear" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+      </div>
     </div>
+    <p class="fn-search__status" role="status" aria-live="polite"></p>
   </div>
 </section>
 <section class="fn-lead">
@@ -922,31 +930,104 @@
     }, 140);
   });
 
-  /* Category filter. Hiding cards changes each track's width, so the
-     carousels have to be re-measured afterwards. */
-  var chips = document.querySelectorAll('.fn-chip');
-  var items = document.querySelectorAll('.fn-item');
-  var lead  = document.querySelector('.fn-lead');
+  /* Category chips + search box, one filter. A card shows when it is in the
+     chosen category AND every typed word appears in its title, excerpt or
+     body text. Titles match straight from the cards; body text comes from
+     search-index.json (built on deploy by tools/build-search-index.mjs),
+     fetched the first time someone focuses the box so ordinary visits never
+     pay for it. Hiding cards changes each track's width, so the carousels
+     are re-measured afterwards. */
+  var chips  = document.querySelectorAll('.fn-chip');
+  var items  = document.querySelectorAll('.fn-item');
+  var lead   = document.querySelector('.fn-lead');
+  var input  = document.getElementById('fn-search');
+  var clear  = document.querySelector('.fn-search__clear');
+  var status = document.querySelector('.fn-search__status');
+  var cat    = 'all';
+  var bodies = {};
+  var loading = null;
+
+  /* Lowercase, drop accents and curly quotes, so "nescafe" finds "Nescafé"
+     and "rustans" finds "Rustan’s". */
+  function norm(s) {
+    return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[‘’“”'"]/g, '').toLowerCase();
+  }
+
+  function slugOf(it) {
+    var a = it.querySelector('a[href]');
+    var m = a && a.getAttribute('href').match(/\/blog\/([^/]+)\//);
+    return m ? m[1] : '';
+  }
+
+  items.forEach(function (it) { it._head = norm(it.textContent); it._slug = slugOf(it); });
+
+  function loadIndex() {
+    if (!loading) {
+      loading = fetch('/blog/search-index.json')
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .then(function (posts) {
+          posts.forEach(function (p) { bodies[p.slug] = norm(p.text); });
+          if (input.value.trim()) apply();
+        })
+        .catch(function () { /* titles still match without it */ });
+    }
+    return loading;
+  }
+
+  function apply() {
+    var q = norm(input.value).trim();
+    var terms = q ? q.split(/\s+/) : [];
+    var shown = 0;
+
+    items.forEach(function (it) {
+      var inCat = cat === 'all' || it.getAttribute('data-cat') === cat;
+      var hay = terms.length ? it._head + ' ' + (bodies[it._slug] || '') : '';
+      var hit = terms.every(function (t) { return hay.indexOf(t) !== -1; });
+      var show = inCat && hit;
+      it.classList.toggle('is-hidden', !show);
+      if (show) shown++;
+    });
+
+    sections.forEach(function (s) {
+      var visible = s.querySelectorAll('.fn-item:not(.is-hidden)').length;
+      s.classList.toggle('is-hidden', visible === 0);
+      s.classList.toggle('is-short', visible <= 3);
+      var t = s.querySelector('.fn-track');
+      if (t) t.scrollLeft = 0;
+      if (s._renderCarousel) s._renderCarousel();
+    });
+    if (lead) lead.classList.toggle('is-hidden', cat !== 'all' || terms.length > 0);
+
+    clear.hidden = !input.value;
+    var label = input.value.trim();
+    if (!terms.length) status.textContent = '';
+    else if (!shown) status.textContent = 'No posts match “' + label + '”' + (cat === 'all' ? '.' : ' in ' + cat + '.');
+    else status.textContent = shown + (shown === 1 ? ' post matches' : ' posts match') + ' “' + label + '”.';
+  }
 
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
-      var cat = chip.getAttribute('data-cat');
+      cat = chip.getAttribute('data-cat');
       chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
-
-      items.forEach(function (it) {
-        it.classList.toggle('is-hidden', !(cat === 'all' || it.getAttribute('data-cat') === cat));
-      });
-
-      sections.forEach(function (s) {
-        var visible = s.querySelectorAll('.fn-item:not(.is-hidden)').length;
-        s.classList.toggle('is-hidden', visible === 0);
-        var t = s.querySelector('.fn-track');
-        if (t) t.scrollLeft = 0;
-        if (s._renderCarousel) s._renderCarousel();
-      });
-      if (lead) lead.classList.toggle('is-hidden', cat !== 'all');
+      apply();
     });
   });
+
+  var qt;
+  input.addEventListener('focus', loadIndex);
+  input.addEventListener('input', function () {
+    loadIndex();
+    clearTimeout(qt);
+    qt = setTimeout(apply, 80);
+  });
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && input.value) { input.value = ''; apply(); }
+  });
+  clear.addEventListener('click', function () { input.value = ''; apply(); input.focus(); });
+
+  /* A browser restoring the page (back button) can refill the box. */
+  if (input.value) { loadIndex(); apply(); }
 })();
 </script>
 </body>

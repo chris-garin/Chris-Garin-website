@@ -2130,6 +2130,94 @@ body.page-fn .site-footer__meta { color: #7b8087; }
   background: #FF5130;
 }
 
+/* --- Search, on the same row as the category chips --- */
+.fn-head__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  width: 100%;
+}
+
+.fn-search {
+  position: relative;
+  display: flex;
+  align-self: stretch;
+  flex: 0 1 300px;
+  min-width: 220px;
+}
+
+.fn-search__icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  transform: translateY(-50%);
+  color: #8a8f97;
+  pointer-events: none;
+}
+
+.fn-search__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 34px;
+  padding: 0 36px 0 38px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #16181c;
+  background: #ffffff;
+  border: 1px solid rgba(17,24,39,.18);
+  border-radius: 999px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.fn-search__input::placeholder { color: #8a8f97; }
+.fn-search__input::-webkit-search-cancel-button { display: none; }
+.fn-search__input:hover { border-color: rgba(17,24,39,.42); }
+.fn-search__input:focus {
+  border-color: #FF5130;
+  box-shadow: 0 0 0 3px rgba(255,81,48,.15);
+}
+
+.fn-search__clear {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  transform: translateY(-50%);
+  color: #6b7079;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.fn-search__clear[hidden] { display: none; }
+.fn-search__clear:hover { color: #16181c; background: rgba(17,24,39,.07); }
+.fn-search__clear svg { width: 14px; height: 14px; }
+
+.fn-search__status {
+  margin: -8px 0 0;
+  font-size: .92rem;
+  color: #5b6068;
+}
+
+.fn-search__status:empty { display: none; }
+
+@media (max-width: 560px) {
+  .fn-search { flex: 1 1 100%; min-width: 0; }
+  .fn-search__input { min-height: 40px; font-size: 16px; }
+}
+
 /* --- The wall --- */
 .fn-wall {
   max-width: 1152px;
@@ -2921,6 +3009,9 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
 .fn-track:focus-visible { outline: 2px solid #FF5130; outline-offset: 6px; border-radius: 18px; }
 
 .fn-track > .fn-item { scroll-snap-align: start; }
+/* Three cards or fewer (a filtered or searched section) read as one row, not
+   a column stacked down the left edge of the two-row grid. */
+.fn-section.is-short .fn-track { grid-template-rows: auto; }
 .fn-item.is-hidden { display: none; }
 
 /* --- Arrows, in the section header --- */

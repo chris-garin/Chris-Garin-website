@@ -35,6 +35,9 @@ jobs:
       - name: Refresh the homepage writing teaser
         run: node tools/build-home-writing.mjs
 
+      - name: Rebuild the blog search index
+        run: node tools/build-search-index.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
