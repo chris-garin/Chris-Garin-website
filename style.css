@@ -2069,7 +2069,7 @@ body.page-fn .site-footer__meta { color: #7b8087; }
 .fn-head {
   max-width: 1152px;
   margin: 0 auto;
-  padding: 128px 32px 0;
+  padding: 64px 32px 0;
 }
 
 .fn-head__inner {
@@ -2398,7 +2398,7 @@ body.page-fn .site-footer__meta { color: #7b8087; }
 }
 
 @media (max-width: 560px) {
-  .fn-head { padding: 104px 20px 0; }
+  .fn-head { padding: 52px 20px 0; }
   .fn-wall { padding: 24px 20px 64px; }
   .fn-head__inner { align-items: flex-start; flex-direction: column; gap: 22px; }
 }
