@@ -1109,6 +1109,13 @@ body {
   border: 1px solid #e5e7eb;
 }
 
+/* Phone photos are 9:16; full column width would make them a whole screen tall. */
+.article-figure--portrait {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .article-figure figcaption {
   margin-top: 10px;
   font-size: 0.9rem;
