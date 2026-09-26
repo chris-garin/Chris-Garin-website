@@ -3161,3 +3161,17 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
   .follow-cta { flex-direction: column; gap: 14px; padding: 22px; }
   .follow-cta__btn { flex: 1 1 100%; justify-content: center; }
 }
+
+/* Lesson pull quotes (the "say back" lines) */
+.begin-lesson .article-content blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 18px;
+  border-left: 4px solid var(--tone, #FF5130);
+}
+.begin-lesson .article-content blockquote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #1f2937;
+}
