@@ -92,6 +92,13 @@
     .adv-callout { position: absolute; left: calc(100% + 10px); top: 12px; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
     .adv-callout svg { width: 18px; height: 10px; flex: none; color: var(--coral); }
     .adv-callout span { font-family: var(--font-display); font-style: italic; font-size: .95rem; line-height: 1; color: var(--ink); }
+    /* Narrow phones: no room beside the phone, so the label sits above it and points down at the badge. */
+    @media (max-width: 400px) {
+      .adv-stage { padding-top: 44px; }
+      .adv-phone--callout { margin-right: 0; }
+      .adv-callout { left: auto; right: 4px; top: auto; bottom: calc(100% + 8px); flex-direction: row-reverse; }
+      .adv-callout svg { transform: rotate(-90deg); width: 14px; }
+    }
 
     .adv-angles { margin: 20px 0 0; padding-left: 20px; max-width: 860px; color: var(--muted); line-height: 1.7; }
     .adv-angles li + li { margin-top: 8px; }
