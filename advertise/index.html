@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF5130">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPBLXJB1P2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SPBLXJB1P2');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertise | Chris Garin</title>
+  <meta name="description" content="Sponsor a Brand Origins video. Logo placement or a dedicated video about your brand. Deals start at ₱10,000.">
+  <link rel="canonical" href="https://chrisgarin.com/advertise/">
+
+  <meta property="og:title" content="Advertise with Chris Garin">
+  <meta property="og:description" content="Sponsor a Brand Origins video. Logo placement or a dedicated video about your brand. Deals start at ₱10,000.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrisgarin.com/advertise/">
+  <meta property="og:image" content="https://chrisgarin.com/images/cgsocialshare.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Chris Garin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://chrisgarin.com/images/cgsocialshare.png">
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="alternate" type="application/rss+xml" title="Field Notes | Chris Garin" href="/feed.xml">
+  <style>
+    .adv { --coral: #FF5130; --line: rgba(255,255,255,.1); --muted: rgba(255,255,255,.72); }
+    .adv-wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+    .adv-hero { padding: 56px 0 28px; background: radial-gradient(circle at top left, rgba(255,81,48,.18), transparent 34%); }
+    .adv-hero .idea-page-title { font-size: clamp(2.2rem, 6vw, 3.6rem); max-width: 16ch; margin-top: 14px; }
+    .adv-hero .idea-page-copy { margin-top: 16px; font-size: 1.05rem; }
+    .adv-floor { color: var(--coral); white-space: nowrap; }
+
+    .adv-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 30px; }
+    .adv-stat { border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; background: rgba(255,255,255,.03); }
+    .adv-stat strong { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 500; line-height: 1.1; }
+    .adv-stat span { color: var(--muted); font-size: .85rem; }
+    .adv-note { color: rgba(255,255,255,.55); font-size: .85rem; margin: 12px 0 0; }
+
+    .adv-section { padding: 40px 0; }
+    .adv-section h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 12px 0 8px; letter-spacing: -.012em; }
+    .adv-section > .adv-wrap > p { color: var(--muted); margin: 0; line-height: 1.7; max-width: 640px; }
+
+    .adv-tiers { display: grid; gap: 18px; margin-top: 26px; }
+    .adv-tier { border: 1px solid var(--line); border-radius: 22px; padding: 20px; background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 14px; }
+    .adv-tier--main { border-color: rgba(255,81,48,.5); background: linear-gradient(180deg, rgba(255,81,48,.08), rgba(255,255,255,.03)); }
+    .adv-tier h3 { margin: 0; font-size: 1.3rem; }
+    .adv-price { font-family: var(--font-display); font-size: 1.9rem; line-height: 1; }
+    .adv-price small { font-family: inherit; font-size: .95rem; color: var(--muted); }
+    .adv-tier p { margin: 0; color: var(--muted); line-height: 1.65; }
+    .adv-tier ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
+    .adv-tier .cta-button { align-self: flex-start; margin-top: auto; }
+
+    /* Mock video frame showing where the logo goes */
+    .adv-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--line);
+      background: linear-gradient(135deg, #2a1712 0%, #111 55%, #1b1b1b 100%); }
+    .adv-frame::before { content: ""; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; margin: -22px 0 0 -22px;
+      border-radius: 50%; background: rgba(255,255,255,.14); }
+    .adv-frame::after { content: ""; position: absolute; left: 50%; top: 50%; margin: -9px 0 0 -5px;
+      border-left: 16px solid rgba(255,255,255,.8); border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+    .adv-frame__bar { position: absolute; left: 12px; right: 12px; bottom: 10px; height: 3px; border-radius: 2px; background: rgba(255,255,255,.2); }
+    .adv-frame__bar i { display: block; width: 38%; height: 100%; border-radius: 2px; background: var(--coral); }
+    .adv-badge { position: absolute; top: 10px; right: 10px; display: flex; align-items: center; gap: 6px; padding: 5px 8px;
+      border-radius: 8px; background: rgba(0,0,0,.55); font-size: 10px; letter-spacing: .04em; color: rgba(255,255,255,.8); }
+    .adv-badge b { padding: 2px 6px; border-radius: 4px; background: #fff; color: #111; font-size: 10px; letter-spacing: .08em; }
+    .adv-frame--script .adv-badge { display: none; }
+    .adv-frame__title { position: absolute; left: 14px; top: 12px; font-family: var(--font-display); font-size: 15px; color: rgba(255,255,255,.9); }
+    .adv-frame__title em { color: var(--coral); font-style: normal; }
+
+    .adv-rules { display: grid; gap: 10px; margin-top: 22px; }
+    .adv-rule { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; color: var(--muted); line-height: 1.6; }
+    .adv-rule strong { color: #fff; }
+    .adv-rule__x { flex: none; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,81,48,.15); color: var(--coral);
+      display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+
+    .adv-form { display: grid; gap: 14px; margin-top: 24px; border: 1px solid var(--line); border-radius: 22px; padding: 20px; background: rgba(255,255,255,.04); }
+    .adv-field { display: flex; flex-direction: column; gap: 6px; }
+    .adv-field label { font-size: .85rem; color: var(--muted); }
+    .adv-field input, .adv-field select, .adv-field textarea {
+      width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; color: #fff; background: #0d0d0d;
+      border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 12px 14px; }
+    .adv-field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #aaa 50%), linear-gradient(135deg, #aaa 50%, transparent 50%);
+      background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 36px; }
+    .adv-field textarea { min-height: 120px; resize: vertical; }
+    .adv-field input:focus, .adv-field select:focus, .adv-field textarea:focus { outline: none; border-color: var(--coral); }
+    .adv-hint { font-size: .8rem; color: rgba(255,255,255,.5); }
+    .adv-row { display: grid; gap: 14px; }
+    .adv-form button.cta-button { justify-self: start; border: 0; cursor: pointer; font: inherit; }
+    .adv-sent { display: none; color: var(--muted); font-size: .9rem; margin: 0; }
+    .adv-sent.is-on { display: block; }
+    .adv-sent a { color: var(--coral); }
+
+    @media (min-width: 720px) {
+      .adv-stats { grid-template-columns: repeat(4, 1fr); }
+      .adv-tiers { grid-template-columns: 1fr 1fr; }
+      .adv-row { grid-template-columns: 1fr 1fr; }
+      .adv-form { padding: 28px; }
+      .adv-tier { padding: 26px; }
+    }
+  </style>
+</head>
+<body class="idea-page adv">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/images/logo.png" class="logo-img" alt="Chris Garin">
+      </a>
+
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/blog/">Writing</a></li>
+        <li class="nav-cta nav-cta--mobile"><a href="#inquire" class="cta-button">Sponsor a video</a></li>
+      </ul>
+
+      <div class="nav-cta nav-cta--desktop">
+        <a href="#inquire" class="cta-button">Sponsor a video</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="adv-hero">
+      <div class="adv-wrap">
+        <span class="section-kicker">Advertise</span>
+        <h1 class="idea-page-title">Put your brand in front of people who love brands.</h1>
+        <p class="idea-page-copy">
+          Brand Origins tells the stories behind the biggest brands in the Philippines and Southeast Asia.
+          There are two ways to sponsor it, and every deal starts at <strong class="adv-floor">₱10,000</strong>.
+        </p>
+
+        <div class="adv-stats">
+          <div class="adv-stat"><strong>1.7M</strong><span>YouTube views</span></div>
+          <div class="adv-stat"><strong>27K</strong><span>YouTube subscribers</span></div>
+          <div class="adv-stat"><strong>60K</strong><span>Spotify listeners</span></div>
+          <div class="adv-stat"><strong>21K</strong><span>Instagram + TikTok</span></div>
+        </div>
+        <p class="adv-note">Audience breakdown and average views per video are in the media kit, sent when I reply.</p>
+      </div>
+    </section>
+
+    <section class="adv-section">
+      <div class="adv-wrap">
+        <span class="section-kicker">Packages</span>
+        <h2>Two ways to sponsor</h2>
+        <p>Pick the one that fits. If you're not sure, choose "Not sure yet" in the form and I'll recommend one.</p>
+
+        <div class="adv-tiers">
+          <article class="adv-tier">
+            <div class="adv-frame" aria-hidden="true">
+              <span class="adv-frame__title">The story of <em>a brand</em></span>
+              <span class="adv-badge">Powered by <b>YOUR LOGO</b></span>
+              <span class="adv-frame__bar"><i></i></span>
+            </div>
+            <h3>Logo placement</h3>
+            <div class="adv-price">₱10,000 <small>for 4 videos</small></div>
+            <p>Your logo sits in the corner of the video as "Powered by" your brand. No script, no mention. It just stays on screen.</p>
+            <ul>
+              <li>Corner logo on 4 videos</li>
+              <li>Runs for the whole video</li>
+              <li>Link in the description</li>
+            </ul>
+            <a href="#inquire" class="cta-button" data-pick="logo">Choose logo placement</a>
+          </article>
+
+          <article class="adv-tier adv-tier--main">
+            <div class="adv-frame adv-frame--script" aria-hidden="true">
+              <span class="adv-frame__title">The story of <em>your brand</em></span>
+              <span class="adv-frame__bar"><i></i></span>
+            </div>
+            <h3>Dedicated video</h3>
+            <div class="adv-price">₱10,000+ <small>per video</small></div>
+            <p>A full video about your brand, researched and told the Brand Origins way. Final price depends on scope.</p>
+            <ul>
+              <li>One full video about your brand</li>
+              <li>Research, script, and edit by me</li>
+              <li>Ad usage rights and exclusivity quoted separately</li>
+            </ul>
+            <a href="#inquire" class="cta-button" data-pick="dedicated">Choose a dedicated video</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="adv-section">
+      <div class="adv-wrap">
+        <span class="section-kicker">Before you write</span>
+        <h2>What I don't take</h2>
+        <div class="adv-rules">
+          <div class="adv-rule"><span class="adv-rule__x">✕</span><span><strong>Budgets under ₱10,000.</strong> That's the minimum for any deal, including logo placement.</span></div>
+          <div class="adv-rule"><span class="adv-rule__x">✕</span><span><strong>Product-only or barter deals.</strong> Free products in exchange for a video or a mention are a no.</span></div>
+          <div class="adv-rule"><span class="adv-rule__x">✕</span><span><strong>"Exposure" instead of payment.</strong> Sponsorships are paid.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="adv-section" id="inquire">
+      <div class="adv-wrap">
+        <span class="section-kicker">Inquire</span>
+        <h2>Tell me about your brand</h2>
+        <p>This opens your email app with everything filled in. I reply with the media kit and next steps.</p>
+
+        <form class="adv-form" id="adv-form" novalidate>
+          <div class="adv-row">
+            <div class="adv-field">
+              <label for="adv-name">Your name</label>
+              <input id="adv-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="adv-field">
+              <label for="adv-brand">Brand or company</label>
+              <input id="adv-brand" name="brand" autocomplete="organization" required>
+            </div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-field">
+              <label for="adv-email">Work email</label>
+              <input id="adv-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="adv-field">
+              <label for="adv-site">Brand website or page</label>
+              <input id="adv-site" name="site" type="url" placeholder="https://">
+            </div>
+          </div>
+          <div class="adv-row">
+            <div class="adv-field">
+              <label for="adv-package">Package</label>
+              <select id="adv-package" name="package" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="logo">Logo placement (₱10,000 for 4 videos)</option>
+                <option value="dedicated">Dedicated video (₱10,000+ per video)</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="adv-field">
+              <label for="adv-budget">Budget</label>
+              <select id="adv-budget" name="budget" required>
+                <option value="" disabled selected>Choose a range</option>
+                <option>₱10,000 to ₱20,000</option>
+                <option>₱20,000 to ₱50,000</option>
+                <option>₱50,000 to ₱100,000</option>
+                <option>₱100,000+</option>
+              </select>
+              <span class="adv-hint">Deals start at ₱10,000.</span>
+            </div>
+          </div>
+          <div class="adv-field">
+            <label for="adv-msg">What do you have in mind?</label>
+            <textarea id="adv-msg" name="message" placeholder="What you'd like to promote, timing, anything I should know."></textarea>
+          </div>
+          <button type="submit" class="cta-button">Send inquiry</button>
+          <p class="adv-sent" id="adv-sent" role="status">Your email app should be open with the inquiry ready. If it didn't open, email <a href="mailto:heychrisgarin@gmail.com">heychrisgarin@gmail.com</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__links">
+        <span class="site-footer__meta">© 2026 Chris Garin</span>
+        <a href="/advertise/">Advertise</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-service/">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById("adv-form");
+      var pkg = document.getElementById("adv-package");
+      var labels = { logo: "Logo placement", dedicated: "Dedicated video", unsure: "Not sure yet" };
+
+      // Package buttons preselect the dropdown before jumping to the form.
+      document.querySelectorAll("[data-pick]").forEach(function (a) {
+        a.addEventListener("click", function () { pkg.value = a.getAttribute("data-pick"); });
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        var f = form.elements;
+        var body = [
+          "Name: " + f.name.value,
+          "Brand: " + f.brand.value,
+          "Email: " + f.email.value,
+          "Website: " + (f.site.value || "n/a"),
+          "Package: " + labels[f.package.value],
+          "Budget: " + f.budget.value,
+          "",
+          f.message.value
+        ].join("\n");
+        var subject = "Sponsorship inquiry: " + f.brand.value + " (" + labels[f.package.value] + ")";
+        if (window.gtag) gtag("event", "sponsor_inquiry", { package: f.package.value, budget: f.budget.value });
+        window.location.href = "mailto:heychrisgarin@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        document.getElementById("adv-sent").classList.add("is-on");
+      });
+    })();
+  </script>
+</body>
+</html>
