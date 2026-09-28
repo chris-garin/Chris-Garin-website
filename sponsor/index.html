@@ -66,6 +66,9 @@
     .adv-tier p { margin: 0; color: var(--muted); line-height: 1.65; }
     .adv-tier ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
     .adv-price { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--coral); font-weight: 600; }
+    /* page-fn inverts the nav CTA; keep the in-page buttons dark. */
+    body.adv.page-fn main .cta-button { background: #111827; color: #fff; }
+    body.adv.page-fn main .cta-button:hover { background: #2b3648; color: #fff; }
     main .cta-button { display: inline-flex; align-items: center; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .95rem; }
     .adv-tier .cta-button { align-self: flex-start; margin-top: auto; }
 
@@ -122,30 +125,38 @@
     }
   </style>
 </head>
-<body class="light adv">
+<body class="light page-fn adv">
   <nav class="navbar">
-    <div class="nav-container">
-      <a href="/" class="logo">
-        <img src="/images/logo.png" class="logo-img" alt="Chris Garin">
-      </a>
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <img src="/images/logo.png" class="logo-img" alt="Chris Garin">
+    </a>
 
-      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+    <button class="menu-toggle" id="mobile-menu"
+    aria-label="Toggle navigation"
+    aria-controls="primary-nav"
+    aria-expanded="false"
+    >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    </button>
 
       <ul class="nav-links" id="primary-nav">
-        <li><a href="/#work">Work</a></li>
-        <li><a href="/blog/">Writing</a></li>
-        <li class="nav-cta nav-cta--mobile"><a href="#inquire" class="cta-button">Sponsor a video</a></li>
-      </ul>
+       <li><a href="/#work">Work</a></li>
+       <li><a href="/blog/">Writing</a></li>
+       <li><a href="https://www.linkedin.com/in/chrisgarin/" target="_blank" rel="noopener noreferrer" class="nav-linkedin"><svg class="nav-linkedin__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.53C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg>LinkedIn</a></li>
+       <li class="nav-cta nav-cta--mobile">
+          <a href="mailto:heychrisgarin@gmail.com" class="cta-button"><svg class="cta-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>Get in touch</a>
+       </li>
+     </ul>
 
-      <div class="nav-cta nav-cta--desktop">
-        <a href="#inquire" class="cta-button">Sponsor a video</a>
-      </div>
+    <div class="nav-cta nav-cta--desktop">
+      <a href="mailto:heychrisgarin@gmail.com" class="cta-button"><svg class="cta-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>Get in touch</a>
     </div>
-  </nav>
+  </div>
+
+</nav>
 
   <main>
     <section class="adv-hero">
