@@ -65,7 +65,6 @@
     body.adv.page-fn main .cta-button { background: #111827; color: #fff; }
     body.adv.page-fn main .cta-button:hover { background: #2b3648; color: #fff; }
     main .cta-button { display: inline-flex; align-items: center; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .95rem; }
-    .adv-tier .cta-button { align-self: flex-start; margin-top: auto; }
 
     /* Vertical short-form mock showing the format */
     .adv-stage { display: flex; justify-content: center; padding: 18px 0; border-radius: 16px; background: #f5f4f1; }
@@ -184,7 +183,6 @@
               <li>Runs everywhere the video goes</li>
             </ul>
             <span class="adv-price">Price upon request</span>
-            <a href="#inquire" class="cta-button" data-pick="logo">Ask about Powered by</a>
           </article>
 
           <article class="adv-tier">
@@ -204,7 +202,6 @@
               <li>One video or a multi-part series</li>
             </ul>
             <span class="adv-price">Price upon request</span>
-            <a href="#inquire" class="cta-button" data-pick="featured">Ask about a feature</a>
           </article>
         </div>
       </div>
@@ -315,13 +312,7 @@
   <script>
     (function () {
       var form = document.getElementById("adv-form");
-      var pkg = document.getElementById("adv-package");
       var labels = { logo: "Powered by", featured: "Featured story", series: "Featured series", unsure: "Not sure yet" };
-
-      // Option buttons preselect the dropdown before jumping to the form.
-      document.querySelectorAll("[data-pick]").forEach(function (a) {
-        a.addEventListener("click", function () { pkg.value = a.getAttribute("data-pick"); });
-      });
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
