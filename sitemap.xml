@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://chrisgarin.com/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/begin/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-27</lastmod>
+  </url>
+  <url>
+    <loc>https://chrisgarin.com/begin/amateur/</loc>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/begin/build-not-post/</loc>
@@ -22,7 +26,7 @@
   </url>
   <url>
     <loc>https://chrisgarin.com/begin/perfect-first/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/begin/polishing/</loc>
@@ -34,11 +38,11 @@
   </url>
   <url>
     <loc>https://chrisgarin.com/begin/too-late/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/begin/too-shy/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/begin/who-am-i/</loc>
@@ -46,7 +50,11 @@
   </url>
   <url>
     <loc>https://chrisgarin.com/blog/</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-23</lastmod>
+  </url>
+  <url>
+    <loc>https://chrisgarin.com/blog/ai-proof/</loc>
+    <lastmod>2026-09-23</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/blog/ayala-history/</loc>
@@ -59,6 +67,10 @@
   <url>
     <loc>https://chrisgarin.com/blog/cost-of-hesitation/</loc>
     <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://chrisgarin.com/blog/creative-act/</loc>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/blog/dali/</loc>
@@ -107,6 +119,10 @@
   <url>
     <loc>https://chrisgarin.com/blog/lazada/</loc>
     <lastmod>2026-09-06</lastmod>
+  </url>
+  <url>
+    <loc>https://chrisgarin.com/blog/make-100-videos/</loc>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://chrisgarin.com/blog/megaworld/</loc>
@@ -183,5 +199,9 @@
   <url>
     <loc>https://chrisgarin.com/idea-validation/</loc>
     <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://chrisgarin.com/sponsor/</loc>
+    <lastmod>2026-09-29</lastmod>
   </url>
 </urlset>
