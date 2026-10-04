@@ -2770,6 +2770,15 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
   max-width: 100% !important;
 }
 
+.tiktok-wrap__lead {
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.ig-wrap .instagram-media {
+  min-width: 0 !important;
+}
+
 .tiktok-wrap__note {
   margin: 10px 0 0;
   font-size: 0.9rem;
