@@ -39,6 +39,13 @@ html {
   transform: none;
 }
 
+/* will-change: transform makes the navbar the containing block for its
+   position: fixed children, which collapses the open mobile menu to 0 height.
+   Drop it once the drop-in has landed. */
+.has-reveal .navbar[data-reveal].is-in {
+  will-change: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .has-reveal [data-reveal] {
     opacity: 1;
@@ -1732,13 +1739,29 @@ body.home .navbar {
   right: 0;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background .25s ease, box-shadow .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+  transition: box-shadow .25s ease, border-color .25s ease;
 }
 
-body.home .navbar.scrolled {
+/* The frosted glass lives on a layer behind the bar, not on the bar itself:
+   backdrop-filter on .navbar would trap the fixed mobile menu inside it. */
+body.home .navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(255,255,255,.8);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   backdrop-filter: saturate(180%) blur(12px);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+
+body.home .navbar.scrolled::before {
+  opacity: 1;
+}
+
+body.home .navbar.scrolled {
   border-bottom-color: rgba(15,23,42,.07);
   box-shadow: 0 6px 24px rgba(15,23,42,.06);
 }
