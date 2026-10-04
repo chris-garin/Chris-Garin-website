@@ -14,6 +14,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { decode } from './html-entities.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const blogIndex = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
@@ -21,23 +22,6 @@ const blogIndex = readFileSync(join(ROOT, 'blog/index.html'), 'utf8');
 const slugs = [...new Set(
   [...blogIndex.matchAll(/class="fn-card" href="\/blog\/([^/"]+)\/"/g)].map((m) => m[1])
 )];
-
-const NAMED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
-  rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“',
-  mdash: '—', ndash: '–', hellip: '…', middot: '·', bull: '•',
-  eacute: 'é', ntilde: 'ñ', uuml: 'ü', Uuml: 'Ü', ouml: 'ö',
-  auml: 'ä', aacute: 'á', iacute: 'í', oacute: 'ó', uacute: 'ú',
-  times: '×', peso: '₱', deg: '°', copy: '©', reg: '®', trade: '™' };
-
-function decode(s) {
-  return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => {
-    if (e[0] === '#') {
-      const n = e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
-      return Number.isFinite(n) ? String.fromCodePoint(n) : m;
-    }
-    return NAMED[e] ?? m;
-  });
-}
 
 const posts = [];
 for (const slug of slugs) {

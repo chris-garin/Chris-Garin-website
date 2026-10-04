@@ -27,6 +27,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { decode } from './html-entities.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://chrisgarin.com';
@@ -76,6 +77,7 @@ const toUrlPath = (abs) => {
 /* ---------- dates ---------- */
 
 const meta = (html, re) => (html.match(re) || [])[1] || null;
+const text = (html, re) => { const v = meta(html, re); return v && decode(v); };
 
 const jsonLdDate = (html, field) =>
   meta(html, new RegExp(`"${field}"\\s*:\\s*"(\\d{4}-\\d{2}-\\d{2})`));
@@ -129,8 +131,8 @@ const pages = findPages()
       lastmod,
       source: declared ? 'json-ld' : 'git',
       isPost: /^\/blog\/.+\//.test(urlPath),
-      title: meta(html, /<title>([^<]*)<\/title>/),
-      description: meta(html, /<meta name="description" content="([^"]*)"/),
+      title: text(html, /<title>([^<]*)<\/title>/),
+      description: text(html, /<meta name="description" content="([^"]*)"/),
       published: jsonLdDate(html, 'datePublished'),
     };
   })
