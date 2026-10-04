@@ -21,7 +21,7 @@
   <title>Field Notes | Chris Garin</title>
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5075104519461185" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v=20261004-feed2">
   <script>document.documentElement.classList.add("has-reveal");</script>
   <noscript><style>.has-reveal [data-reveal]{opacity:1;transform:none;}</style></noscript>
   <link rel="alternate" type="application/rss+xml" title="Field Notes | Chris Garin" href="/feed.xml">
@@ -1050,7 +1050,7 @@
      top. The carousels stay in the HTML, so crawlers and desktop are unchanged. */
   var feed = (function () {
     var BATCH = 8;
-    var mq = window.matchMedia('(max-width: 639px)');
+    var mq = window.matchMedia('(max-width: 767px)');
     var root = document.querySelector('.fn-feed');
     var list = root.querySelector('.fn-feed__list');
     var sentinel = root.querySelector('.fn-feed__sentinel');
@@ -1082,6 +1082,10 @@
       var done = drawn >= pool.length;
       sentinel.hidden = done;
       end.hidden = !done || !pool.length;
+      /* The observer only reports changes. If the sentinel is still inside
+         the margin after this batch (fast scroll, short batch), re-observing
+         makes it report the current state, so the next batch follows. */
+      if (io && !done) { io.unobserve(sentinel); io.observe(sentinel); }
       end.textContent = pool.length === all.length
         ? 'That\u2019s everything. ' + pool.length + ' posts.'
         : 'That\u2019s all ' + pool.length + (pool.length === 1 ? ' match.' : ' matches.');

@@ -3204,6 +3204,18 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
 body.fn-feed-mode .fn-lead,
 body.fn-feed-mode .fn-section { display: none; }
 .fn-feed { padding-top: 26px; }
+/* One column at every width the feed runs at, and every card the same size:
+   titles and excerpts each get exactly three lines, clamped if longer. */
+.fn-feed .fn-grid { grid-template-columns: 1fr; }
+.fn-feed .fn-card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: calc(3 * 1.25em);
+}
+.fn-feed .fn-card__excerpt { height: calc(3 * 1.6em); }
+html:has(body.fn-feed-mode) { overflow-x: hidden; }
 .fn-feed__sentinel { height: 1px; }
 .fn-feed__end {
   margin: 30px 0 0;
