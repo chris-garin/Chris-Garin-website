@@ -3198,3 +3198,23 @@ body.page-fn.light .nav-cta--desktop .cta-button:hover {
   line-height: 1.55;
   color: #1f2937;
 }
+
+/* --- Field Notes, mobile: one infinite feed (see blog/index.html) --- */
+.fn-feed[hidden] { display: none; }
+body.fn-feed-mode .fn-lead,
+body.fn-feed-mode .fn-section { display: none; }
+.fn-feed { padding-top: 26px; }
+.fn-feed__sentinel { height: 1px; }
+.fn-feed__end {
+  margin: 30px 0 0;
+  text-align: center;
+  font-size: .9rem;
+  color: #85898f;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fn-feed__list > .fn-item { animation: fn-feed-in .45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+}
+@keyframes fn-feed-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}

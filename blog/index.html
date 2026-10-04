@@ -860,6 +860,12 @@
   </div>
 </section>
 
+<section class="fn-wall fn-feed" aria-label="All posts, newest first" hidden>
+  <div class="fn-grid fn-feed__list"></div>
+  <div class="fn-feed__sentinel" aria-hidden="true"></div>
+  <p class="fn-feed__end" hidden></p>
+</section>
+
 <footer class="site-footer">
   <div class="site-footer__inner">
     <div class="site-footer__links">
@@ -1029,19 +1035,105 @@
     return loading;
   }
 
+  function matches(it, terms) {
+    var inCat = cat === 'all' || it.getAttribute('data-cat') === cat;
+    var hay = terms.length ? it._head + ' ' + (bodies[it._slug] || '') : '';
+    return inCat && terms.every(function (t) { return hay.indexOf(t) !== -1; });
+  }
+
+  /* Mobile: one feed, newest first, instead of the lead + carousels.
+     Every post is sorted once into `all`, but only BATCH cards are in the
+     DOM at a time. A sentinel under the list is watched with a generous
+     bottom margin, so the next batch is appended while the reader is still
+     about a screen and a half away from the end, and they never see it load.
+     Chips and search filter the whole list, then the feed restarts from the
+     top. The carousels stay in the HTML, so crawlers and desktop are unchanged. */
+  var feed = (function () {
+    var BATCH = 8;
+    var mq = window.matchMedia('(max-width: 639px)');
+    var root = document.querySelector('.fn-feed');
+    var list = root.querySelector('.fn-feed__list');
+    var sentinel = root.querySelector('.fn-feed__sentinel');
+    var end = root.querySelector('.fn-feed__end');
+    var all = null, pool = [], drawn = 0, io = null, lastTerms = [];
+
+    function build() {
+      var seen = {};
+      all = [];
+      items.forEach(function (it, i) {
+        var href = it._slug;
+        if (!href || seen[href]) return;
+        seen[href] = true;
+        var d = it.querySelector('.fn-card__date');
+        var copy = it.cloneNode(true);
+        copy.classList.remove('is-hidden');
+        copy._head = it._head;
+        copy._slug = it._slug;
+        all.push({ el: copy, src: it, t: Date.parse(d ? d.textContent : '') || 0, i: i });
+      });
+      all.sort(function (a, b) { return b.t - a.t || a.i - b.i; });
+    }
+
+    function more() {
+      var stop = Math.min(drawn + BATCH, pool.length);
+      var frag = document.createDocumentFragment();
+      for (; drawn < stop; drawn++) frag.appendChild(pool[drawn].el);
+      list.appendChild(frag);
+      var done = drawn >= pool.length;
+      sentinel.hidden = done;
+      end.hidden = !done || !pool.length;
+      end.textContent = pool.length === all.length
+        ? 'That\u2019s everything. ' + pool.length + ' posts.'
+        : 'That\u2019s all ' + pool.length + (pool.length === 1 ? ' match.' : ' matches.');
+    }
+
+    function refresh(terms) {
+      lastTerms = terms || lastTerms;
+      if (!mq.matches) return;
+      if (!all) build();
+      pool = all.filter(function (p) { return matches(p.src, lastTerms); });
+      list.textContent = '';
+      drawn = 0;
+      more();
+    }
+
+    function setMode() {
+      var on = mq.matches;
+      document.body.classList.toggle('fn-feed-mode', on);
+      root.hidden = !on;
+      if (on) {
+        if (!io && 'IntersectionObserver' in window) {
+          io = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting && drawn < pool.length) more();
+          }, { rootMargin: '0px 0px 1200px 0px' });
+          io.observe(sentinel);
+        }
+        refresh();
+      } else {
+        sections.forEach(function (s) { if (s._renderCarousel) s._renderCarousel(); });
+      }
+    }
+
+    /* No IntersectionObserver (very old browsers): fall back to drawing all. */
+    if (!('IntersectionObserver' in window)) BATCH = 1000;
+
+    if (mq.addEventListener) mq.addEventListener('change', setMode);
+    else if (mq.addListener) mq.addListener(setMode);
+
+    return { refresh: refresh, start: setMode };
+  })();
+
   function apply() {
     var q = norm(input.value).trim();
     var terms = q ? q.split(/\s+/) : [];
     var shown = 0;
 
     items.forEach(function (it) {
-      var inCat = cat === 'all' || it.getAttribute('data-cat') === cat;
-      var hay = terms.length ? it._head + ' ' + (bodies[it._slug] || '') : '';
-      var hit = terms.every(function (t) { return hay.indexOf(t) !== -1; });
-      var show = inCat && hit;
+      var show = matches(it, terms);
       it.classList.toggle('is-hidden', !show);
       if (show) shown++;
     });
+    feed.refresh(terms);
 
     sections.forEach(function (s) {
       var visible = s.querySelectorAll('.fn-item:not(.is-hidden)').length;
@@ -1079,6 +1171,8 @@
     if (e.key === 'Escape' && input.value) { input.value = ''; apply(); }
   });
   clear.addEventListener('click', function () { input.value = ''; apply(); input.focus(); });
+
+  feed.start();
 
   /* A browser restoring the page (back button) can refill the box. */
   if (input.value) { loadIndex(); apply(); }
