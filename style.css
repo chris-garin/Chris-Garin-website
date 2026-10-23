@@ -3280,3 +3280,116 @@ html:has(body.fn-feed-mode) { overflow-x: hidden; }
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: none; }
 }
+
+/* ===== NAV - VIDEOS DROPDOWN ===== */
+.nav-videos__details {
+  position: relative;
+}
+
+.nav-videos__summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 15px 0;
+  color: #fff;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  transition: color 0.25s ease;
+}
+
+.nav-videos__summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-videos__summary:hover {
+  color: #DB2342;
+}
+
+.nav-videos__caret {
+  width: 14px;
+  height: 14px;
+  transition: transform .2s ease;
+}
+
+.nav-videos__details[open] > .nav-videos__summary .nav-videos__caret {
+  transform: rotate(180deg);
+}
+
+.nav-videos__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 16px;
+}
+
+.nav-links .nav-videos__menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-videos__icon {
+  width: 15px;
+  height: 15px;
+  display: block;
+  flex-shrink: 0;
+}
+
+body.home .nav-videos__summary,
+body.light .nav-videos__summary {
+  color: #111827;
+  border-bottom-color: rgba(15,23,42,.08);
+}
+
+body.home .nav-videos__summary:hover,
+body.light .nav-videos__summary:hover {
+  color: #FF5130;
+}
+
+@media (min-width: 768px) {
+  .nav-videos {
+    position: relative;
+  }
+
+  .nav-videos__summary {
+    padding: 0;
+    border-bottom: none;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .nav-videos__menu {
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    min-width: 168px;
+    padding: 8px;
+    background: #000000;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(0,0,0,.35);
+    z-index: 1200;
+  }
+
+  .nav-links .nav-videos__menu a {
+    padding: 9px 10px;
+    border-radius: 6px;
+  }
+
+  .nav-links .nav-videos__menu a:hover {
+    background: rgba(255,255,255,.06);
+  }
+
+  body.home .nav-videos__menu,
+  body.light .nav-videos__menu {
+    background: #ffffff;
+    border-color: rgba(15,23,42,.10);
+    box-shadow: 0 12px 32px rgba(15,23,42,.12);
+  }
+
+  body.home .nav-links .nav-videos__menu a:hover,
+  body.light .nav-links .nav-videos__menu a:hover {
+    background: rgba(15,23,42,.05);
+  }
+}

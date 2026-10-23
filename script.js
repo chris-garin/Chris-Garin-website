@@ -498,3 +498,22 @@ if (heroWave) {
   fit();
   window.addEventListener("resize", fit);
 })();
+
+/* NAV - VIDEOS DROPDOWN: close when clicking outside */
+(function () {
+  const details = document.querySelectorAll(".nav-videos__details");
+  if (!details.length) return;
+
+  document.addEventListener("click", (e) => {
+    details.forEach((d) => {
+      if (d.hasAttribute("open") && !d.contains(e.target)) {
+        d.removeAttribute("open");
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    details.forEach((d) => d.removeAttribute("open"));
+  });
+})();
