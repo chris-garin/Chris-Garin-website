@@ -3327,6 +3327,7 @@ html:has(body.fn-feed-mode) { overflow-x: hidden; }
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 
 .nav-videos__icon {
