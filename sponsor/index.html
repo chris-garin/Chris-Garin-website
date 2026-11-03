@@ -127,6 +127,8 @@
     .adv-field textarea { min-height: 120px; resize: vertical; }
     .adv-field input:focus, .adv-field select:focus, .adv-field textarea:focus { outline: none; border-color: var(--coral); }
     .adv-row { display: grid; gap: 14px; }
+    .adv-field { transition: opacity .2s ease; }
+    .adv-field.is-faded { opacity: .4; }
     .adv-form button.cta-button { justify-self: start; border: 0; cursor: pointer; font: inherit; }
     .adv-sent { display: none; color: var(--muted); font-size: .9rem; margin: 0; }
     .adv-sent.is-on { display: block; }
@@ -365,6 +367,18 @@
       var sent = document.getElementById("adv-sent");
       var button = form.querySelector('button[type="submit"]');
       var fallback = 'Something went wrong. Please email me at <a href="mailto:heychrisgarin@gmail.com">heychrisgarin@gmail.com</a>.';
+
+      // "Other" package: budget is optional, so fade it out of the way.
+      var pkgSel = document.getElementById("adv-package");
+      var budgetSel = document.getElementById("adv-budget");
+      var budgetField = budgetSel.closest(".adv-field");
+      var budgetLabel = budgetField.querySelector("label");
+      pkgSel.addEventListener("change", function () {
+        var other = pkgSel.value === "unsure";
+        budgetSel.required = !other;
+        budgetField.classList.toggle("is-faded", other);
+        budgetLabel.textContent = other ? "Budget (optional)" : "Budget";
+      });
 
       function show(html, ok) {
         sent.innerHTML = html;
