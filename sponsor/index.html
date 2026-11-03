@@ -65,6 +65,8 @@
     .adv-tier__price span { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
     .adv-tier__price b { font-size: 1.5rem; font-weight: 700; letter-spacing: -.01em; line-height: 1; color: var(--coral); }
     .adv-tier__price b small { font-size: .95rem; font-weight: 700; }
+    .adv-tier__price-amt { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .adv-tier__price-amt em { font-style: normal; font-size: .78rem; color: var(--muted); }
     /* page-fn inverts the nav CTA; keep the in-page buttons dark. */
     body.adv.page-fn main .cta-button { background: #111827; color: #fff; }
     body.adv.page-fn main .cta-button:hover { background: #2b3648; color: #fff; }
@@ -222,7 +224,7 @@
               <li>Link in the caption or description</li>
               <li>Runs everywhere the video goes</li>
             </ul>
-            <div class="adv-tier__price"><span>Per video</span><b><small>PHP</small> 15,000</b></div>
+            <div class="adv-tier__price"><span>Starts at</span><div class="adv-tier__price-amt"><b><small>PHP</small> 15,000</b><em>per video</em></div></div>
           </article>
 
           <article class="adv-tier">
@@ -241,7 +243,7 @@
               <li>Research, script, and edit by me</li>
               <li>One video or a multi-part series</li>
             </ul>
-            <div class="adv-tier__price"><span>Starts at</span><b><small>PHP</small> 60,000</b></div>
+            <div class="adv-tier__price"><span>Starts at</span><div class="adv-tier__price-amt"><b><small>PHP</small> 60,000</b><em>per video</em></div></div>
           </article>
         </div>
       </div>
