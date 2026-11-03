@@ -129,6 +129,7 @@
     .adv-row { display: grid; gap: 14px; }
     .adv-field { transition: opacity .2s ease; }
     .adv-field.is-faded { opacity: .4; }
+    .adv-field select:disabled { cursor: not-allowed; }
     .adv-form button.cta-button { justify-self: start; border: 0; cursor: pointer; font: inherit; }
     .adv-sent { display: none; color: var(--muted); font-size: .9rem; margin: 0; }
     .adv-sent.is-on { display: block; }
@@ -376,8 +377,10 @@
       pkgSel.addEventListener("change", function () {
         var other = pkgSel.value === "unsure";
         budgetSel.required = !other;
+        budgetSel.disabled = other;
+        if (other) budgetSel.selectedIndex = 0;
         budgetField.classList.toggle("is-faded", other);
-        budgetLabel.textContent = other ? "Budget (optional)" : "Budget";
+        budgetLabel.textContent = other ? "Budget (not needed)" : "Budget";
       });
 
       function show(html, ok) {
