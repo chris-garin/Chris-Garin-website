@@ -63,6 +63,7 @@
     .adv-price { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--coral); font-weight: 600; }
     .adv-price--base { display: flex; align-items: baseline; gap: 10px; color: var(--muted); }
     .adv-price--base b { font-family: var(--font-display); font-size: 1.9rem; font-weight: 600; letter-spacing: -.01em; text-transform: none; line-height: 1; color: var(--coral); }
+    .adv-price--base b small { font-size: 1.05rem; font-weight: 600; margin-right: 2px; }
     /* page-fn inverts the nav CTA; keep the in-page buttons dark. */
     body.adv.page-fn main .cta-button { background: #111827; color: #fff; }
     body.adv.page-fn main .cta-button:hover { background: #2b3648; color: #fff; }
@@ -240,7 +241,7 @@
               <li>Research, script, and edit by me</li>
               <li>One video or a multi-part series</li>
             </ul>
-            <span class="adv-price adv-price--base">Starts at <b>₱60,000</b></span>
+            <span class="adv-price adv-price--base">Starts at <b><small>PHP</small> 60,000</b></span>
           </article>
         </div>
       </div>
@@ -318,10 +319,10 @@
               <label for="adv-budget">Budget</label>
               <select id="adv-budget" name="budget" required>
                 <option value="" disabled selected>Choose a range</option>
-                <option>₱10,000 to ₱20,000</option>
-                <option>₱20,000 to ₱50,000</option>
-                <option>₱50,000 to ₱100,000</option>
-                <option>₱100,000+</option>
+                <option>Under PHP 60,000</option>
+                <option>PHP 60,000 to 100,000</option>
+                <option>PHP 100,000 to 200,000</option>
+                <option>PHP 200,000+</option>
               </select>
             </div>
           </div>
