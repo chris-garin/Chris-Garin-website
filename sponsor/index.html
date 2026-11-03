@@ -61,6 +61,8 @@
     .adv-tier p { margin: 0; color: var(--muted); line-height: 1.65; }
     .adv-tier ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
     .adv-price { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--coral); font-weight: 600; }
+    .adv-price--base { display: flex; align-items: baseline; gap: 10px; color: var(--muted); }
+    .adv-price--base b { font-family: var(--font-display); font-size: 1.9rem; font-weight: 600; letter-spacing: -.01em; text-transform: none; line-height: 1; color: var(--coral); }
     /* page-fn inverts the nav CTA; keep the in-page buttons dark. */
     body.adv.page-fn main .cta-button { background: #111827; color: #fff; }
     body.adv.page-fn main .cta-button:hover { background: #2b3648; color: #fff; }
@@ -238,7 +240,7 @@
               <li>Research, script, and edit by me</li>
               <li>One video or a multi-part series</li>
             </ul>
-            <span class="adv-price">Price upon request</span>
+            <span class="adv-price adv-price--base">Starts at <b>₱60,000</b></span>
           </article>
         </div>
       </div>
