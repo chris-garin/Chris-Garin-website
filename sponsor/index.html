@@ -61,11 +61,10 @@
     .adv-tier p { margin: 0; color: var(--muted); line-height: 1.65; }
     .adv-tier ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
     .adv-price { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--coral); font-weight: 600; }
-    .adv-price--base { display: flex; align-items: baseline; gap: 10px; color: var(--muted); }
-    .adv-price--base b { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; letter-spacing: -.01em; text-transform: none; line-height: 1; color: var(--coral); }
-    .adv-price--base b small { font-size: 1.05rem; font-weight: 700; }
-    .adv-tier__head { display: flex; align-items: center; justify-content: space-between; gap: 6px 14px; flex-wrap: wrap; }
-    .adv-tier__head h3 { flex: 1 1 auto; }
+    .adv-tier__price { margin-top: auto; border-top: 1px solid var(--line); padding-top: 16px; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+    .adv-tier__price span { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .adv-tier__price b { font-size: 1.5rem; font-weight: 700; letter-spacing: -.01em; line-height: 1; color: var(--coral); }
+    .adv-tier__price b small { font-size: .95rem; font-weight: 700; }
     /* page-fn inverts the nav CTA; keep the in-page buttons dark. */
     body.adv.page-fn main .cta-button { background: #111827; color: #fff; }
     body.adv.page-fn main .cta-button:hover { background: #2b3648; color: #fff; }
@@ -216,7 +215,6 @@
               </span>
               </div>
             </div>
-            <p class="adv-sample-note">Sample logo for illustration only. Samsung is not a sponsor.</p>
             <h3>Powered by + Your Logo</h3>
             <p>Ride the wave of a story people are already talking about. Your logo sits in the corner of one of my shorts as "Powered by" your brand, so you get the reach without making the video. No script, no mention.</p>
             <ul>
@@ -224,7 +222,7 @@
               <li>Link in the caption or description</li>
               <li>Runs everywhere the video goes</li>
             </ul>
-            <span class="adv-price">Price upon request</span>
+            <div class="adv-tier__price"><span>Per video</span><b><small>PHP</small> 15,000</b></div>
           </article>
 
           <article class="adv-tier">
@@ -236,16 +234,14 @@
                 <span class="adv-short__bar"><b></b></span>
               </div>
             </div>
-            <div class="adv-tier__head">
-              <h3>Your story, featured</h3>
-              <span class="adv-price adv-price--base">Starts at <b><small>PHP</small>60,000</b></span>
-            </div>
+            <h3>Your story, featured</h3>
             <p>A short about your brand, researched and told the way I tell every story. Run it once, or turn it into a series.</p>
             <ul>
               <li>A full short about your brand</li>
               <li>Research, script, and edit by me</li>
               <li>One video or a multi-part series</li>
             </ul>
+            <div class="adv-tier__price"><span>Starts at</span><b><small>PHP</small> 60,000</b></div>
           </article>
         </div>
       </div>
