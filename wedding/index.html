@@ -243,6 +243,84 @@ h2{
 }
 .gift p{color:var(--muted);font-size:15px;margin-top:14px}
 
+/* rsvp */
+.rsvp-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:48px 36px;
+  max-width:560px;
+  margin:40px auto 0;
+}
+.rsvp-deadline{text-align:center;color:var(--muted);font-size:15px;margin-top:-2px}
+.field{margin-top:26px}
+.field > span{
+  display:block;
+  font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--faint);
+  margin-bottom:10px;
+}
+.field input[type=text],.field select,.field textarea{
+  width:100%;
+  font:inherit;
+  font-size:16px;
+  color:var(--ink);
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:13px 14px;
+  outline:none;
+  transition:border-color .2s;
+  -webkit-appearance:none;appearance:none;
+}
+.field textarea{resize:vertical;min-height:88px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.field select{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23977B36' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+}
+.attend-opts{display:grid;gap:10px}
+@media(min-width:480px){.attend-opts{grid-template-columns:1fr 1fr}}
+.attend-opts label{
+  display:block;
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:13px 10px;
+  cursor:pointer;
+  font-size:15px;
+  color:var(--muted);
+  background:var(--bg);
+  transition:border-color .2s,color .2s,background .2s;
+}
+.attend-opts input{position:absolute;opacity:0;pointer-events:none}
+.attend-opts input:checked + span{color:var(--gold-deep)}
+.attend-opts label:has(input:checked){border-color:var(--gold);color:var(--gold-deep);background:#FDFBF5}
+.rsvp-send{
+  display:block;
+  width:100%;
+  margin-top:30px;
+  font:inherit;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#fff;
+  background:var(--gold-deep);
+  border:none;
+  border-radius:3px;
+  padding:16px;
+  cursor:pointer;
+  transition:background .2s,opacity .2s;
+}
+.rsvp-send:hover{background:#846A2C}
+.rsvp-send:disabled{opacity:.55;cursor:default}
+.rsvp-done{text-align:center;padding:26px 0 6px}
+.rsvp-done .serif{font-size:24px;font-style:italic}
+.rsvp-done p{color:var(--muted);margin-top:10px;font-size:15px}
+.rsvp-error{display:none;text-align:center;color:#9C5A3C;font-size:14px;margin-top:14px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+
 /* footer */
 footer{
   text-align:center;
@@ -428,6 +506,47 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
   </div>
 </section>
 
+<section id="rsvp">
+  <div class="wrap reveal">
+    <span class="label center">Respond</span>
+    <h2>RSVP</h2>
+    <p class="rsvp-deadline">Kindly send your response on or before November 25, 2026.</p>
+    <div class="rsvp-card">
+      <form id="rsvpForm" novalidate>
+        <div class="field">
+          <span>Your full name</span>
+          <input type="text" name="name" autocomplete="name" required maxlength="120" placeholder="e.g. Juan Dela Cruz">
+        </div>
+        <div class="field">
+          <span>Will you be attending?</span>
+          <div class="attend-opts">
+            <label><input type="radio" name="attending" value="Joyfully accepts" required><span>Joyfully accepts</span></label>
+            <label><input type="radio" name="attending" value="Regretfully declines"><span>Regretfully declines</span></label>
+          </div>
+        </div>
+        <div class="field" id="seatsField">
+          <span>Number of guests in your party</span>
+          <select name="seats">
+            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+            <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+          </select>
+        </div>
+        <div class="field">
+          <span>Message for the couple (optional)</span>
+          <textarea name="message" maxlength="500" placeholder="A short note, well wishes, or the names of those coming with you"></textarea>
+        </div>
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
+        <button class="rsvp-send" type="submit">Send RSVP</button>
+        <p class="rsvp-error" id="rsvpError">Something went wrong sending your response. Please try again, or message the couple directly.</p>
+      </form>
+      <div class="rsvp-done" id="rsvpDone" hidden>
+        <p class="serif">Thank you!</p>
+        <p id="rsvpDoneMsg">Your response has been received. We can’t wait to celebrate with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap reveal">
     <div class="gift">
@@ -463,6 +582,58 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
     setTimeout(tick, 1000 - (Date.now()%1000));
   }
   tick();
+
+  // RSVP form -> Google Sheet (Apps Script web app)
+  var RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxsWwf0xAWPQ4S2uIJ1ceL0T2lpLoNQjDOZPIAySwNQ1nccvqxMxsaKKV6n4SDGSXs61A/exec';
+  var form = document.getElementById('rsvpForm');
+  var errEl = document.getElementById('rsvpError');
+  // Hide the seats picker when declining
+  form.addEventListener('change', function(e){
+    if(e.target.name === 'attending'){
+      document.getElementById('seatsField').style.display =
+        e.target.value === 'Regretfully declines' ? 'none' : '';
+    }
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errEl.style.display = 'none';
+    var name = form.name.value.trim();
+    var attending = (form.querySelector('[name=attending]:checked')||{}).value;
+    if(!name || !attending){
+      errEl.textContent = !name ? 'Please enter your name.' : 'Please choose whether you can attend.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if(form.company.value){ return; } // honeypot
+    if(!RSVP_ENDPOINT){
+      errEl.textContent = 'RSVP is not open just yet. Please check back soon.';
+      errEl.style.display = 'block';
+      return;
+    }
+    var btn = form.querySelector('.rsvp-send');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    var body = new URLSearchParams({
+      name: name,
+      attending: attending,
+      seats: attending === 'Regretfully declines' ? '0' : form.seats.value,
+      message: form.message.value.trim()
+    });
+    fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: body.toString()
+    }).then(function(){
+      form.hidden = true;
+      var done = document.getElementById('rsvpDone');
+      if(attending === 'Regretfully declines'){
+        document.getElementById('rsvpDoneMsg').textContent =
+          'Your response has been received. You will be missed!';
+      }
+      done.hidden = false;
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = 'Send RSVP';
+      errEl.textContent = 'Something went wrong sending your response. Please try again.';
+      errEl.style.display = 'block';
+    });
+  });
 
   // Scroll reveals
   var els = document.querySelectorAll('.reveal');
