@@ -23,6 +23,8 @@
   --line:#E6E1D4;
   --sage:#7E8D6E;
   --sage-deep:#64745A;
+  --gold:#B5964B;
+  --gold-deep:#977B36;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -46,7 +48,7 @@ body{
   font-weight:500;
   letter-spacing:.28em;
   text-transform:uppercase;
-  color:var(--sage-deep);
+  color:var(--gold-deep);
 }
 .label.center{display:block;text-align:center}
 
@@ -63,13 +65,24 @@ body{
 }
 .hero > *{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.22,.8,.3,1) forwards}
 .hero > :nth-child(1){animation-delay:.15s}
-.hero > :nth-child(2){animation-delay:.35s}
+.hero > :nth-child(2){animation-delay:.4s}
 .hero > :nth-child(3){animation-delay:.6s}
 .hero > :nth-child(4){animation-delay:.85s}
 .hero > :nth-child(5){animation-delay:1.05s}
 .hero > :nth-child(6){animation-delay:1.25s}
-.hero > :nth-child(7){animation-delay:1.5s}
+.hero > :nth-child(7){animation-delay:1.45s}
+.hero > :nth-child(8){animation-delay:1.65s}
 @keyframes rise{to{opacity:1;transform:none}}
+
+.hero-quote{
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;
+  font-size:clamp(16px,3.4vw,20px);
+  line-height:1.6;
+  color:var(--gold-deep);
+  max-width:420px;
+  margin-bottom:34px;
+}
 
 .hero .names{
   font-family:'Playfair Display',Georgia,serif;
@@ -84,7 +97,7 @@ body{
   font-style:italic;
   font-weight:400;
   font-size:.52em;
-  color:var(--sage);
+  color:var(--gold);
   margin:10px 0;
 }
 .hero .date{
@@ -102,7 +115,7 @@ body{
   margin-top:8px;
 }
 .rule{
-  width:56px;height:1px;background:var(--sage);
+  width:56px;height:1px;background:var(--gold);
   border:none;margin:30px auto 0;
 }
 
@@ -134,17 +147,6 @@ section{padding:88px 0}
 section + section{padding-top:0}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.22,.8,.3,1),transform .9s cubic-bezier(.22,.8,.3,1)}
 .reveal.in{opacity:1;transform:none}
-
-.quote{
-  font-family:'Playfair Display',Georgia,serif;
-  font-style:italic;
-  font-size:clamp(22px,4.4vw,30px);
-  line-height:1.5;
-  text-align:center;
-  color:var(--ink);
-  max-width:560px;
-  margin:0 auto;
-}
 
 .center{text-align:center}
 .lede{color:var(--muted);max-width:540px;margin:16px auto 0;text-align:center}
@@ -195,9 +197,9 @@ h2{
   font-weight:500;
   letter-spacing:.2em;
   text-transform:uppercase;
-  color:var(--sage-deep);
+  color:var(--gold-deep);
   text-decoration:none;
-  border-bottom:1px solid var(--sage);
+  border-bottom:1px solid var(--gold);
   padding-bottom:3px;
   transition:color .2s,border-color .2s;
 }
@@ -215,9 +217,10 @@ h2{
 .pairs{margin-top:10px}
 .pairs .name{display:block}
 .pairs .name em{
-  font-style:italic;color:var(--sage);
+  font-style:italic;color:var(--gold);
   font-size:.85em;padding:0 .35em;
 }
+.role .name em{font-style:italic;color:var(--gold);font-size:.85em;padding:0 .35em}
 
 /* dress code swatches */
 .swatches{display:flex;gap:14px;justify-content:center;margin:26px 0 8px}
@@ -259,11 +262,12 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
 <body>
 
 <header class="hero">
+  <p class="hero-quote">“After all the seasons of waiting,<br>our forever has finally begun.”</p>
   <span class="label">Together with their families</span>
   <h1 class="names">
     Albert Poli Porras
     <span class="amp">and</span>
-    Krisel Anne Medina Garin
+    Krisel Anne <span style="white-space:nowrap">Medina Garin</span>
   </h1>
   <p class="date">Thursday · December 10, 2026 · 2:00 p.m.</p>
   <p class="place">Jaro, Iloilo City</p>
@@ -276,12 +280,6 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
   </div>
   <span class="scroll-hint">Scroll</span>
 </header>
-
-<section>
-  <div class="wrap reveal">
-    <p class="quote">“After all the seasons of waiting, our forever has finally begun.”</p>
-  </div>
-</section>
 
 <section>
   <div class="wrap blessing reveal">
@@ -440,7 +438,7 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
 </section>
 
 <footer class="reveal">
-  <p class="serif">Albert <em style="color:var(--sage)">&amp;</em> Kris</p>
+  <p class="serif">Albert <em style="color:var(--gold)">&amp;</em> Kris</p>
   <p class="fdate">12 · 10 · 2026 · Jaro, Iloilo City</p>
 </footer>
 
