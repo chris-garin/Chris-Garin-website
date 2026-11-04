@@ -359,6 +359,41 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
   <span class="scroll-hint">Scroll</span>
 </header>
 
+<section id="rsvp">
+  <div class="wrap reveal">
+    <span class="label center">Respond</span>
+    <h2>RSVP</h2>
+    <p class="rsvp-deadline">Kindly send your response on or before November 25, 2026.<br>
+    <span style="font-size:13.5px;color:var(--faint)">Seats have been lovingly reserved in your name. We hope for your understanding that we are unable to accommodate additional guests.</span></p>
+    <div class="rsvp-card">
+      <form id="rsvpForm" novalidate>
+        <div class="field">
+          <span>Your full name</span>
+          <input type="text" name="name" autocomplete="name" required maxlength="120" placeholder="e.g. Juan Dela Cruz">
+        </div>
+        <div class="field">
+          <span>Will you be attending?</span>
+          <div class="attend-opts">
+            <label><input type="radio" name="attending" value="Joyfully accepts" required><span>Joyfully accepts</span></label>
+            <label><input type="radio" name="attending" value="Regretfully declines"><span>Regretfully declines</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span>Message for the couple (optional)</span>
+          <textarea name="message" maxlength="500" placeholder="A short note or your well wishes"></textarea>
+        </div>
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
+        <button class="rsvp-send" type="submit">Send RSVP</button>
+        <p class="rsvp-error" id="rsvpError">Something went wrong sending your response. Please try again, or message the couple directly.</p>
+      </form>
+      <div class="rsvp-done" id="rsvpDone" hidden>
+        <p class="serif">Thank you!</p>
+        <p id="rsvpDoneMsg">Your response has been received. We can’t wait to celebrate with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap blessing reveal">
     <span class="label center">With God’s loving presence</span>
@@ -503,41 +538,6 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
       Formal attire in pastel shades of green, pink, yellow, blue, and peach.
       <small>Kindly refrain from wearing sandals, rubber shoes, shorts, and denim jeans.</small>
     </p>
-  </div>
-</section>
-
-<section id="rsvp">
-  <div class="wrap reveal">
-    <span class="label center">Respond</span>
-    <h2>RSVP</h2>
-    <p class="rsvp-deadline">Kindly send your response on or before November 25, 2026.<br>
-    <span style="font-size:13.5px;color:var(--faint)">Seats have been lovingly reserved in your name. We hope for your understanding that we are unable to accommodate additional guests.</span></p>
-    <div class="rsvp-card">
-      <form id="rsvpForm" novalidate>
-        <div class="field">
-          <span>Your full name</span>
-          <input type="text" name="name" autocomplete="name" required maxlength="120" placeholder="e.g. Juan Dela Cruz">
-        </div>
-        <div class="field">
-          <span>Will you be attending?</span>
-          <div class="attend-opts">
-            <label><input type="radio" name="attending" value="Joyfully accepts" required><span>Joyfully accepts</span></label>
-            <label><input type="radio" name="attending" value="Regretfully declines"><span>Regretfully declines</span></label>
-          </div>
-        </div>
-        <div class="field">
-          <span>Message for the couple (optional)</span>
-          <textarea name="message" maxlength="500" placeholder="A short note or your well wishes"></textarea>
-        </div>
-        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
-        <button class="rsvp-send" type="submit">Send RSVP</button>
-        <p class="rsvp-error" id="rsvpError">Something went wrong sending your response. Please try again, or message the couple directly.</p>
-      </form>
-      <div class="rsvp-done" id="rsvpDone" hidden>
-        <p class="serif">Thank you!</p>
-        <p id="rsvpDoneMsg">Your response has been received. We can’t wait to celebrate with you.</p>
-      </div>
-    </div>
   </div>
 </section>
 
