@@ -296,6 +296,10 @@ h2{
 .attend-opts input{position:absolute;opacity:0;pointer-events:none}
 .attend-opts input:checked + span{color:var(--gold-deep)}
 .attend-opts label:has(input:checked){border-color:var(--gold);color:var(--gold-deep);background:#FDFBF5}
+.attend-opts .no-opt{cursor:not-allowed;opacity:.45;user-select:none}
+.attend-opts .no-opt.shake{animation:shake .4s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+@media(prefers-reduced-motion:reduce){.attend-opts .no-opt.shake{animation:none}}
 .rsvp-send{
   display:block;
   width:100%;
@@ -374,13 +378,9 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
         <div class="field">
           <span>Will you be attending?</span>
           <div class="attend-opts">
-            <label><input type="radio" name="attending" value="Joyfully accepts" required><span>Joyfully accepts</span></label>
-            <label><input type="radio" name="attending" value="Regretfully declines"><span>Regretfully declines</span></label>
+            <label><input type="radio" name="attending" value="I'm going!" required><span>I’m going!</span></label>
+            <label class="no-opt" id="noOpt" aria-disabled="true"><span>No :(</span></label>
           </div>
-        </div>
-        <div class="field">
-          <span>Message for the couple (optional)</span>
-          <textarea name="message" maxlength="500" placeholder="A short note or your well wishes"></textarea>
         </div>
         <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
         <button class="rsvp-send" type="submit">Send RSVP</button>
@@ -581,13 +581,20 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
   var RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxsWwf0xAWPQ4S2uIJ1ceL0T2lpLoNQjDOZPIAySwNQ1nccvqxMxsaKKV6n4SDGSXs61A/exec';
   var form = document.getElementById('rsvpForm');
   var errEl = document.getElementById('rsvpError');
+  // "No" is not an option at this wedding
+  var noOpt = document.getElementById('noOpt');
+  noOpt.addEventListener('click', function(){
+    noOpt.classList.remove('shake');
+    void noOpt.offsetWidth;
+    noOpt.classList.add('shake');
+  });
   form.addEventListener('submit', function(e){
     e.preventDefault();
     errEl.style.display = 'none';
     var name = form.name.value.trim();
     var attending = (form.querySelector('[name=attending]:checked')||{}).value;
     if(!name || !attending){
-      errEl.textContent = !name ? 'Please enter your name.' : 'Please choose whether you can attend.';
+      errEl.textContent = !name ? 'Please enter your name.' : 'Please tap “I’m going!” first.';
       errEl.style.display = 'block';
       return;
     }
@@ -602,19 +609,13 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
     var body = new URLSearchParams({
       name: name,
       attending: attending,
-      seats: attending === 'Regretfully declines' ? '0' : '1',
-      message: form.message.value.trim()
+      seats: '1'
     });
     fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors',
       headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: body.toString()
     }).then(function(){
       form.hidden = true;
-      var done = document.getElementById('rsvpDone');
-      if(attending === 'Regretfully declines'){
-        document.getElementById('rsvpDoneMsg').textContent =
-          'Your response has been received. You will be missed!';
-      }
-      done.hidden = false;
+      document.getElementById('rsvpDone').hidden = false;
     }).catch(function(){
       btn.disabled = false; btn.textContent = 'Send RSVP';
       errEl.textContent = 'Something went wrong sending your response. Please try again.';
