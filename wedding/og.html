@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 700;src:url(fonts/playfair.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 700;src:url(fonts/playfair-italic.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;src:url(fonts/inter.woff2) format('woff2')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{
+  background:#FBF9F3;
+  font-family:'Inter',sans-serif;
+  position:relative;
+}
+.frame-outer{
+  position:absolute;inset:28px;
+  border:1.5px solid #B5964B;
+}
+.frame-inner{
+  position:absolute;inset:38px;
+  border:1px solid rgba(181,150,75,.45);
+}
+.content{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+}
+.label{
+  font-size:19px;font-weight:500;
+  letter-spacing:.42em;text-indent:.42em;
+  text-transform:uppercase;
+  color:#977B36;
+}
+.monogram{
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:230px;
+  line-height:1;
+  color:#33302A;
+  margin:18px 0 30px;
+}
+.monogram .amp{
+  font-style:italic;
+  font-weight:400;
+  font-size:150px;
+  color:#B5964B;
+  padding:0 26px;
+  vertical-align:12px;
+}
+.rule{
+  width:72px;height:1px;background:#B5964B;border:none;margin:0 auto 30px;
+}
+.date{
+  font-size:23px;font-weight:500;
+  letter-spacing:.3em;text-indent:.3em;
+  text-transform:uppercase;
+  color:#33302A;
+}
+.place{
+  font-size:17px;
+  letter-spacing:.32em;text-indent:.32em;
+  text-transform:uppercase;
+  color:#A39C8D;
+  margin-top:16px;
+}
+</style>
+</head>
+<body>
+  <div class="frame-outer"></div>
+  <div class="frame-inner"></div>
+  <div class="content">
+    <p class="label">The Wedding of</p>
+    <p class="monogram">A<span class="amp">&amp;</span>K</p>
+    <hr class="rule">
+    <p class="date">December 10, 2026</p>
+    <p class="place">Jaro · Iloilo City</p>
+  </div>
+</body>
+</html>
