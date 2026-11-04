@@ -319,9 +319,47 @@ h2{
 }
 .rsvp-send:hover{background:#846A2C}
 .rsvp-send:disabled{opacity:.55;cursor:default}
-.rsvp-done{text-align:center;padding:26px 0 6px}
-.rsvp-done .serif{font-size:24px;font-style:italic}
-.rsvp-done p{color:var(--muted);margin-top:10px;font-size:15px}
+/* confirmed state */
+.rsvp-card{transition:background .6s ease,border-color .6s ease}
+.rsvp-card.confirmed{
+  background:#5C7052;
+  border-color:#5C7052;
+  animation:confirmPop .55s cubic-bezier(.3,1.4,.5,1);
+}
+@keyframes confirmPop{0%{transform:scale(1)}35%{transform:scale(.97)}70%{transform:scale(1.015)}100%{transform:scale(1)}}
+.rsvp-done{text-align:center;padding:10px 0 2px}
+.rsvp-done .check{display:block;margin:0 auto 18px}
+.rsvp-done .check circle{
+  stroke:rgba(251,249,243,.4);stroke-width:1.5;fill:none;
+  stroke-dasharray:163;stroke-dashoffset:163;
+  animation:draw .7s .15s ease forwards;
+}
+.rsvp-done .check path{
+  stroke:#FBF9F3;stroke-width:2.5;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:36;stroke-dashoffset:36;
+  animation:draw .45s .65s ease forwards;
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+.rsvp-done .serif{font-size:24px;font-style:italic;color:#FBF9F3;opacity:0;animation:rise .6s .8s ease forwards}
+.rsvp-done p{color:rgba(251,249,243,.85);margin-top:10px;font-size:15px;opacity:0;animation:rise .6s .95s ease forwards}
+.guestlist-link{
+  display:inline-block;
+  margin-top:26px;
+  font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:#FBF9F3;text-decoration:none;
+  opacity:0;animation:rise .6s 1.15s ease forwards;
+}
+.guestlist-link .gl-text{display:inline-block;border-bottom:1px solid rgba(251,249,243,.5);padding-bottom:3px}
+.guestlist-link:hover .gl-text{border-color:#FBF9F3}
+.guestlist-link .arrow{display:block;font-size:16px;letter-spacing:0;margin-top:8px;animation:bob2 2.2s 1.8s ease-in-out infinite}
+@keyframes bob2{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media(prefers-reduced-motion:reduce){
+  .rsvp-card.confirmed{animation:none}
+  .rsvp-done .check circle,.rsvp-done .check path{animation:none;stroke-dashoffset:0}
+  .rsvp-done .serif,.rsvp-done p,.guestlist-link{animation:none;opacity:1}
+  .guestlist-link .arrow{animation:none}
+}
 .rsvp-error{display:none;text-align:center;color:#9C5A3C;font-size:14px;margin-top:14px}
 .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
 
@@ -387,8 +425,13 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
         <p class="rsvp-error" id="rsvpError">Something went wrong sending your response. Please try again, or message the couple directly.</p>
       </form>
       <div class="rsvp-done" id="rsvpDone" hidden>
+        <svg class="check" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+          <circle cx="28" cy="28" r="26"></circle>
+          <path d="M17 29l8 8 14-16"></path>
+        </svg>
         <p class="serif">Thank you!</p>
         <p id="rsvpDoneMsg">Your response has been received. We can’t wait to celebrate with you.</p>
+        <a class="guestlist-link" href="#entourage"><span class="gl-text">See the full guest list</span><span class="arrow">↓</span></a>
       </div>
     </div>
   </div>
@@ -439,7 +482,7 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
   </div>
 </section>
 
-<section>
+<section id="entourage">
   <div class="wrap reveal">
     <span class="label center">Standing with us</span>
     <h2>The Bridal Entourage</h2>
@@ -616,6 +659,7 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
     }).then(function(){
       form.hidden = true;
       document.getElementById('rsvpDone').hidden = false;
+      document.querySelector('.rsvp-card').classList.add('confirmed');
     }).catch(function(){
       btn.disabled = false; btn.textContent = 'Send RSVP';
       errEl.textContent = 'Something went wrong sending your response. Please try again.';
