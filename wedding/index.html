@@ -510,7 +510,8 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
   <div class="wrap reveal">
     <span class="label center">Respond</span>
     <h2>RSVP</h2>
-    <p class="rsvp-deadline">Kindly send your response on or before November 25, 2026.</p>
+    <p class="rsvp-deadline">Kindly send your response on or before November 25, 2026.<br>
+    <span style="font-size:13.5px;color:var(--faint)">Seats have been lovingly reserved in your name. We hope for your understanding that we are unable to accommodate additional guests.</span></p>
     <div class="rsvp-card">
       <form id="rsvpForm" novalidate>
         <div class="field">
@@ -524,16 +525,9 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
             <label><input type="radio" name="attending" value="Regretfully declines"><span>Regretfully declines</span></label>
           </div>
         </div>
-        <div class="field" id="seatsField">
-          <span>Number of guests in your party</span>
-          <select name="seats">
-            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-            <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-          </select>
-        </div>
         <div class="field">
           <span>Message for the couple (optional)</span>
-          <textarea name="message" maxlength="500" placeholder="A short note, well wishes, or the names of those coming with you"></textarea>
+          <textarea name="message" maxlength="500" placeholder="A short note or your well wishes"></textarea>
         </div>
         <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
         <button class="rsvp-send" type="submit">Send RSVP</button>
@@ -587,13 +581,6 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
   var RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxsWwf0xAWPQ4S2uIJ1ceL0T2lpLoNQjDOZPIAySwNQ1nccvqxMxsaKKV6n4SDGSXs61A/exec';
   var form = document.getElementById('rsvpForm');
   var errEl = document.getElementById('rsvpError');
-  // Hide the seats picker when declining
-  form.addEventListener('change', function(e){
-    if(e.target.name === 'attending'){
-      document.getElementById('seatsField').style.display =
-        e.target.value === 'Regretfully declines' ? 'none' : '';
-    }
-  });
   form.addEventListener('submit', function(e){
     e.preventDefault();
     errEl.style.display = 'none';
@@ -615,7 +602,7 @@ footer .fdate{font-size:12px;letter-spacing:.26em;color:var(--faint);margin-top:
     var body = new URLSearchParams({
       name: name,
       attending: attending,
-      seats: attending === 'Regretfully declines' ? '0' : form.seats.value,
+      seats: attending === 'Regretfully declines' ? '0' : '1',
       message: form.message.value.trim()
     });
     fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors',
