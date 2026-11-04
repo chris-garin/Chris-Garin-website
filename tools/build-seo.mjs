@@ -33,7 +33,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://chrisgarin.com';
 
 /** Pages that exist but should not be in the sitemap or the feed. */
-const EXCLUDE = new Set(['privacy-policy', 'terms-of-service']);
+const EXCLUDE = new Set(['privacy-policy', 'terms-of-service', 'wedding']);
 
 /**
  * Redirect stubs are real index.html files (GitHub Pages has no server-side
