@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF5130">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nav redesigns</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+  body { background:#f4f3f1; margin:0; }
+  .wrap { padding: 0 0 80px; }
+  .lab__h { font-family:"Open Sans",sans-serif; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:#9aa3ae; font-weight:700; margin: 44px 0 10px; padding:0 26px; }
+  .lab__n { font-family:"Open Sans",sans-serif; font-size:.82rem; color:#9aa3ae; margin:0 0 14px; padding:0 26px; }
+  .stage { background:#fff; padding: 22px 0; }
+  .stage--ink { background:#0F0F0F; }
+  .stage--stone { background:#EFEEEB; }
+  .lg { height:36px; width:auto; display:block; filter:brightness(0); }
+  .lg--w { filter:none; }
+  .ico { width:17px; height:17px; }
+  a { text-decoration:none; }
+  .row { display:flex; align-items:center; padding:0 26px; gap:18px; }
+  .sp { flex:1; }
+  .sans { font-family:"Open Sans",sans-serif; }
+
+  /* 1 Floating island */
+  .n1 { max-width:1040px; margin:0 auto; display:flex; align-items:center; gap:18px; background:#fff; border:1px solid #eceae6; border-radius:999px; padding:10px 12px 10px 22px; box-shadow:0 10px 30px rgba(15,23,42,.08); }
+  .n1 a.l { font-family:"Open Sans",sans-serif; font-size:.92rem; font-weight:600; color:#3d4550; padding:8px 12px; border-radius:999px; transition:background .18s; }
+  .n1 a.l:hover { background:#f3f1ee; }
+  .n1 .cta { display:inline-flex; align-items:center; gap:8px; background:#16181c; color:#fff; font-family:"Open Sans",sans-serif; font-weight:600; font-size:.9rem; padding:11px 20px; border-radius:999px; }
+
+  /* 2 Condensed pill, links inside a chip */
+  .n2 { display:flex; align-items:center; gap:14px; padding:0 26px; }
+  .n2 .chip { display:flex; gap:4px; background:#f1efec; border-radius:999px; padding:5px; }
+  .n2 .chip a { font-family:"Open Sans",sans-serif; font-size:.88rem; font-weight:600; color:#4a525d; padding:8px 15px; border-radius:999px; }
+  .n2 .chip a.on { background:#fff; color:#111827; box-shadow:0 1px 3px rgba(15,23,42,.12); }
+  .n2 .cta { display:inline-flex; align-items:center; gap:8px; background:#FF5130; color:#fff; font-family:"Open Sans",sans-serif; font-weight:700; font-size:.88rem; padding:11px 20px; border-radius:10px; }
+
+  /* 3 Centered links, ghost CTA */
+  .n3 { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 26px; }
+  .n3 nav { display:flex; gap:34px; justify-self:center; }
+  .n3 nav a { font-family:"Open Sans",sans-serif; font-size:.9rem; font-weight:600; color:#3d4550; position:relative; padding-bottom:3px; }
+  .n3 nav a::after { content:""; position:absolute; left:0; right:0; bottom:0; height:1.5px; background:#16181c; transform:scaleX(0); transform-origin:left; transition:transform .25s; }
+  .n3 nav a:hover::after { transform:scaleX(1); }
+  .n3 .cta { justify-self:end; display:inline-flex; align-items:center; gap:9px; border:1.5px solid #16181c; color:#16181c; font-family:"Open Sans",sans-serif; font-weight:600; font-size:.88rem; padding:10px 20px; border-radius:999px; }
+
+  /* 4 House style: square frames + hard shadow */
+  .n4 { display:flex; align-items:center; gap:12px; padding:0 26px; }
+  .n4 a.l { font-family:"Open Sans",sans-serif; font-size:.85rem; font-weight:700; letter-spacing:.02em; color:#16181c; border:1.5px solid #16181c; padding:9px 15px; background:#fff; }
+  .n4 a.l:hover { box-shadow:3px 3px 0 #16181c; }
+  .n4 .cta { font-family:"Open Sans",sans-serif; font-size:.85rem; font-weight:700; color:#fff; background:#16181c; border:1.5px solid #16181c; padding:10px 20px; box-shadow:4px 4px 0 #FF5130; }
+
+  /* 5 Editorial serif, text CTA */
+  .n5 { display:flex; align-items:center; gap:30px; padding:0 26px; }
+  .n5 a.l { font-family:var(--font-display); font-size:1.02rem; color:#2b3138; }
+  .n5 a.l:hover { text-decoration:underline; text-underline-offset:4px; }
+  .n5 .cta { font-family:var(--font-display); font-size:1.02rem; color:#16181c; display:inline-flex; align-items:center; gap:8px; border-bottom:1.5px solid #16181c; padding-bottom:2px; }
+  .n5 .dot { width:7px; height:7px; border-radius:50%; background:#FF5130; display:inline-block; }
+
+  /* 6 Ink bar */
+  .n6 { display:flex; align-items:center; gap:26px; padding:0 26px; }
+  .n6 a.l { font-family:"Open Sans",sans-serif; font-size:.9rem; font-weight:500; color:#cfd3d8; }
+  .n6 a.l:hover { color:#fff; }
+  .n6 .cta { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#0F0F0F; font-family:"Open Sans",sans-serif; font-weight:700; font-size:.88rem; padding:11px 20px; border-radius:999px; }
+
+  /* 7 Available-for-work status */
+  .n7 { display:flex; align-items:center; gap:22px; padding:0 26px; }
+  .n7 a.l { font-family:"Open Sans",sans-serif; font-size:.9rem; font-weight:600; color:#3d4550; }
+  .n7 .status { display:inline-flex; align-items:center; gap:8px; font-family:"Open Sans",sans-serif; font-size:.8rem; font-weight:600; color:#3d4550; background:#eef7f0; border:1px solid #cfe8d6; border-radius:999px; padding:7px 14px; }
+  .n7 .pulse { width:8px; height:8px; border-radius:50%; background:#2fa363; box-shadow:0 0 0 3px rgba(47,163,99,.18); }
+  .n7 .cta { display:inline-flex; align-items:center; gap:8px; background:#16181c; color:#fff; font-family:"Open Sans",sans-serif; font-weight:600; font-size:.88rem; padding:11px 20px; border-radius:999px; }
+
+  /* 8 Two-line, name + role */
+  .n8 { display:flex; align-items:center; gap:20px; padding:0 26px; }
+  .n8 .id { line-height:1.2; }
+  .n8 .id b { display:block; font-family:var(--font-display); font-size:1.05rem; color:#111827; }
+  .n8 .id span { display:block; font-family:"Open Sans",sans-serif; font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; color:#9aa3ae; font-weight:700; }
+  .n8 a.l { font-family:"Open Sans",sans-serif; font-size:.85rem; font-weight:600; color:#3d4550; letter-spacing:.02em; }
+  .n8 .cta { display:inline-flex; align-items:center; gap:8px; background:#FF5130; color:#fff; font-family:"Open Sans",sans-serif; font-weight:700; font-size:.86rem; padding:11px 20px; border-radius:999px; }
+
+  /* 9 Icon rail, minimal */
+  .n9 { display:flex; align-items:center; gap:8px; padding:0 26px; }
+  .n9 a.l { display:inline-grid; place-items:center; width:40px; height:40px; border-radius:12px; color:#3d4550; }
+  .n9 a.l:hover { background:#f2f0ed; }
+  .n9 .txt { font-family:"Open Sans",sans-serif; font-size:.9rem; font-weight:600; color:#3d4550; padding:0 12px; }
+  .n9 .cta { display:inline-flex; align-items:center; gap:9px; background:#16181c; color:#fff; font-family:"Open Sans",sans-serif; font-weight:600; font-size:.88rem; padding:11px 18px 11px 20px; border-radius:999px; }
+  .n9 .cta .av { width:24px; height:24px; border-radius:50%; }
+
+  /* 10 Stone bar, boxed CTA with arrow slab */
+  .n10 { display:flex; align-items:center; gap:26px; padding:0 26px; }
+  .n10 a.l { font-family:"Open Sans",sans-serif; font-size:.82rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#4a525d; }
+  .n10 a.l:hover { color:#16181c; }
+  .n10 .cta { display:inline-flex; align-items:stretch; border-radius:8px; overflow:hidden; }
+  .n10 .cta span { display:inline-flex; align-items:center; background:#16181c; color:#fff; font-family:"Open Sans",sans-serif; font-weight:700; font-size:.85rem; padding:12px 18px; }
+  .n10 .cta em { display:inline-grid; place-items:center; background:#FF5130; color:#fff; width:44px; font-style:normal; }
+</style>
+</head>
+<body class="light">
+<div class="wrap">
+
+<p class="lab__h">1 — Floating island</p>
+<p class="lab__n">The whole bar becomes one rounded card sitting on the page. Links get a soft hover chip, CTA goes ink instead of orange.</p>
+<div class="stage stage--stone"><div class="n1">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <a class="l" href="#">Work</a><a class="l" href="#">Writing</a><a class="l" href="#">LinkedIn</a>
+  <a class="cta" href="#">Get in touch</a>
+</div></div>
+
+<p class="lab__h">2 — Segmented control</p>
+<p class="lab__n">Links live in a grey track with the current page as a white pill. Reads like app UI. Keeps the orange CTA but squares it off.</p>
+<div class="stage"><div class="n2">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <span class="chip"><a href="#">Work</a><a class="on" href="#">Writing</a><a href="#">LinkedIn</a></span>
+  <a class="cta" href="#">Get in touch</a>
+</div></div>
+
+<p class="lab__h">3 — Centered links, ghost CTA</p>
+<p class="lab__n">Logo left, links dead centre, outline CTA right. Underline wipes in on hover. Most classic, least shouty.</p>
+<div class="stage"><div class="n3">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a>
+  <nav><a href="#">Work</a><a href="#">Writing</a><a href="#">LinkedIn</a></nav>
+  <a class="cta" href="#">Get in touch <span>&rarr;</span></a>
+</div></div>
+
+<p class="lab__h">4 — House style frames</p>
+<p class="lab__n">Your VendorScout language: square frames, hard offset shadows. Links are boxes, CTA is ink with an orange shadow behind it.</p>
+<div class="stage"><div class="n4">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <a class="l" href="#">Work</a><a class="l" href="#">Writing</a><a class="l" href="#">LinkedIn</a>
+  <a class="cta" href="#">Get in touch</a>
+</div></div>
+
+<p class="lab__h">5 — Editorial, no buttons</p>
+<p class="lab__n">Everything in Lora, CTA is a rule-underlined phrase with a single orange dot. The nav stops competing with the writing.</p>
+<div class="stage"><div class="n5">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <a class="l" href="#">Work</a><a class="l" href="#">Writing</a><a class="l" href="#">LinkedIn</a>
+  <a class="cta" href="#"><span class="dot"></span>Get in touch</a>
+</div></div>
+
+<p class="lab__h">6 — Ink bar, white CTA</p>
+<p class="lab__n">Keeps the dark bar you have but swaps black for the Field Notes ink, and inverts the CTA to white. Quietest version of the current design.</p>
+<div class="stage stage--ink"><div class="n6">
+  <a href="#"><img class="lg lg--w" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <a class="l" href="#">Work</a><a class="l" href="#">Writing</a><a class="l" href="#">LinkedIn</a>
+  <a class="cta" href="#">Get in touch</a>
+</div></div>
+
+<p class="lab__h">7 — Available for work</p>
+<p class="lab__n">A live status pill with a green dot. Says you are hireable before anyone clicks anything. The one that does sales work.</p>
+<div class="stage"><div class="n7">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <a class="l" href="#">Work</a><a class="l" href="#">Writing</a><a class="l" href="#">LinkedIn</a>
+  <span class="status"><span class="pulse"></span>Available for work</span>
+  <a class="cta" href="#">Get in touch</a>
+</div></div>
+
+<p class="lab__h">8 — Name and role instead of a logo mark</p>
+<p class="lab__n">Wordmark replaced with your name in Lora over a small role line. Tells a stranger who you are without them scrolling.</p>
+<div class="stage"><div class="n8">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a>
+  <span class="id"><b>Chris Garin</b><span>Developer &amp; Builder</span></span><span class="sp"></span>
+  <a class="l" href="#">Work</a><a class="l" href="#">Writing</a><a class="l" href="#">LinkedIn</a>
+  <a class="cta" href="#">Get in touch</a>
+</div></div>
+
+<p class="lab__h">9 — Your face on the CTA</p>
+<p class="lab__n">LinkedIn drops to an icon, and the CTA carries your avatar so it reads as messaging a person, not a form.</p>
+<div class="stage"><div class="n9">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <a class="txt" href="#">Work</a><a class="txt" href="#">Writing</a>
+  <a class="l" href="#" aria-label="LinkedIn"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.53C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg></a>
+  <a class="cta" href="#"><img class="av" src="/images/chrisgarin2.png" alt="">Message Chris</a>
+</div></div>
+
+<p class="lab__h">10 — Uppercase rail, split CTA</p>
+<p class="lab__n">Small-caps tracked links on the warm stone canvas, CTA split into an ink label and an orange arrow slab. Orange survives as an accent only.</p>
+<div class="stage stage--stone"><div class="n10">
+  <a href="#"><img class="lg" src="/images/logo.png" alt=""></a><span class="sp"></span>
+  <a class="l" href="#">Work</a><a class="l" href="#">Writing</a><a class="l" href="#">LinkedIn</a>
+  <a class="cta" href="#"><span>Get in touch</span><em>&rarr;</em></a>
+</div></div>
+
+</div>
+</body>
+</html>
