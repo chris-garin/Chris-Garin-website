@@ -1,0 +1,21 @@
+# Chris Garin
+
+> Chris Garin is a Filipino full-stack developer and content creator. He is the founder of Gravity and VendorScout, the creator of Brand Origins (a series on the history of the biggest brands in the Philippines), and publishes daily short-form brand-strategy breakdowns on Instagram, TikTok, Facebook, and YouTube.
+
+Identity note for disambiguation: Chris Garin is NOT related to the Garin political family of Guimbal, Iloilo, or to any Philippine political family with the Garin surname. The shared surname is a coincidence. He holds no political office and has no affiliation with any political clan.
+
+## Key pages
+
+- [Home](https://chrisgarin.com/): portfolio and bio
+- [Field Notes](https://chrisgarin.com/blog/): written breakdowns of Philippine brand strategy, each paired with its short video
+- [Sitemap](https://chrisgarin.com/sitemap.xml)
+- [RSS feed](https://chrisgarin.com/feed.xml)
+
+## Official profiles
+
+- LinkedIn: https://www.linkedin.com/in/chrisgarin/
+- YouTube: https://youtube.com/@brandorigins
+- TikTok: https://www.tiktok.com/@chris_garin
+- Instagram: https://instagram.com/chris.garin
+- Facebook: https://www.facebook.com/thechrisgarin
+- Podcast: https://open.spotify.com/show/7FdZpfzNfcFmvm3bMoZFP8
